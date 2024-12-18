@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "WinterTrendy";
+  src: url("/fonts/Winter-Trendy.ttf") format("truetype");
+}
 
 :root {
   --background: #ffffff;
@@ -15,7 +21,10 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", sans-serif;
+  background-color: #eeede9;
+}
+
+.font-winter {
+  font-family: "WinterTrendy", sans-serif;
 }
