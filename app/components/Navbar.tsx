@@ -78,7 +78,7 @@ const Navbar = () => {
                 <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-[#B6723A] transition-all duration-300 ease-in-out group-hover:w-full"></span>
               </Link>
               <Link
-                href="/"
+                href="https://drive.google.com/drive/folders/1Tf2h_VbgtYfKrqnOnBtJuRBYVnphlfzX?usp=drive_link"
                 className="text-black group relative transition-all duration-300 ease-in-out hover:text-[#B6723A] rounded-lg lg:text-lg"
               >
                 Sponsor
