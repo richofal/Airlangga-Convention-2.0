@@ -50,19 +50,17 @@ const Home = () => {
                 width={3000}
                 height={3000}
                 alt="competition"
-                className=" absolute top-1"
+                className=" absolute top-1 animate-pulse"
               />
             </div>
             <div className="flex flex-col w-full">
-              <div className="w-full flex justify-center items-center pl-1">
-                <Image
-                  src="bem-present.svg"
-                  width={1000}
-                  height={1000}
-                  alt="competition"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <Image
+                src="bem-present.svg"
+                width={1000}
+                height={1000}
+                alt="bem-present"
+                className="w-full h-full object-contain animate-bounce"
+              />
             </div>
           </div>
         </div>
@@ -76,7 +74,9 @@ const Home = () => {
                     <h1 className="uppercase text-[#D4ECF8] text-2xl py-2 font-winter">
                       {desc.aboutUs.title}
                     </h1>
-                    <p className="text-sm text-white">{desc.aboutUs.desc}</p>
+                    <p className="text-sm text-white opacity-80">
+                      {desc.aboutUs.desc}
+                    </p>
                   </div>
                   <div className="w-full bg-[#0A3981]rounded-3xl justify-between mt-4">
                     <ReadMoreButton url={desc.aboutUs.url} width="80%" />
@@ -84,10 +84,11 @@ const Home = () => {
                 </div>
                 <div className="justify-center items-center">
                   <Image
-                    src="about-us-ornamen.svg"
+                    src="about-us-mobile.svg"
                     width={150}
                     height={150}
                     alt="aboutus"
+                    className="animate-pulse"
                   ></Image>
                 </div>
               </div>
@@ -108,7 +109,7 @@ const Home = () => {
                     src="competition.svg"
                     width={300}
                     height={300}
-                    className="-rotate-90"
+                    className="-rotate-90 animate-pulse"
                     alt="competition"
                   />
                 </div>
@@ -132,10 +133,11 @@ const Home = () => {
                 </p>
                 <div className="w-1/2 flex justify-center items-center">
                   <Image
-                    src="support_your_team.svg"
+                    src="support_your_team_mobile.svg"
                     width={300}
                     height={300}
                     alt="supporter-image"
+                    className="animate-pulse"
                   />
                 </div>
               </div>
@@ -159,11 +161,14 @@ const Home = () => {
                   src="partner-ornamen.svg"
                   width={150}
                   height={150}
-                  alt="aboutus"
+                  alt="Sponsor"
+                  className="animate-pulse"
                 ></Image>
               </div>
               <div>
-                <p className="text-white text-sm">{desc.sponsor.desc}</p>
+                <p className="text-white text-sm mb-3 opacity-80">
+                  {desc.sponsor.desc}
+                </p>
               </div>
               <div className="w-[60%]">
                 <div className="w-{100%}">
@@ -178,11 +183,11 @@ const Home = () => {
           width={200}
           height={200}
           alt="spiral-2"
-          className=" absolute bottom-auto -left-20 -z-50 rotate-180"
+          className="absolute bottom-auto -left-20 -z-50 rotate-180 animate-pulse"
         />
       </div>
       {/* Desktop: */}
-      <div className="hidden lg:block w-full px-28">
+      <div className="hidden lg:block w-full px-28 mt-5">
         <div className="w-full">
           <div className="flex flex-row gap-5">
             <div className="w-full">
@@ -194,7 +199,7 @@ const Home = () => {
                 width={650}
                 height={650}
                 alt="competition"
-                className="absolute top-36 left-[5%]"
+                className="absolute top-40 left-[5%] animate-pulse"
               />
             </div>
             <div className="w-1/2 flex justify-center items-center pl-1">
@@ -203,121 +208,105 @@ const Home = () => {
                 width={500}
                 height={500}
                 alt="competition"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain animate-bounce"
               />
             </div>
           </div>
-          <div className="mt-5 w-full flex flex-row gap-6 justify-center items-center h-auto">
-            <div className="flex flex-col gap-6 w-[22%]">
-              <div className="w-full flex flex-col justify-center items-start bg-[#0A3981] text-white p-8 rounded-[2rem] px-8 shadow-2xl">
+          <Image
+            src="spiral-1.svg"
+            width={500}
+            height={500}
+            alt="spiral-1"
+            className="absolute top-72 -right-0 -z-10 animate-pulse"
+          />
+          <div className="w-full flex flex-row gap-6 justify-center items-stretch h-auto mb-5">
+            {/* About Us */}
+            <div className="w-[25%] flex flex-col bg-[#0A3981] p-8 rounded-[2rem] px-8 shadow-2xl justify-center">
+              <div className="flex justify-center">
+                {" "}
                 <Image
-                  src="about-us-dekstop.svg"
+                  src="about-us-ornamen.svg"
                   width={250}
                   height={250}
-                  alt="aboutus"
-                ></Image>
-                <div className="w-full mt-5 flex flex-col gap-3">
-                  <h1 className="font-winter text-2xl text-start w-full">
-                    About Us
-                  </h1>
-                  <p className="text-sm">What is Airlangga Convention 2.0?</p>
-                  <ReadMoreButton url={desc.aboutUs.url} width="80%" />
-                </div>
+                  alt="About-Us"
+                  className="animate-pulse"
+                />
               </div>
-              <div className="w-full flex flex-col justify-center items-start bg-[#D4ECF8] text-[#0A3981] p-8 rounded-[2rem] px-8 shadow-2xl h-auto">
-                <div className="w-full flex flex-col gap-3">
-                  <h1 className="font-winter text-2xl text-start w-full">
-                    Show Your Performance
-                  </h1>
-                  <p className="text-sm">
-                    Prove that your dance team or band is the best! Show your
-                    skills, passion, and creativity to take the stage and leave
-                    a lasting impression.
-                  </p>
-                  <ReadMoreButton url={desc.aboutUs.url} width="80%" />
-                </div>
+              <div className="w-full mt-5 flex flex-col gap-3 justify-between">
+                <h1 className="font-winter text-2xl text-start w-full text-[#D4ECF8]">
+                  {desc.aboutUs.title}
+                </h1>
+                <p className="text-sm mb-3 text-white">{desc.aboutUs.desc}</p>
+                <ReadMoreButton url={desc.aboutUs.url} width="80%" />
               </div>
             </div>
-            <div className="w-[78%] flex flex-col gap-6">
-              <div className="w-full flex flex-row gap-6 h-auto">
-                <div className="w-[28%] flex flex-col justify-center items-start bg-[#D4ECF8] text-[#0A3981] p-8 rounded-[2rem] px-8 shadow-2xl">
-                  <div className="w-full flex flex-col gap-3">
-                    <Image
-                      src="competition.svg"
-                      width={250}
-                      height={250}
-                      alt="aboutus"
-                    ></Image>
-                    <div className="w-full mt-5 flex flex-col gap-3">
-                      <h1 className="font-winter text-2xl text-start w-full">
-                        Competition
-                      </h1>
-                      <p className="text-sm">
-                        We provide a platform for high school students to
-                        explore interests and talents in both academic and
-                        non-academic competitions.
-                      </p>
-                      <ReadMoreButton url={desc.aboutUs.url} width="80%" />
-                    </div>
-                  </div>
-                </div>
-                <div className="w-[50%] flex flex-col gap-6">
-                  <div className="w-full flex flex-col justify-center items-start bg-[#E38F49] text-white p-8 rounded-[2rem] px-8 shadow-2xl h-auto">
-                    <Image
-                      src="supporter_desktop.svg"
-                      width={350}
-                      height={350}
-                      alt="aboutus"
-                    ></Image>
-                    <div className="w-full mt-5 flex flex-col gap-3">
-                      <h1 className="font-winter text-2xl text-start w-full">
-                        Support Your Team
-                      </h1>
-                      <div className="flex flex-row">
-                        <p className="text-sm text-wrap">
-                          Come on, support and enliven the stands! Get your
-                          spirit and voice ready for your school's pride team!
-                        </p>
-                        <ReadMoreButton url={desc.aboutUs.url} width="80%" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-full flex flex-col justify-center items-start bg-[#1D5298] text-white p-8 rounded-[2rem] px-8 shadow-2xl">
-                    <div className="w-full flex flex-col gap-3">
-                      <h1 className="font-winter text-2xl text-start w-full">
-                        register your tenant!
-                      </h1>
-                      <div className="w-full py-[0.1rem] bg-white"></div>
-                      <div className="flex flex-row">
-                        <p className="text-sm text-wrap">
-                          Come on, support and enliven the stands! Get your
-                          spirit and voice ready for your school's pride team!
-                        </p>
-                        <ReadMoreButton url={desc.aboutUs.url} width="80%" />
-                      </div>
-                    </div>
+            <div className="w-[80%] flex flex-col gap-6">
+              {/* Competitions */}
+              <div className="w-full flex flex-col justify-center items-start bg-[#D4ECF8] text-[#0A3981] p-8 rounded-[2rem] px-8 shadow-2xl">
+                <div className="w-full flex flex-col gap-3">
+                  <div className="w-full flex flex-col"></div>
+                  <h1 className="font-winter text-4xl text-start w-full">
+                    {desc.competition.title}
+                  </h1>
+                  <div className="w-full py-[0.1rem] bg-[#E38F49] animate-pulse"></div>
+                  <p className="text-sm mb-3">
+                    We provide a platform for high school students to explore
+                    interests and talents in both academic and non-academic
+                    competitions, including Scientific Writing, Infographics,
+                    Business Plan, Try Outs, Mobile Legends, and Basketball.
+                  </p>
+                  <div className="flex justify-end">
+                    <ReadMoreButton url={desc.competition.url} width="25%" />
                   </div>
                 </div>
               </div>
-              <div className="w-full">
-                <div className="w-full flex flex-col justify-center items-start bg-[#E38F49] text-white p-8 rounded-[2rem] px-8 shadow-2xl h-full">
-                  <div className="w-full flex flex-col gap-3">
+              <div className="w-full flex flex-row gap-6">
+                {/* Supporter */}
+                <div className="w-[50%] flex flex-col justify-center items-start bg-[#E38F49] text-white p-8 rounded-[2rem] px-8 shadow-2xl">
+                  <Image
+                    src="supporter_desktop.svg"
+                    width={250}
+                    height={250}
+                    alt="supporter"
+                    className="animate-bounce"
+                  />
+                  <div className="w-full mt-5 flex flex-col gap-3">
                     <h1 className="font-winter text-2xl text-start w-full">
-                      Become our partner
+                      {desc.supporter.title}
                     </h1>
-                    <div className="flex flex-row">
-                      <p className="text-sm text-wrap w-[90%]">
-                        Become a sponsor of Airlangga Convention 2023 to gain
-                        wide visibility for your brand, engage with a promising
-                        market of high school students, and enhance your
-                        company’s reputation through a positive partnership with
-                        Universitas Airlangga.
-                      </p>
-                      <ReadMoreButton url={desc.aboutUs.url} width="40%" />
+                    <p className="text-sm mb-3">{desc.supporter.desc}</p>
+                    <div className="flex justify-end">
+                      <ReadMoreButton url={desc.supporter.url} width="50%" />
+                    </div>
+                  </div>
+                </div>
+                {/* Sponsor */}
+                <div className="w-[50%] flex flex-col justify-center items-start bg-[#0A3981] text-white p-8 rounded-[2rem] px-8 shadow-2xl">
+                  <Image
+                    src="partner-ornamen.svg"
+                    width={250}
+                    height={250}
+                    alt="sponsor"
+                    className="animate-pulse"
+                  />
+                  <div className="w-full mt-5 flex flex-col gap-3">
+                    <h1 className="font-winter text-2xl text-start w-full text-[#D4ECF8]">
+                      {desc.sponsor.title}
+                    </h1>
+                    <p className="text-sm mb-3">{desc.sponsor.desc}</p>
+                    <div className="flex justify-end">
+                      <ReadMoreButton url={desc.sponsor.url} width="50%" />
                     </div>
                   </div>
                 </div>
               </div>
+              <Image
+                src="spiral-2.svg"
+                width={300}
+                height={300}
+                alt="spiral-2"
+                className=" absolute -bottom-40 -left-20 -z-50 rotate-180 animate-pulse"
+              />
             </div>
           </div>
         </div>
