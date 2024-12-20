@@ -3,11 +3,7 @@
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
 import Image from "next/image";
-import {
-  BookOpenText,
-  CalendarDots,
-  PhoneCall,
-} from "@phosphor-icons/react/dist/ssr";
+import { CalendarDots, PhoneCall } from "@phosphor-icons/react/dist/ssr";
 import { Newspaper } from "@phosphor-icons/react";
 
 const karyatulisilmiah = () => {

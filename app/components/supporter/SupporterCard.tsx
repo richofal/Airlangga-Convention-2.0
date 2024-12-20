@@ -10,11 +10,11 @@ const SupporterCard = ({
   date,
   location,
 }: {
-  school1: String;
-  school2: String;
-  gender: String;
-  date: String;
-  location: String;
+  school1: string;
+  school2: string;
+  gender: string;
+  date: string;
+  location: string;
 }) => {
   return (
     <div className="bg-white border-orange-300 rounded-lg p-6 max-w-md mx-auto shadow-md relative border-2 mt-3 w-full">

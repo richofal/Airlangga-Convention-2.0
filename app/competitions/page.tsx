@@ -71,37 +71,35 @@ const Competition = () => {
   ];
 
   return (
-    <>
-      <div className="mt-5 px-10 lg:px-28">
-        <BackButton></BackButton>
-        <div className="w-full mt-5 text-4xl lg:text-8xl ">
-          <p className="uppercase font-winter">
-            Our{" "}
-            <span
-              className="uppercase font-winter text-[#D4ECF8]"
-              style={{
-                WebkitTextStroke: "1px #0A3981",
-              }}
-            >
-              Interactive
-            </span>
-          </p>
-          <p className="uppercase font-winter">Competitions</p>
-        </div>
-        <div className="w-full mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
-          {competitionData.map((competition, index) => (
-            <CompetitionCard
-              key={index}
-              title={competition.title}
-              price={competition.price}
-              imageSrc={competition.imageSrc}
-              bgColor={competition.bgColor}
-              route={competition.route}
-            />
-          ))}
-        </div>
+    <div className="mt-5 px-10 lg:px-28">
+      <BackButton></BackButton>
+      <div className="w-full mt-5 text-4xl lg:text-8xl ">
+        <p className="uppercase font-winter">
+          Our{" "}
+          <span
+            className="uppercase font-winter text-[#D4ECF8]"
+            style={{
+              WebkitTextStroke: "1px #0A3981",
+            }}
+          >
+            Interactive
+          </span>
+        </p>
+        <p className="uppercase font-winter">Competitions</p>
       </div>
-    </>
+      <div className="w-full mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
+        {competitionData.map((competition, index) => (
+          <CompetitionCard
+            key={index}
+            title={competition.title}
+            price={competition.price}
+            imageSrc={competition.imageSrc}
+            bgColor={competition.bgColor}
+            route={competition.route}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 

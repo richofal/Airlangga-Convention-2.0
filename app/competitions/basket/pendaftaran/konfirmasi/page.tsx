@@ -91,8 +91,11 @@ const ConfirmationPage = () => {
                   />
                 </div>
                 <div className="flex flex-row justify-start items-center gap-3 mt-2">
-                  <input type="checkbox" className="p-6" />
-                  <label htmlFor="" className="text-[0.8rem] lg:text-[1rem]">
+                  <input id="confirmation" type="checkbox" className="p-6" />
+                  <label
+                    htmlFor="confirmation"
+                    className="text-[0.8rem] lg:text-[1rem]"
+                  >
                     Saya memastikan data yang diisi benar, dan siap menerima
                     sanksi jika terdapat kesalahan
                   </label>

@@ -81,6 +81,7 @@ const tryout = () => {
             <p>Halo, para pejuang kampus!</p>
             <p>
               Yuk, siapkan dirimu untuk pengalaman seru dan penuh manfaat di
+              {/* */}
               <b> Tryout & Campus Tour 2024</b>. Ini kesempatan emas buat kamu
               yang ingin mengasah kemampuan akademik sekaligus menjelajahi
               suasana kampus impian!
