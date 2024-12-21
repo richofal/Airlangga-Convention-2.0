@@ -66,10 +66,10 @@ const CompetitionPage = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          reset();
           router.push(
-            "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi"
+            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi?nama=${data.nama_tim}`
           );
+          reset();
         })
         .catch((error) => {
           console.error("Error Upload:", error);

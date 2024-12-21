@@ -1,9 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import BackButton from "@/app/components/BackButton";
+import { KTILanjut } from "@prisma/client";
+import useSWR from "swr";
+import { useSearchParams } from "next/navigation";
 
 const ConfirmationPage = () => {
+  const searchParams = useSearchParams();
+  const nama = searchParams.get("nama");
+  const { data, isLoading, error } = useContestant(nama ?? "");
   const [paymentMethod, setPaymentMethod] = useState("");
+
+  function useContestant(nama: string) {
+    const fetcher = (url: string | URL | Request) =>
+      fetch(url).then((r) => r.json());
+
+    const { data, error, isLoading } = useSWR<KTILanjut>(
+      `/api/karya-tulis-ilmiah/${nama}`,
+      fetcher
+    );
+
+    return {
+      data,
+      isLoading,
+      error,
+    };
+  }
 
   return (
     <div className="mx-8 mt-5 lg:mx-28">
@@ -19,13 +41,13 @@ const ConfirmationPage = () => {
                 <p className="flex flex-row justify-between items-center w-[38%]">
                   <span>Nama Tim</span> <span>:</span>
                 </p>
-                <p>(Team Name)</p>
+                <p>{isLoading ? "Nama Tim" : data?.nama_tim}</p>
               </div>
               <div className="flex flex-row start items-center gap-6">
                 <p className="flex flex-row justify-between items-center w-[38%]">
                   <span>Asal Sekolah:</span> <span>:</span>
                 </p>
-                <p>(School Name)</p>
+                <p>{isLoading ? "Asal Sekolah" : data?.asal_sekolah}</p>
               </div>
               <div className="flex flex-row start items-center gap-6">
                 <p className="flex flex-row justify-between items-center w-[38%]">
@@ -146,4 +168,10 @@ const ConfirmationPage = () => {
   );
 };
 
-export default ConfirmationPage;
+export default function Page() {
+  return (
+    <Suspense>
+      <ConfirmationPage />
+    </Suspense>
+  );
+}
