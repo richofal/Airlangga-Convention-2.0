@@ -3,16 +3,24 @@
 import React from "react";
 import BackButton from "@/app/components/BackButton";
 import { useRouter } from "next/navigation";
-import { ktiSchemaAwal } from "@/app/utils/schema";
+import { documentSchema5, ktiSchemaAwal } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+interface Files {
+  name: string;
+  file: File;
+}
+
 const CompetitionPage = () => {
+  const [files, setFiles] = React.useState<Files[]>([]);
+  const [fileValid, setFileValid] = React.useState(true);
+
   const {
     register,
-    reset,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<z.infer<typeof ktiSchemaAwal>>({
     resolver: zodResolver(ktiSchemaAwal),
@@ -21,20 +29,39 @@ const CompetitionPage = () => {
   const router = useRouter();
 
   const onSubmit = (data: z.infer<typeof ktiSchemaAwal>) => {
-    fetch("/api/karya-tulis-ilmiah/awal", {
-      method: "POST",
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        reset();
-        router.push(
-          "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"
-        );
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key as keyof typeof data] as string);
+    }
+
+    files?.forEach((file) => {
+      const validate = documentSchema5.safeParse(file.file);
+      if (validate.success) {
+        formData.append(file.name, file.file);
+      } else {
+        setFileValid(false);
+        alert("Salah satu file tidak valid atau melebihi batas ukuran");
+      }
+    });
+
+    console.log("Data:", formData.get("abstrak_paper"));
+
+    if (fileValid) {
+      fetch("/api/karya-tulis-ilmiah/awal", {
+        method: "POST",
+        body: formData,
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          reset();
+          router.push(
+            "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"
+          );
+        })
+        .catch((error) => {
+          console.error("Error Upload:", error);
+        });
+    }
   };
 
   return (
@@ -72,6 +99,7 @@ const CompetitionPage = () => {
                     id="nama_tim"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                    required
                     {...register("nama_tim")}
                   />
                   {errors.nama_tim && (
@@ -87,6 +115,7 @@ const CompetitionPage = () => {
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                     {...register("asal_sekolah")}
+                    required
                   />
                   {errors.asal_sekolah && (
                     <p className="text-red-500 text-sm">
@@ -103,6 +132,7 @@ const CompetitionPage = () => {
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                     {...register("nomor_telepon")}
+                    required
                   />
                   {errors.nomor_telepon && (
                     <p className="text-red-500 text-sm">
@@ -117,6 +147,7 @@ const CompetitionPage = () => {
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                     {...register("email")}
+                    required
                   />
                   {errors.email && (
                     <p className="text-red-500 text-sm">
@@ -135,6 +166,7 @@ const CompetitionPage = () => {
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:w-[99%] lg:py-2"
                     {...register("nama_anggota_1")}
+                    required
                   />
                   {errors.nama_anggota_1 && (
                     <p className="text-red-500 text-sm">
@@ -175,34 +207,54 @@ const CompetitionPage = () => {
                   )}
                 </div>
               </div>
-              {/* <div className="w-full flex flex-row justify-between gap-2">
-                  <div className="flex flex-col w-full gap-1">
-                    <label htmlFor="ktpFile">Scan KTP/ Kartu Pelajar*</label>
-                    <input
-                      type="file"
-                      className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
-                      {...register("ktpFile")}
-                    />
-                    {errors.ktpFile && (
-                      <p className="text-red-500 text-sm">{errors.ktpFile.message}</p>
-                    )}
-                  </div>
+              <div className="w-full flex flex-row justify-between gap-2">
+                <div className="flex flex-col w-full gap-1">
+                  <label htmlFor="kartu_pelajar">
+                    Scan KTP/ Kartu Pelajar*
+                  </label>
+                  <input
+                    id="kartu_pelajar"
+                    type="file"
+                    className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
+                    accept=".pdf"
+                    name="kartu_pelajar"
+                    required
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        setFiles((prev) => [
+                          ...(prev || []),
+                          { name: "kartu_pelajar", file },
+                        ]);
+                      }
+                    }}
+                  />
                 </div>
-                <div className="w-full flex flex-row justify-between gap-2">
-                  <div className="flex flex-col w-full gap-1">
-                    <label htmlFor="abstractFile">
-                      File Abstrak (Format pdf, Size limit 5 MB)*
-                    </label>
-                    <input
-                      type="file"
-                      className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
-                      {...register("abstrakFile")}
-                    />
-                    {errors.abstrakFile && (
-                      <p className="text-red-500 text-sm">{errors.abstrakFile.message}</p>
-                    )}
-                  </div>
-                </div> */}
+              </div>
+              <div className="w-full flex flex-row justify-between gap-2">
+                <div className="flex flex-col w-full gap-1">
+                  <label htmlFor="abstrak_paper">
+                    File Abstrak (Format pdf, Size limit 5 MB)*
+                  </label>
+                  <input
+                    id="abstrak_paper"
+                    type="file"
+                    className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
+                    accept=".pdf"
+                    name="abstrak_paper"
+                    required
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        setFiles((prev) => [
+                          ...(prev || []),
+                          { name: "abstrak_paper", file },
+                        ]);
+                      }
+                    }}
+                  />
+                </div>
+              </div>
               <button
                 className="bg-black text-white px-8 py-3 rounded-lg flex flex-row justify-center items-center w-1/4"
                 type="submit"

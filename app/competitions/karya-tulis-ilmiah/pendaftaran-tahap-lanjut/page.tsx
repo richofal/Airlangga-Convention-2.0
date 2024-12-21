@@ -11,6 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 interface Files {
   name: string;
   file: File;
@@ -19,7 +20,7 @@ interface Files {
 const CompetitionPage = () => {
   const [step, setStep] = useState(0);
   const [files, setFiles] = useState<Files[] | null>(null);
-  const [allValid, setAllValid] = useState(true);
+  const [fileValid, setFileValid] = useState(true);
 
   const router = useRouter();
 
@@ -44,7 +45,7 @@ const CompetitionPage = () => {
         if (validate.success) {
           formData.append(file.name, file.file);
         } else {
-          setAllValid(false);
+          setFileValid(false);
           alert("Salah satu file tidak valid atau melebihi batas ukuran");
         }
       } else {
@@ -52,13 +53,13 @@ const CompetitionPage = () => {
         if (validate.success) {
           formData.append(file.name, file.file);
         } else {
-          setAllValid(false);
+          setFileValid(false);
           alert("Salah satu file tidak valid atau melebihi batas ukuran");
         }
       }
     });
 
-    if (allValid) {
+    if (fileValid) {
       fetch("/api/karya-tulis-ilmiah/lanjut", {
         method: "POST",
         body: formData,
@@ -296,6 +297,7 @@ const CompetitionPage = () => {
                         type="file"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        name="kartu_pelajar"
                         required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
@@ -320,6 +322,7 @@ const CompetitionPage = () => {
                         type="file"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        name="full_paper"
                         required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
@@ -344,6 +347,7 @@ const CompetitionPage = () => {
                         type="file"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        name="surat_pernyataan"
                         required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
@@ -368,6 +372,7 @@ const CompetitionPage = () => {
                         type="file"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        name="surat_orisinalitas"
                         required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
