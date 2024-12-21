@@ -44,8 +44,6 @@ const CompetitionPage = () => {
       }
     });
 
-    console.log("Data:", formData.get("abstrak_paper"));
-
     if (fileValid) {
       fetch("/api/karya-tulis-ilmiah/awal", {
         method: "POST",

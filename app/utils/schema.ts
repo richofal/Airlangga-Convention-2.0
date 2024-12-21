@@ -29,6 +29,23 @@ export const infografisSchema = z.object({
   email: z.string().email("Email tidak valid"),
 });
 
+export const mlSchema = z.object({
+  nama_tim: z.string().min(1, "Nama Tim harus diisi"),
+  asal_sekolah: z.string().min(1, "Asal sekolah harus diisi"),
+  nomor_telepon: z.string().min(1, "Nomor telepon harus diisi"),
+  email: z.string().email("Email tidak valid"),
+  nama_anggota_1: z.string().min(1, "Nama ketua harus diisi"),
+  nickname_1: z.string().min(1, "Nickname ketua harus diisi"),
+  nama_anggota_2: z.string().min(1, "Nama anggota 2 harus diisi"),
+  nickname_2: z.string().min(1, "Nickname anggota 2 harus diisi"),
+  nama_anggota_3: z.string().min(1, "Nama anggota 3 harus diisi"),
+  nickname_3: z.string().min(1, "Nickname anggota 3 harus diisi"),
+  nama_anggota_4: z.string().min(1, "Nama anggota 4 harus diisi"),
+  nickname_4: z.string().min(1, "Nickname anggota 4 harus diisi"),
+  nama_anggota_5: z.string().min(1, "Nama anggota 5 harus diisi"),
+  nickname_5: z.string().min(1, "Nickname anggota 5 harus diisi"),
+});
+
 export const documentSchema5 = z
   .instanceof(File)
   .refine((file) => file.type == "application/pdf", {

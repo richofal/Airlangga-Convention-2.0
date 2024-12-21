@@ -62,8 +62,6 @@ const CompetitionPage = () => {
       }
     });
 
-    console.log(formData.get("nama"));
-
     if (fileValid) {
       fetch("/api/infografis", {
         method: "POST",
