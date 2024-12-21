@@ -5,8 +5,9 @@ import BackButton from "@/app/components/BackButton";
 import { useRouter } from "next/navigation";
 import { ktiSchemaAwal } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { relative } from "path";
 
 const CompetitionPage = () => {
   const {
@@ -20,11 +21,20 @@ const CompetitionPage = () => {
   const router = useRouter();
 
   const onSubmit = (data: z.infer<typeof ktiSchemaAwal>) => {
-    console.log(data);
-
-    router.push(
-      "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"
-    );
+    fetch("/api/karya-tulis-ilmiah/awal", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        router.push(
+          "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"
+        );
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -51,49 +61,49 @@ const CompetitionPage = () => {
 
           <div className="mt-5 w-full">
             <form
-              action=""
+              action="post"
               className="flex flex-col gap-8"
               onSubmit={handleSubmit(onSubmit)}
             >
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-1/2 gap-1">
-                  <label htmlFor="namaTim">Nama Tim*</label>
+                  <label htmlFor="nama_tim">Nama Tim*</label>
                   <input
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
-                    {...register("namaTim")}
+                    {...register("nama_tim")}
                   />
-                  {errors.namaTim && (
+                  {errors.nama_tim && (
                     <p className="text-red-500 text-sm">
-                      {errors.namaTim.message}
+                      {errors.nama_tim.message}
                     </p>
                   )}
                 </div>
                 <div className="flex flex-col w-1/2 gap-1">
-                  <label htmlFor="asalSekolah">Asal Sekolah*</label>
+                  <label htmlFor="asal_sekolah">Asal Sekolah*</label>
                   <input
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
-                    {...register("asalSekolah")}
+                    {...register("asal_sekolah")}
                   />
-                  {errors.asalSekolah && (
+                  {errors.asal_sekolah && (
                     <p className="text-red-500 text-sm">
-                      {errors.asalSekolah.message}
+                      {errors.asal_sekolah.message}
                     </p>
                   )}
                 </div>
               </div>
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-1/2 gap-1">
-                  <label htmlFor="nomorTelepon">Nomor Telepon*</label>
+                  <label htmlFor="nomor_telepon">Nomor Telepon*</label>
                   <input
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
-                    {...register("nomorTelepon")}
+                    {...register("nomor_telepon")}
                   />
-                  {errors.nomorTelepon && (
+                  {errors.nomor_telepon && (
                     <p className="text-red-500 text-sm">
-                      {errors.nomorTelepon.message}
+                      {errors.nomor_telepon.message}
                     </p>
                   )}
                 </div>
@@ -113,47 +123,47 @@ const CompetitionPage = () => {
               </div>
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
-                  <label htmlFor="anggota1">
+                  <label htmlFor="nama_anggota_1">
                     Nama Lengkap Anggota 1 (Ketua)*
                   </label>
                   <input
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:w-[99%] lg:py-2"
-                    {...register("anggota1")}
+                    {...register("nama_anggota_1")}
                   />
-                  {errors.anggota1 && (
+                  {errors.nama_anggota_1 && (
                     <p className="text-red-500 text-sm">
-                      {errors.anggota1.message}
+                      {errors.nama_anggota_1.message}
                     </p>
                   )}
                 </div>
               </div>
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
-                  <label htmlFor="anggota2">Nama Lengkap Anggota 2</label>
+                  <label htmlFor="nama_anggota_2">Nama Lengkap Anggota 2</label>
                   <input
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:w-[99%] lg:py-2"
-                    {...register("anggota2")}
+                    {...register("nama_anggota_2")}
                   />
-                  {errors.anggota2 && (
+                  {errors.nama_anggota_2 && (
                     <p className="text-red-500 text-sm">
-                      {errors.anggota2.message}
+                      {errors.nama_anggota_2.message}
                     </p>
                   )}
                 </div>
               </div>
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
-                  <label htmlFor="anggota3">Nama Lengkap Anggota 3</label>
+                  <label htmlFor="nama_anggota_3">Nama Lengkap Anggota 3</label>
                   <input
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:w-[99%] lg:py-2"
-                    {...register("anggota3")}
+                    {...register("nama_anggota_3")}
                   />
-                  {errors.anggota3 && (
+                  {errors.nama_anggota_3 && (
                     <p className="text-red-500 text-sm">
-                      {errors.anggota3.message}
+                      {errors.nama_anggota_3.message}
                     </p>
                   )}
                 </div>

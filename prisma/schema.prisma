@@ -20,8 +20,8 @@ model KTIAwal {
   nomor_telepon  String
   email          String
   nama_anggota_1 String
-  nama_anggota_2 String
-  nama_anggota_3 String
+  nama_anggota_2 String?
+  nama_anggota_3 String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
@@ -33,8 +33,8 @@ model KTIAkhir {
   nomor_telepon      String
   email              String
   nama_anggota_1     String
-  nama_anggota_2     String
-  nama_anggota_3     String
+  nama_anggota_2     String?
+  nama_anggota_3     String?
   judul              String
   subtema            String
   kartu_pelajar      String
