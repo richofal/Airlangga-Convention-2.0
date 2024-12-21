@@ -7,6 +7,7 @@ import {
   infografisSchema,
 } from "@/app/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { createId } from "@paralleldrive/cuid2";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -34,6 +35,9 @@ const CompetitionPage = () => {
 
   const onSubmit = (data: z.infer<typeof infografisSchema>) => {
     const formData = new FormData();
+    const id = createId();
+    formData.append("id", id);
+
     for (const key in data) {
       formData.append(key, data[key as keyof typeof data]);
     }
@@ -68,7 +72,7 @@ const CompetitionPage = () => {
         .then((res) => res.json())
         .then((data) => {
           router.push(
-            `/competitions/infografis/pendaftaran/konfirmasi?nama=${data.nama}`
+            `/competitions/infografis/pendaftaran/konfirmasi?id=${id}`
           );
           reset();
         })

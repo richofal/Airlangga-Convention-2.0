@@ -9,6 +9,7 @@ const prisma = new PrismaClient();
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
 
+  const id = formData.get("id") as string;
   const nama = formData.get("nama") as string;
   const asal_sekolah = formData.get("asal_sekolah") as string;
   const nomor_telepon = formData.get("nomor_telepon") as string;
@@ -26,6 +27,7 @@ export async function POST(req: NextRequest) {
     "public",
     "uploads",
     "infografis",
+    "files",
     nama
   );
 
@@ -54,6 +56,7 @@ export async function POST(req: NextRequest) {
     // Save to database
     const result = await prisma.infografis.create({
       data: {
+        id,
         nama,
         asal_sekolah,
         nomor_telepon,
