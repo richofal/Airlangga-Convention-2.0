@@ -87,7 +87,10 @@ const CompetitionPage = () => {
                         />
                       </div>
                       <div className="flex flex-col w-1/2 gap-1">
-                        <label htmlFor="email">Email Perwakilan*</label>
+                        <label htmlFor="email">
+                          <br className="lg:hidden" />
+                          Email Perwakilan*
+                        </label>
                         <input
                           type="text"
                           name="email"

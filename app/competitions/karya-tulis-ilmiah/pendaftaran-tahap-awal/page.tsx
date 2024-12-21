@@ -49,7 +49,6 @@ const CompetitionPage = () => {
                 Tahap Awal (Abstrak)
               </h1>
             </div>
-
             <div className="mt-5 w-full">
               <form
                 action=""

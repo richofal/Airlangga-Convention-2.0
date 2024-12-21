@@ -48,6 +48,7 @@ const CompetitionCard = ({
       className="flex flex-col justify-between items-start text-start gap-3 p-6 px-8 text-white rounded-xl relative overflow-hidden w-full lg:w-full lg:py-10 cursor-pointer transition-all ease-in-out hover:shadow-2xl"
       style={{
         backgroundColor: hovered ? "#B6723A" : bgColor,
+        animation: hovered ? "pulse 1s infinite" : "none",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

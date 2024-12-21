@@ -52,7 +52,7 @@ const Home = () => {
                 src="dots.svg"
                 width={3000}
                 height={3000}
-                alt="competition"
+                alt=""
                 className=" absolute top-1 animate-pulse"
               />
             </div>
@@ -61,7 +61,7 @@ const Home = () => {
                 src="bem-present.svg"
                 width={1000}
                 height={1000}
-                alt="bem-present"
+                alt=""
                 className="w-full h-full object-contain animate-bounce"
               />
             </div>
@@ -90,7 +90,7 @@ const Home = () => {
                     src="about-us-mobile.svg"
                     width={150}
                     height={150}
-                    alt="aboutus"
+                    alt=""
                     className="animate-pulse"
                   ></Image>
                 </div>
@@ -113,7 +113,7 @@ const Home = () => {
                     width={300}
                     height={300}
                     className="-rotate-90 animate-pulse"
-                    alt="competition"
+                    alt=""
                   />
                 </div>
               </div>
@@ -139,7 +139,7 @@ const Home = () => {
                     src="support_your_team_mobile.svg"
                     width={300}
                     height={300}
-                    alt="supporter-image"
+                    alt=""
                     className="animate-pulse"
                   />
                 </div>
@@ -164,7 +164,7 @@ const Home = () => {
                   src="partner-ornamen.svg"
                   width={150}
                   height={150}
-                  alt="Sponsor"
+                  alt=""
                   className="animate-pulse"
                 ></Image>
               </div>
@@ -201,7 +201,7 @@ const Home = () => {
                 src="dots.svg"
                 width={650}
                 height={650}
-                alt="competition"
+                alt=""
                 className="absolute top-40 left-[5%] animate-pulse"
               />
             </div>
@@ -210,7 +210,7 @@ const Home = () => {
                 src="bem-present.svg"
                 width={500}
                 height={500}
-                alt="competition"
+                alt=""
                 className="w-full h-full object-contain animate-bounce"
               />
             </div>
@@ -219,7 +219,7 @@ const Home = () => {
             src="spiral-1.svg"
             width={500}
             height={500}
-            alt="spiral-1"
+            alt=""
             className="absolute top-72 -right-0 -z-10 animate-pulse"
           />
           <div className="w-full flex flex-row gap-6 justify-center items-stretch h-auto mb-5">
@@ -231,11 +231,11 @@ const Home = () => {
                   src="about-us-ornamen.svg"
                   width={250}
                   height={250}
-                  alt="About-Us"
+                  alt=""
                   className="animate-pulse"
                 />
               </div>
-              <div className="w-full mt-5 flex flex-col gap-3 justify-between">
+              <div className="w-full mt-5 flex flex-col gap-3 justify-between ml-5">
                 <h1 className="font-winter text-2xl text-start w-full text-[#D4ECF8]">
                   {desc.aboutUs.title}
                 </h1>
@@ -270,7 +270,7 @@ const Home = () => {
                     src="supporter_desktop.svg"
                     width={250}
                     height={250}
-                    alt="supporter"
+                    alt=""
                     className="animate-bounce"
                   />
                   <div className="w-full mt-5 flex flex-col gap-3">
@@ -289,7 +289,7 @@ const Home = () => {
                     src="partner-ornamen.svg"
                     width={250}
                     height={250}
-                    alt="sponsor"
+                    alt=""
                     className="animate-pulse"
                   />
                   <div className="w-full mt-5 flex flex-col gap-3">
@@ -307,7 +307,7 @@ const Home = () => {
                 src="spiral-2.svg"
                 width={300}
                 height={300}
-                alt="spiral-2"
+                alt=""
                 className=" absolute -bottom-40 -left-20 -z-50 rotate-180 animate-pulse"
               />
             </div>
