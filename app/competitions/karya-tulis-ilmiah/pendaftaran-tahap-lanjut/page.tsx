@@ -1,36 +1,71 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
+import { ktiSchemaAkhir } from "@/app/utils/schema";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+interface Files {
+  name: string;
+  file: File;
+}
 
 const CompetitionPage = () => {
   const [step, setStep] = useState(0);
+  const [files, setFiles] = useState<Files[] | null>(null);
+
   const router = useRouter();
 
-  const handleSubmit = () => {
-    console.log("submit");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<z.infer<typeof ktiSchemaAkhir>>({
+    resolver: zodResolver(ktiSchemaAkhir),
+  });
+
+  const onSubmit = (data: z.infer<typeof ktiSchemaAkhir>) => {
+    const formData = new FormData();
+    for (const key in data) {
+      formData.append(key, data[key as keyof typeof data] as string);
+    }
+
+    files?.forEach((file) => {
+      formData.append(file.name, file.file);
+    });
+
+    console.log(formData.get("kartu_pelajar"));
+
+    fetch("/api/karya-tulis-ilmiah/lanjut", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        reset();
+        router.push(
+          "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-akhir/konfirmasi"
+        );
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   const nextStep = () => {
     if (step < 1) {
-      setStep((step) => step + 1);
-    } else {
-      router.push(
-        "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi"
-      );
+      setStep(step + 1);
     }
   };
 
   const prevStep = () => {
     if (step > 0) {
-      setStep((step) => step - 1);
+      setStep(step - 1);
     }
   };
-
-  useEffect(() => {
-    console.log(step);
-  }, [step]);
 
   return (
     <div className="mx-10 mt-5 lg:mx-28">
@@ -56,120 +91,141 @@ const CompetitionPage = () => {
             </div>
           ) : null}
           <div className="mt-5 w-full">
-            <form action="" className="flex flex-col gap-8">
+            <form
+              action="post"
+              className="flex flex-col gap-8"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               {step === 0 ? (
                 <>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-1/2 gap-1">
-                      <label htmlFor="namaTim">Nama Tim*</label>
+                      <label htmlFor="nama_tim">Nama Tim*</label>
                       <input
                         type="text"
-                        name="namaTim"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("nama_tim")}
                       />
+                      {errors.nama_tim && (
+                        <p className="text-red-500 text-sm">
+                          {errors.nama_tim.message}
+                        </p>
+                      )}
                     </div>
                     <div className="flex flex-col w-1/2 gap-1">
-                      <label htmlFor="asalSekolah">Asal Sekolah*</label>
+                      <label htmlFor="asal_sekolah">Asal Sekolah*</label>
                       <input
                         type="text"
-                        name="asalSekolah"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("asal_sekolah")}
                       />
+                      {errors.asal_sekolah && (
+                        <p className="text-red-500 text-sm">
+                          {errors.asal_sekolah.message}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-1/2 gap-1">
-                      <label htmlFor="nomorTelepon">Nomor Telepon*</label>
+                      <label htmlFor="nomor_telepon">Nomor Telepon*</label>
                       <input
                         type="text"
-                        name="nomorTelepon"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("nomor_telepon")}
                       />
+                      {errors.nomor_telepon && (
+                        <p className="text-red-500 text-sm">
+                          {errors.nomor_telepon.message}
+                        </p>
+                      )}
                     </div>
                     <div className="flex flex-col w-1/2 gap-1">
                       <label htmlFor="email">Email*</label>
                       <input
                         type="text"
-                        name="email"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("email")}
                       />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm">
+                          {errors.email.message}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="anggota1">
+                      <label htmlFor="nama_anggota_1">
                         Nama Lengkap Anggota 1 (Ketua)*
                       </label>
                       <input
                         type="text"
-                        name="anggota1"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                        {...register("nama_anggota_1")}
                       />
+                      {errors.nama_anggota_1 && (
+                        <p className="text-red-500 text-sm">
+                          {errors.nama_anggota_1.message}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="anggota2">Nama Lengkap Anggota 2</label>
-                      <input
-                        type="text"
-                        name="anggota2"
-                        className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full flex flex-row justify-between gap-2">
-                    <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="anggota3">Nama Lengkap Anggota 3</label>
-                      <input
-                        type="text"
-                        name="anggota3"
-                        className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full flex flex-row justify-between gap-2">
-                    <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="ktpFile">
-                        Scan KTP/Kartu Pelajar (PDF/gambar)* <br /> Note:
-                        Jadikan satu file (size limit 5 MB)
+                      <label htmlFor="nama_anggota_2">
+                        Nama Lengkap Anggota 2
                       </label>
                       <input
-                        type="file"
-                        name="ktpFile"
-                        className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
-                        accept=".pdf"
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file && file.size > 5 * 1024 * 1024) {
-                            alert("File size exceeds 5 MB");
-                            e.target.value = "";
-                          }
-                        }}
+                        type="text"
+                        className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                        {...register("nama_anggota_2")}
                       />
+                      {errors.nama_anggota_2 && (
+                        <p className="text-red-500 text-sm">
+                          {errors.nama_anggota_2.message}
+                        </p>
+                      )}
                     </div>
                   </div>
-                </>
-              ) : null}
-
-              {step === 1 ? (
-                <>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="anggota3">Judul Karya*</label>
+                      <label htmlFor="nama_anggota_3">
+                        Nama Lengkap Anggota 3
+                      </label>
                       <input
                         type="text"
-                        name="judulKarya"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                        {...register("nama_anggota_3")}
                       />
+                      {errors.nama_anggota_3 && (
+                        <p className="text-red-500 text-sm">
+                          {errors.nama_anggota_3.message}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between gap-2">
+                    <div className="flex flex-col w-full gap-1">
+                      <label htmlFor="judul">Judul Karya*</label>
+                      <input
+                        type="text"
+                        className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                        {...register("judul")}
+                      />
+                      {errors.judul && (
+                        <p className="text-red-500 text-sm">
+                          {errors.judul.message}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="subTema">Sub-Tema*</label>
+                    <label htmlFor="subtema">Sub-Tema*</label>
                     <select
-                      name="subTema"
-                      id="subTema"
                       className="w-2/3 px-2 py-2 rounded-lg border border-black lg:py-2 lg:w-[99%]"
                       defaultValue=""
+                      {...register("subtema")}
                     >
                       <option value="" disabled>
                         -
@@ -181,23 +237,56 @@ const CompetitionPage = () => {
                       <option value="Sosial Budaya">Sosial Budaya</option>
                       <option value="Pendidikan">Pendidikan</option>
                     </select>
+                    {errors.subtema && (
+                      <p className="text-red-500 text-sm">
+                        {errors.subtema.message}
+                      </p>
+                    )}
+                  </div>
+                </>
+              ) : null}
+
+              {step === 1 ? (
+                <>
+                  <div className="w-full flex flex-row justify-between gap-2">
+                    <div className="flex flex-col w-full gap-1">
+                      <label htmlFor="kartu_pelajar">
+                        Scan KTP/Kartu Pelajar (PDF/gambar)* <br /> Note:
+                        Jadikan satu file (size limit 5 MB)
+                      </label>
+                      <input
+                        type="file"
+                        className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
+                        accept=".pdf"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            setFiles((prev) => [
+                              ...(prev || []),
+                              { name: "kartu_pelajar", file },
+                            ]);
+                          }
+                        }}
+                      />
+                    </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="ktpFile">
+                      <label htmlFor="full_paper">
                         File Full Paper* <br /> Note: Format PDF (size limit 10
                         MB)
                       </label>
                       <input
                         type="file"
-                        name="abstrakFile"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
                         onChange={(e) => {
                           const file = e.target.files?.[0];
-                          if (file && file.size > 10 * 1024 * 1024) {
-                            alert("File size exceeds 10 MB");
-                            e.target.value = "";
+                          if (file) {
+                            setFiles((prev) => [
+                              ...(prev || []),
+                              { name: "full_paper", file },
+                            ]);
                           }
                         }}
                       />
@@ -205,20 +294,21 @@ const CompetitionPage = () => {
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="suratPernyataanPendaftaran">
+                      <label htmlFor="surat_pernyataan">
                         Surat Pernyataan Pendaftaran* <br /> Note: Format PDF,
                         (size limit 5 MB)
                       </label>
                       <input
                         type="file"
-                        name="suratPernyataanPendaftaran"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
                         onChange={(e) => {
                           const file = e.target.files?.[0];
-                          if (file && file.size > 5 * 1024 * 1024) {
-                            alert("File size exceeds 5 MB");
-                            e.target.value = "";
+                          if (file) {
+                            setFiles((prev) => [
+                              ...(prev || []),
+                              { name: "surat_pernyataan", file },
+                            ]);
                           }
                         }}
                       />
@@ -226,20 +316,21 @@ const CompetitionPage = () => {
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="suratPernyataanOrisinalitas">
+                      <label htmlFor="surat_orisinalitas">
                         Surat Pernyataan Orisinalitas* <br /> Note: Format PDF
                         (size limit 5 MB)
                       </label>
                       <input
                         type="file"
-                        name="suratPernyataanOrisinalitas"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
                         onChange={(e) => {
                           const file = e.target.files?.[0];
-                          if (file && file.size > 5 * 1024 * 1024) {
-                            alert("File size exceeds 5 MB");
-                            e.target.value = "";
+                          if (file) {
+                            setFiles((prev) => [
+                              ...(prev || []),
+                              { name: "surat_orisinalitas", file },
+                            ]);
                           }
                         }}
                       />
@@ -248,7 +339,7 @@ const CompetitionPage = () => {
                 </>
               ) : null}
               <div className="w-full mt-2 flex flex-row justify-between">
-                {step > 0 ? (
+                {step > 0 && (
                   <button
                     className="bg-black text-white px-8 py-2 rounded-lg flex flex-row justify-center items-center"
                     onClick={prevStep}
@@ -256,23 +347,16 @@ const CompetitionPage = () => {
                   >
                     Prev
                   </button>
-                ) : null}
+                )}
                 {step === 1 ? (
                   <button
                     className="bg-black text-white px-8 py-2 rounded-lg flex flex-row justify-center items-center"
-                    onClick={() => {
-                      handleSubmit();
-                      router.push(
-                        "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi"
-                      );
-                    }}
-                    type="button"
+                    type="submit"
                   >
                     Submit
                   </button>
                 ) : null}
-
-                {step == 0 ? (
+                {step === 0 && (
                   <button
                     className="bg-black text-white px-8 py-2 rounded-lg flex flex-row justify-center items-center"
                     onClick={nextStep}
@@ -280,7 +364,7 @@ const CompetitionPage = () => {
                   >
                     Next
                   </button>
-                ) : null}
+                )}
               </div>
             </form>
           </div>{" "}

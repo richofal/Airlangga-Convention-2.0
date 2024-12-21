@@ -7,11 +7,11 @@ import { ktiSchemaAwal } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { relative } from "path";
 
 const CompetitionPage = () => {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm<z.infer<typeof ktiSchemaAwal>>({
@@ -27,7 +27,7 @@ const CompetitionPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        reset();
         router.push(
           "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"
         );
@@ -69,6 +69,7 @@ const CompetitionPage = () => {
                 <div className="flex flex-col w-1/2 gap-1">
                   <label htmlFor="nama_tim">Nama Tim*</label>
                   <input
+                    id="nama_tim"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                     {...register("nama_tim")}
@@ -82,6 +83,7 @@ const CompetitionPage = () => {
                 <div className="flex flex-col w-1/2 gap-1">
                   <label htmlFor="asal_sekolah">Asal Sekolah*</label>
                   <input
+                    id="asal_sekolah"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                     {...register("asal_sekolah")}
@@ -97,6 +99,7 @@ const CompetitionPage = () => {
                 <div className="flex flex-col w-1/2 gap-1">
                   <label htmlFor="nomor_telepon">Nomor Telepon*</label>
                   <input
+                    id="nomor_telepon"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                     {...register("nomor_telepon")}
@@ -110,6 +113,7 @@ const CompetitionPage = () => {
                 <div className="flex flex-col w-1/2 gap-1">
                   <label htmlFor="email">Email *</label>
                   <input
+                    id="email"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                     {...register("email")}
@@ -127,6 +131,7 @@ const CompetitionPage = () => {
                     Nama Lengkap Anggota 1 (Ketua)*
                   </label>
                   <input
+                    id="nama_anggota_1"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:w-[99%] lg:py-2"
                     {...register("nama_anggota_1")}
@@ -142,6 +147,7 @@ const CompetitionPage = () => {
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nama_anggota_2">Nama Lengkap Anggota 2</label>
                   <input
+                    id="nama_anggota_2"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:w-[99%] lg:py-2"
                     {...register("nama_anggota_2")}
@@ -157,6 +163,7 @@ const CompetitionPage = () => {
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nama_anggota_3">Nama Lengkap Anggota 3</label>
                   <input
+                    id="nama_anggota_3"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:w-[99%] lg:py-2"
                     {...register("nama_anggota_3")}

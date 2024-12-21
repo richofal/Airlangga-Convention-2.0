@@ -26,81 +26,65 @@ model KTIAwal {
   updatedAt      DateTime @updatedAt
 }
 
-model KTIAkhir {
-  id                 String   @id @default(cuid())
-  nama_tim           String   @unique
-  asal_sekolah       String
-  nomor_telepon      String
-  email              String
-  nama_anggota_1     String
-  nama_anggota_2     String?
-  nama_anggota_3     String?
-  judul              String
-  subtema            String
-  kartu_pelajar      String
-  full_paper         String
-  surat_pernyataan   String
-  surat_orisinalitas String
-  bukti_pembayaran   String
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+model KTILanjut {
+  id             String   @id @default(cuid())
+  nama_tim       String   @unique
+  asal_sekolah   String
+  nomor_telepon  String
+  email          String
+  nama_anggota_1 String
+  nama_anggota_2 String?
+  nama_anggota_3 String?
+  judul          String
+  subtema        String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 model Infografis {
-  id               String   @id @default(cuid())
-  nama             String   @unique
-  asal_sekolah     String
-  nomor_telepon    String
-  email            String
-  kartu_pelajar    String
-  file_infografis  String
-  bukti_pembayaran String
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id            String   @id @default(cuid())
+  nama          String   @unique
+  asal_sekolah  String
+  nomor_telepon String
+  email         String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 model ML {
-  id               String   @id @default(cuid())
-  nama_tim         String   @unique
-  asal_sekolah     String
-  nomor_telepon    String
-  email            String
-  nama_anggota_1   String
-  nickname_1       String
-  nama_anggota_2   String
-  nickname_2       String
-  nama_anggota_3   String
-  nickname_3       String
-  nama_anggota_4   String
-  nickname_4       String
-  nama_anggota_5   String
-  nickname_5       String
-  kartu_pelajar    String
-  bukti_pembayaran String
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id             String   @id @default(cuid())
+  nama_tim       String   @unique
+  asal_sekolah   String
+  nomor_telepon  String
+  email          String
+  nama_anggota_1 String
+  nickname_1     String
+  nama_anggota_2 String
+  nickname_2     String
+  nama_anggota_3 String
+  nickname_3     String
+  nama_anggota_4 String
+  nickname_4     String
+  nama_anggota_5 String
+  nickname_5     String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 model BPPreliminary {
-  id                 String   @id @default(cuid())
-  nama_tim           String   @unique
-  asal_sekolah       String
-  email              String
-  nama_anggota_1     String
-  nomor_telepon_1    String
-  nama_anggota_2     String
-  nomor_telepon_2    String
-  nama_anggota_3     String?
-  nomor_telepon_3    String?
-  subtema            String
-  bmc                String
-  bukti_orisinalitas String
-  kartu_pelajar      String
-  bukti_pembayaran   String
-  bukti_follow       String
-  bukti_poster       String
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  id              String   @id @default(cuid())
+  nama_tim        String   @unique
+  asal_sekolah    String
+  email           String
+  nama_anggota_1  String
+  nomor_telepon_1 String
+  nama_anggota_2  String
+  nomor_telepon_2 String
+  nama_anggota_3  String?
+  nomor_telepon_3 String?
+  subtema         String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }
 
 model BPSemifinal {
@@ -112,7 +96,6 @@ model BPSemifinal {
   nomor_telepon_1 String
   subtema         String
   judul_karya     String
-  file_proposal   String
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }
@@ -126,27 +109,22 @@ model BPFinal {
   nomor_telepon_1 String
   subtema         String
   judul_karya     String
-  file_pitch_deck String
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }
 
 model Basket {
-  id               String   @id @default(cuid())
-  nama_tim         String   @unique
-  asal_sekolah     String
-  nomor_telepon    String
-  email            String
-  jumlah_anggota   Int
-  nama_pemain      String[]
-  nomor_punggung   String[]
-  nama_coach       String
-  nama_manager     String
-  nama_official    String
-  kartu_pelajar    String
-  bukti_poster     String
-  kartu_identitas  String
-  bukti_pembayaran String
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id             String   @id @default(cuid())
+  nama_tim       String   @unique
+  asal_sekolah   String
+  nomor_telepon  String
+  email          String
+  jumlah_anggota Int
+  nama_pemain    String[]
+  nomor_punggung String[]
+  nama_coach     String
+  nama_manager   String
+  nama_official  String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
