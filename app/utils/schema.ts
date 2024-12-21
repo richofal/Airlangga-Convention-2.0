@@ -21,3 +21,21 @@ export const ktiSchemaAkhir = z.object({
   judul: z.string().min(1, "Judul harus diisi"),
   subtema: z.string().min(1, "Subtema harus diisi"),
 });
+
+export const documentSchema5 = z
+  .instanceof(File)
+  .refine((file) => file.type == "application/pdf", {
+    message: "Dokumen invalid",
+  })
+  .refine((file) => file.size < 5 * 1024 * 1024, {
+    message: "Ukuran dokumen harus kurang dari 5MB",
+  });
+
+export const documentSchema10 = z
+  .instanceof(File)
+  .refine((file) => file.type == "application/pdf", {
+    message: "Dokumen invalid",
+  })
+  .refine((file) => file.size < 10 * 1024 * 1024, {
+    message: "Ukuran dokumen harus kurang dari 10MB",
+  });

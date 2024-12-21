@@ -3,7 +3,11 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
-import { ktiSchemaAkhir } from "@/app/utils/schema";
+import {
+  documentSchema5,
+  documentSchema10,
+  ktiSchemaAkhir,
+} from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,6 +19,7 @@ interface Files {
 const CompetitionPage = () => {
   const [step, setStep] = useState(0);
   const [files, setFiles] = useState<Files[] | null>(null);
+  const [allValid, setAllValid] = useState(true);
 
   const router = useRouter();
 
@@ -34,25 +39,41 @@ const CompetitionPage = () => {
     }
 
     files?.forEach((file) => {
-      formData.append(file.name, file.file);
+      if (file.name == "full_paper") {
+        const validate = documentSchema10.safeParse(file.file);
+        if (validate.success) {
+          formData.append(file.name, file.file);
+        } else {
+          setAllValid(false);
+          alert("Salah satu file tidak valid atau melebihi batas ukuran");
+        }
+      } else {
+        const validate = documentSchema5.safeParse(file.file);
+        if (validate.success) {
+          formData.append(file.name, file.file);
+        } else {
+          setAllValid(false);
+          alert("Salah satu file tidak valid atau melebihi batas ukuran");
+        }
+      }
     });
 
-    console.log(formData.get("kartu_pelajar"));
-
-    fetch("/api/karya-tulis-ilmiah/lanjut", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        reset();
-        router.push(
-          "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-akhir/konfirmasi"
-        );
+    if (allValid) {
+      fetch("/api/karya-tulis-ilmiah/lanjut", {
+        method: "POST",
+        body: formData,
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          reset();
+          router.push(
+            "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi"
+          );
+        })
+        .catch((error) => {
+          console.error("Error Upload:", error);
+        });
+    }
   };
 
   const nextStep = () => {
@@ -102,9 +123,11 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-1/2 gap-1">
                       <label htmlFor="nama_tim">Nama Tim*</label>
                       <input
+                        id="nama_tim"
                         type="text"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                         {...register("nama_tim")}
+                        required
                       />
                       {errors.nama_tim && (
                         <p className="text-red-500 text-sm">
@@ -115,9 +138,11 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-1/2 gap-1">
                       <label htmlFor="asal_sekolah">Asal Sekolah*</label>
                       <input
+                        id="asal_sekolah"
                         type="text"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                         {...register("asal_sekolah")}
+                        required
                       />
                       {errors.asal_sekolah && (
                         <p className="text-red-500 text-sm">
@@ -130,9 +155,11 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-1/2 gap-1">
                       <label htmlFor="nomor_telepon">Nomor Telepon*</label>
                       <input
+                        id="nomor_telepon"
                         type="text"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                         {...register("nomor_telepon")}
+                        required
                       />
                       {errors.nomor_telepon && (
                         <p className="text-red-500 text-sm">
@@ -143,9 +170,11 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-1/2 gap-1">
                       <label htmlFor="email">Email*</label>
                       <input
+                        id="email"
                         type="text"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
                         {...register("email")}
+                        required
                       />
                       {errors.email && (
                         <p className="text-red-500 text-sm">
@@ -160,9 +189,11 @@ const CompetitionPage = () => {
                         Nama Lengkap Anggota 1 (Ketua)*
                       </label>
                       <input
+                        id="nama_anggota_1"
                         type="text"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
                         {...register("nama_anggota_1")}
+                        required
                       />
                       {errors.nama_anggota_1 && (
                         <p className="text-red-500 text-sm">
@@ -177,6 +208,7 @@ const CompetitionPage = () => {
                         Nama Lengkap Anggota 2
                       </label>
                       <input
+                        id="nama_anggota_2"
                         type="text"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
                         {...register("nama_anggota_2")}
@@ -194,6 +226,7 @@ const CompetitionPage = () => {
                         Nama Lengkap Anggota 3
                       </label>
                       <input
+                        id="nama_anggota_3"
                         type="text"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
                         {...register("nama_anggota_3")}
@@ -209,9 +242,11 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="judul">Judul Karya*</label>
                       <input
+                        id="judul"
                         type="text"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
                         {...register("judul")}
+                        required
                       />
                       {errors.judul && (
                         <p className="text-red-500 text-sm">
@@ -223,9 +258,11 @@ const CompetitionPage = () => {
                   <div className="w-full flex flex-col gap-1">
                     <label htmlFor="subtema">Sub-Tema*</label>
                     <select
+                      id="subtema"
                       className="w-2/3 px-2 py-2 rounded-lg border border-black lg:py-2 lg:w-[99%]"
                       defaultValue=""
                       {...register("subtema")}
+                      required
                     >
                       <option value="" disabled>
                         -
@@ -255,9 +292,11 @@ const CompetitionPage = () => {
                         Jadikan satu file (size limit 5 MB)
                       </label>
                       <input
+                        id="kartu_pelajar"
                         type="file"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
                           if (file) {
@@ -277,9 +316,11 @@ const CompetitionPage = () => {
                         MB)
                       </label>
                       <input
+                        id="full_paper"
                         type="file"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
                           if (file) {
@@ -299,9 +340,11 @@ const CompetitionPage = () => {
                         (size limit 5 MB)
                       </label>
                       <input
+                        id="surat_pernyataan"
                         type="file"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
                           if (file) {
@@ -321,9 +364,11 @@ const CompetitionPage = () => {
                         (size limit 5 MB)
                       </label>
                       <input
+                        id="surat_orisinalitas"
                         type="file"
                         className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
                           if (file) {
