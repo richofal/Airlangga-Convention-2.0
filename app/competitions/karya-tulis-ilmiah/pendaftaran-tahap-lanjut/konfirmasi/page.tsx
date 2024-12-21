@@ -2,30 +2,24 @@
 import React, { Suspense, useEffect, useState } from "react";
 import BackButton from "@/app/components/BackButton";
 import { KTILanjut } from "@prisma/client";
-import useSWR from "swr";
 import { useSearchParams } from "next/navigation";
 
 const ConfirmationPage = () => {
   const searchParams = useSearchParams();
-  const nama = searchParams.get("nama");
-  const { data, isLoading, error } = useContestant(nama ?? "");
+  const id = searchParams.get("id");
+  const [data, setData] = useState<KTILanjut>();
+  const [isLoading, setIsLoading] = useState(true);
   const [paymentMethod, setPaymentMethod] = useState("");
 
-  function useContestant(nama: string) {
-    const fetcher = (url: string | URL | Request) =>
-      fetch(url).then((r) => r.json());
-
-    const { data, error, isLoading } = useSWR<KTILanjut>(
-      `/api/karya-tulis-ilmiah/${nama}`,
-      fetcher
-    );
-
-    return {
-      data,
-      isLoading,
-      error,
-    };
-  }
+  useEffect(() => {
+    if (!id) return;
+    fetch(`/api/karya-tulis-ilmiah/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setIsLoading(false);
+      });
+  }, [data]);
 
   return (
     <div className="mx-8 mt-5 lg:mx-28">
@@ -111,8 +105,17 @@ const ConfirmationPage = () => {
                 />
               </div>
               <div className="flex flex-row justify-start items-center gap-3 mt-2">
-                <input type="checkbox" className="p-6" />
-                <label htmlFor="" className="text-[0.8rem] lg:text-[1rem]">
+                <input
+                  id="confirmation"
+                  name="confirmation"
+                  required
+                  type="checkbox"
+                  className="p-6"
+                />
+                <label
+                  htmlFor="confirmation"
+                  className="text-[0.8rem] lg:text-[1rem]"
+                >
                   Saya memastikan data yang diisi benar, dan siap menerima
                   sanksi jika terdapat kesalahan
                 </label>

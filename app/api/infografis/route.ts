@@ -9,26 +9,24 @@ const prisma = new PrismaClient();
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
 
-  const nama_tim = formData.get("nama_tim") as string;
+  const nama = formData.get("nama") as string;
   const asal_sekolah = formData.get("asal_sekolah") as string;
   const nomor_telepon = formData.get("nomor_telepon") as string;
   const email = formData.get("email") as string;
-  const nama_anggota_1 = formData.get("nama_anggota_1") as string;
-  const nama_anggota_2 = (formData.get("nama_anggota_2") as string) ?? null;
-  const nama_anggota_3 = (formData.get("nama_anggota_3") as string) ?? null;
   const kartu_pelajar = formData.get("kartu_pelajar") as File;
-  const abstrak_paper = formData.get("abstrak_paper") as File;
+  const file_infografis = formData.get("file_infografis") as File;
 
   const kartu_pelajar_buffer = Buffer.from(await kartu_pelajar.arrayBuffer());
-  const abstrak_paper_buffer = Buffer.from(await abstrak_paper.arrayBuffer());
+  const file_infografis_buffer = Buffer.from(
+    await file_infografis.arrayBuffer()
+  );
 
   const uploadDir = join(
     process.cwd(),
     "public",
     "uploads",
-    "karya-tulis-ilmiah",
-    "awal",
-    nama_tim
+    "infografis",
+    nama
   );
 
   try {
@@ -51,18 +49,15 @@ export async function POST(req: NextRequest) {
 
   try {
     await writeFile(`${uploadDir}/kartu_pelajar.pdf`, kartu_pelajar_buffer);
-    await writeFile(`${uploadDir}/abstrak_paper.pdf`, abstrak_paper_buffer);
+    await writeFile(`${uploadDir}/file_infografis.pdf`, file_infografis_buffer);
 
     // Save to database
-    const result = await prisma.kTIAwal.create({
+    const result = await prisma.infografis.create({
       data: {
-        nama_tim,
+        nama,
         asal_sekolah,
         nomor_telepon,
         email,
-        nama_anggota_1,
-        nama_anggota_2,
-        nama_anggota_3,
       },
     });
 

@@ -11,7 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import { createId } from "@paralleldrive/cuid2";
 interface Files {
   name: string;
   file: File;
@@ -35,6 +35,9 @@ const CompetitionPage = () => {
 
   const onSubmit = (data: z.infer<typeof ktiSchemaAkhir>) => {
     const formData = new FormData();
+    const id = createId();
+    formData.append("id", id);
+
     for (const key in data) {
       formData.append(key, data[key as keyof typeof data] as string);
     }
@@ -67,7 +70,7 @@ const CompetitionPage = () => {
         .then((res) => res.json())
         .then((data) => {
           router.push(
-            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi?nama=${data.nama_tim}`
+            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi?id=${id}`
           );
           reset();
         })

@@ -15,7 +15,7 @@ datasource db {
 
 model KTIAwal {
   id             String   @id @default(cuid())
-  nama_tim       String   @unique
+  nama_tim       String
   asal_sekolah   String
   nomor_telepon  String
   email          String
@@ -28,7 +28,7 @@ model KTIAwal {
 
 model KTILanjut {
   id             String   @id @default(cuid())
-  nama_tim       String   @unique
+  nama_tim       String
   asal_sekolah   String
   nomor_telepon  String
   email          String
@@ -43,7 +43,7 @@ model KTILanjut {
 
 model Infografis {
   id            String   @id @default(cuid())
-  nama          String   @unique
+  nama          String
   asal_sekolah  String
   nomor_telepon String
   email         String
@@ -53,7 +53,7 @@ model Infografis {
 
 model ML {
   id             String   @id @default(cuid())
-  nama_tim       String   @unique
+  nama_tim       String
   asal_sekolah   String
   nomor_telepon  String
   email          String
@@ -73,7 +73,7 @@ model ML {
 
 model BPPreliminary {
   id              String   @id @default(cuid())
-  nama_tim        String   @unique
+  nama_tim        String
   asal_sekolah    String
   email           String
   nama_anggota_1  String
@@ -89,7 +89,7 @@ model BPPreliminary {
 
 model BPSemifinal {
   id              String   @id @default(cuid())
-  nama_tim        String   @unique
+  nama_tim        String
   asal_sekolah    String
   email           String
   nama_anggota_1  String
@@ -102,7 +102,7 @@ model BPSemifinal {
 
 model BPFinal {
   id              String   @id @default(cuid())
-  nama_tim        String   @unique
+  nama_tim        String
   asal_sekolah    String
   email           String
   nama_anggota_1  String
@@ -115,7 +115,7 @@ model BPFinal {
 
 model Basket {
   id             String   @id @default(cuid())
-  nama_tim       String   @unique
+  nama_tim       String
   asal_sekolah   String
   nomor_telepon  String
   email          String

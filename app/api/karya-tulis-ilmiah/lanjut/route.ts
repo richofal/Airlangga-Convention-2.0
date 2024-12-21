@@ -9,13 +9,14 @@ const prisma = new PrismaClient();
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
 
+  const id = formData.get("id") as string;
   const nama_tim = formData.get("nama_tim") as string;
   const asal_sekolah = formData.get("asal_sekolah") as string;
   const nomor_telepon = formData.get("nomor_telepon") as string;
   const email = formData.get("email") as string;
   const nama_anggota_1 = formData.get("nama_anggota_1") as string;
-  const nama_anggota_2 = formData.get("nama_anggota_2") as string;
-  const nama_anggota_3 = formData.get("nama_anggota_3") as string;
+  const nama_anggota_2 = (formData.get("nama_anggota_2") as string) ?? null;
+  const nama_anggota_3 = (formData.get("nama_anggota_3") as string) ?? null;
   const judul = formData.get("judul") as string;
   const subtema = formData.get("subtema") as string;
   const kartu_pelajar = formData.get("kartu_pelajar") as File;
@@ -74,6 +75,7 @@ export async function POST(req: NextRequest) {
     // Save to database
     const result = await prisma.kTILanjut.create({
       data: {
+        id,
         nama_tim,
         asal_sekolah,
         nomor_telepon,
