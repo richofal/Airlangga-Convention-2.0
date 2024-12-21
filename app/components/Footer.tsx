@@ -58,7 +58,7 @@ const Footer = () => {
           <div className="">
             <h2 className="font-bold mb-3">
               {" "}
-              <Link href="/competitions">Competition</Link>
+              <Link href="/competitions">Competitions</Link>
             </h2>{" "}
             <ul className="space-y-2">
               <li>
@@ -114,7 +114,12 @@ const Footer = () => {
         </div>
         {/* Copyright Section: */}
         <div className="border-t border-white w-full mt-6"></div>{" "}
-        <p className="mt-4 text-center opacity-70">&copy; Aircon 2.0</p>{" "}
+        <p className="mt-4 text-center opacity-70">
+          &copy; Aircon 2.0 |{" "}
+          <a href="https://github.com/richofal/airlangga-convention-2.0">
+            View Source on GitHub
+          </a>
+        </p>{" "}
       </div>
       {/*  */}
       {/* Desktop Layout: */}
@@ -144,7 +149,7 @@ const Footer = () => {
               </div>
               <div className="text-xl">
                 <h1 className="text-xl mb-2 font-bold">
-                  <Link href="/competitions">Competition</Link>
+                  <Link href="/competitions">Competitions</Link>
                 </h1>
                 <div className="w-full flex flex-col justify-start items-start gap-3">
                   <Link href="/competitions/karya-tulis-ilmiah">
@@ -199,7 +204,12 @@ const Footer = () => {
               </div>
             </div>
             <div className="w-full bg-white py-[0.015rem] mt-20"></div>
-            <p className="mt-4 text-start opacity-70">&copy; Aircon 2.0</p>{" "}
+            <p className="mt-4 text-start opacity-70">
+              &copy; Aircon 2.0 |{" "}
+              <a href="https://github.com/richofal/airlangga-convention-2.0">
+                View Source on GitHub
+              </a>
+            </p>{" "}
           </div>
         </div>
       </div>

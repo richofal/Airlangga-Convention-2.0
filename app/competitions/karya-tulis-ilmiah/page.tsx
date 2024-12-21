@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import BackButton from "@/app/components/BackButton";
 import Image from "next/image";
 import {
@@ -9,7 +10,9 @@ import {
   PhoneCall,
 } from "@phosphor-icons/react/dist/ssr";
 
-const karyatulisilmiah = () => {
+const KaryaTulisIlmiahPage = () => {
+  const [hovered, setHovered] = useState(false);
+  const bgColor = "#1F519A"; // Default background color
   const router = useRouter();
 
   return (
@@ -18,16 +21,24 @@ const karyatulisilmiah = () => {
         <BackButton />
         {/* Card */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-10 lg:mt-3">
-          <div className="flex flex-col justify-between items-start text-start gap-1 bg-[#1F519A] p-6 px-8 text-white rounded-xl relative overflow-clip w-full h-full mt-8 lg:col-span-1">
+          <div
+            className="flex flex-col justify-between items-start text-start gap-1 bg-[#1F519A] p-6 px-8 text-white rounded-xl relative overflow-clip w-full h-full mt-8 lg:col-span-1"
+            style={{
+              backgroundColor: hovered ? "#B6723A" : bgColor,
+              animation: hovered ? "pulse 1s infinite" : "none",
+            }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
             <div className="p-3 rounded-full bg-[#D9D9D9]">
-              <BookOpenText size={35} className="text-black" />
+              <BookOpenText size={35} className="text-black animate-pulse" />
             </div>
             <Image
               src="/KTI.svg"
               width={200}
               height={200}
               alt="KTI"
-              className="absolute bottom-32 left-52 lg:left-80"
+              className="absolute bottom-32 left-52 lg:left-80 animate-spin"
             ></Image>
             <h1 className="font-winter mt-5 text-2xl w-3/4 text-wrap lg:mt-1">
               Karya Tulis Ilmiah
@@ -37,16 +48,14 @@ const karyatulisilmiah = () => {
               <p>GRATIS (Tahap Awal)</p>
             </div>
           </div>
-          {/*  */}
           <div className="lg:w-full items-center lg:col-span-2">
             <h1 className="font-winter text-6 w-full text-4xl lg:mt-4">
               Lomba Karya Tulis Ilmiah
             </h1>
-            {/* Sub Title */}
             <div className="w-full mt-5 flex flex-col gap-3">
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
-                <p className="text-sm">16 Desember 2024 - 26 Januari 2025</p>
+                <p className="text-sm">23 Desember 2024 - 30 Januari 2025</p>
               </div>
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
@@ -55,6 +64,7 @@ const karyatulisilmiah = () => {
                     href="https://wa.me/6281996716532"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="underline"
                   >
                     CP: +62 819-9671-6532 (Fajri)
                   </a>
@@ -81,7 +91,7 @@ const karyatulisilmiah = () => {
                 )
               }
             >
-              Daftar Tahap Selanjutnya
+              Daftar Tahap Lanjut
             </button>{" "}
           </div>
         </div>
@@ -116,7 +126,6 @@ const karyatulisilmiah = () => {
             </div>
           </div>
         </div>
-
         {/* Ketentuan Peserta */}
         <div className="w-full flex flex-col mt-5 gap-1 lg:mt-10">
           <h1 className="text-2xl font-winter uppercase">Ketentuan Peserta:</h1>
@@ -191,7 +200,7 @@ const karyatulisilmiah = () => {
                     )
                   }
                 >
-                  Surat Pernyataan Pendaftaran
+                  Surat Pernyataan
                 </button>{" "}
               </div>
               <ul className="list-disc pl-4">
@@ -204,7 +213,7 @@ const karyatulisilmiah = () => {
               <li className="text-wrap">
                 Berkas sebagaimana dimaksud dalam poin 1 dikirimkan dalam format
                 PDF melalui formulir pendaftaran yang dapat dilakukan melalui
-                website Aircon 2.0
+                Website Aircon 2.0
               </li>
               <li className="text-wrap">
                 Setelah mengirim berkas pendaftaran, ketua tim wajib melakukan
@@ -274,8 +283,12 @@ const karyatulisilmiah = () => {
                 Setiap tim diperkenankan membayar biaya pendaftaran sebesar:
               </li>
               <ol className="list-disc pl-4">
-                <li>Rp125.000,- untuk Gelombang 1 (9 - 17 Januari 2025)</li>
-                <li>Rp150.000,- untuk Gelombang 2 (18 - 26 Februari 2025)</li>
+                <li>
+                  Rp125.000,- untuk Gelombang 1 <br /> (16 - 23 Januari 2025)
+                </li>
+                <li>
+                  Rp150.000,- untuk Gelombang 2 <br /> (23 - 30 Januari 2025)
+                </li>
                 <li>
                   Untuk mengikuti tahap berikutnya. Biaya dapat dikirim melalui:
                   MANDIRI: 1420021866396 A.N. ARIKA TRI WULANDARI
@@ -317,7 +330,7 @@ const karyatulisilmiah = () => {
         <div className="w-1/3 py-[0.05rem] bg-black lg:w-full"></div>
         <a
           href="https://drive.google.com/drive/folders/1NjYSYYtaygay5H9q7jCGSjE0XBSU--Av?usp=drive_link"
-          className="w-1/3 text-sm font-bold"
+          className="w-1/3 text-sm font-bold animate-pulse underline"
         >
           Click to Download Full Guide Book
         </a>
@@ -380,4 +393,4 @@ const karyatulisilmiah = () => {
   );
 };
 
-export default karyatulisilmiah;
+export default KaryaTulisIlmiahPage;

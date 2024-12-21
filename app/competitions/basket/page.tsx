@@ -20,14 +20,14 @@ const karyatulisilmiah = () => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-10 lg:mt-3">
           <div className="flex flex-col justify-between items-start text-start gap-1 bg-[#1F519A] p-6 px-8 text-white rounded-xl relative overflow-clip w-full h-full mt-8 lg:col-span-1">
             <div className="p-3 rounded-full bg-[#D9D9D9]">
-              <Basketball size={35} className="text-black" />
+              <Basketball size={35} className="text-black animate-pulse" />
             </div>
             <Image
               src="/Basket.svg"
               width={200}
               height={200}
               alt="Basket"
-              className="absolute bottom-36 left-48 lg:left-80"
+              className="absolute bottom-36 left-48 lg:left-80 animate-pulse"
             ></Image>
             <h1 className="font-winter mt-5 text-2xl w-3/4 text-wrap lg:mt-1">
               Basket
@@ -52,11 +52,12 @@ const karyatulisilmiah = () => {
                 <PhoneCall size={28} />
                 <p className="text-sm">
                   <a
-                    href="https://wa.me/6281996716532"
+                    href="https://wa.me/6282298239601"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="underline"
                   >
-                    CP: +62 819-9671-6532 (Fajri)
+                    CP: +62 822-9823-9601 (Dame)
                   </a>
                 </p>
               </div>
@@ -235,7 +236,7 @@ const karyatulisilmiah = () => {
         <div className="w-1/3 py-[0.05rem] bg-black lg:w-full"></div>
         <a
           href="https://drive.google.com/drive/folders/1NwIrSHTdvjrQsZ7FzdGxF65ZtVPuwW6C?usp=drive_link"
-          className="w-1/3 text-sm font-bold"
+          className="w-1/3 text-sm font-bold underline animate-pulse"
         >
           Click to Download Full Guide Book
         </a>

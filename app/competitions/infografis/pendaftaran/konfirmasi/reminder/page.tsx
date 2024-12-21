@@ -12,10 +12,10 @@ const ConfirmationPage = () => {
             Haiii Conners !!!
           </h1>
           <div className="flex flex-col gap-3 mt-3">
-            <p className="text-sm lg:text-2xl">
+            <p className="text-md lg:text-2xl">
               Thank you sudah daftar yaaa...
             </p>
-            <p className="text-sm lg:text-2xl">
+            <p className="text-md lg:text-2xl">
               Selanjutnya bisa langsung <b>konfirmasi pendaftaran</b> ke{" "}
               <br className="lg:hidden" />
               <a
@@ -27,7 +27,22 @@ const ConfirmationPage = () => {
                 0857-0612-7776 (Echa)
               </a>
             </p>
-            <p className="text-sm lg:text-2xl">
+            <p className="text-md lg:text-2xl">
+              Dengan format “Konfirmasi Pendaftaran_Nama Lengkap Peserta_Asal
+              Sekolah”
+            </p>
+            <p className="text-md lg:text-2xl">
+              Dan <b>konfirmasi pembayaran</b> ke <br className="lg:hidden" />
+              <a
+                href="https://wa.me/6281996716532"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                0819-9671-6532 (Arika)
+              </a>
+            </p>
+            <p className="text-md lg:text-2xl">
               Dengan format “Konfirmasi Pendaftaran_Nama Lengkap Peserta_Asal
               Sekolah”
             </p>

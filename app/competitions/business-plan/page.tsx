@@ -20,14 +20,14 @@ const businessplan = () => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-10 lg:mt-3">
           <div className="flex flex-col justify-between items-start text-start gap-1 bg-[#1F519A] p-6 px-8 text-white rounded-xl relative overflow-clip w-full h-full mt-8 lg:col-span-1">
             <div className="p-3 rounded-full bg-[#D9D9D9]">
-              <Presentation size={35} className="text-black" />
+              <Presentation size={35} className="text-black animate-pulse" />
             </div>
             <Image
               src="/Businessplan.svg"
               width={200}
               height={200}
-              alt="KTI"
-              className="absolute bottom-48 left-40 lg:left-72 lg:bottom-40"
+              alt=""
+              className="absolute bottom-48 left-40 lg:left-72 lg:bottom-40 animate-pulse"
             ></Image>
             <h1 className="font-winter mt-5 text-2xl w-3/4 text-wrap lg:mt-1">
               Business Plan
@@ -57,8 +57,9 @@ const businessplan = () => {
                     href="https://wa.me/6281996716532"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="underline"
                   >
-                    CP: +62 819-9671-6532 (Fajri)
+                    CP: +62 819-9671-6532 (Salman)
                   </a>
                 </p>
               </div>
@@ -342,6 +343,7 @@ const businessplan = () => {
                   </li>
                 </ul>
               </li>
+              <br />
               <li className="text-wrap">
                 <b>Semifinal: Proposal</b>
                 <ul
@@ -421,6 +423,7 @@ const businessplan = () => {
                   </li>
                 </ul>
               </li>
+              <br />
               <li className="text-wrap">
                 <b>Final: Pitching</b>
                 <ul
@@ -478,7 +481,7 @@ const businessplan = () => {
         <div className="w-1/3 py-[0.05rem] bg-black lg:w-full"></div>
         <a
           href="https://drive.google.com/drive/folders/1Sag9w3kr-2g69IB4etkaThmu5nxePqcI?usp=sharing"
-          className="w-1/3 text-sm font-bold"
+          className="w-1/3 text-sm font-bold underline"
         >
           Click to Download Full Guide Book
         </a>

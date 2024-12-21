@@ -2,6 +2,7 @@ import React from "react";
 import BackButton from "../components/BackButton";
 import Image from "next/image";
 import SupporterCard from "../components/supporter/SupporterCard";
+import ComingSoon from "../components/ComingSoon";
 
 const SupporterPage = () => {
   return (

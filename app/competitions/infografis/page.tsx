@@ -6,7 +6,7 @@ import Image from "next/image";
 import { CalendarDots, PhoneCall } from "@phosphor-icons/react/dist/ssr";
 import { Newspaper } from "@phosphor-icons/react";
 
-const karyatulisilmiah = () => {
+const infografis = () => {
   const router = useRouter();
 
   return (
@@ -17,14 +17,14 @@ const karyatulisilmiah = () => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-10 lg:mt-3">
           <div className="flex flex-col justify-between items-start text-start gap-1 bg-[#1F519A] p-6 px-8 text-white rounded-xl relative overflow-clip w-full h-full mt-8 lg:col-span-1">
             <div className="p-3 rounded-full bg-[#D9D9D9]">
-              <Newspaper size={35} className="text-black" />
+              <Newspaper size={35} className="text-black animate-pulse" />
             </div>
             <Image
               src="/Infografis.svg"
               width={200}
               height={200}
               alt="KTI"
-              className="absolute bottom-32 left-52 lg:left-80"
+              className="absolute bottom-32 left-52 lg:left-80 animate-bounce"
             ></Image>
             <h1 className="font-winter mt-5 text-2xl w-3/4 text-wrap lg:mt-1">
               Infografis
@@ -39,12 +39,12 @@ const karyatulisilmiah = () => {
           </div>
           <div className="lg:w-full items-center lg:col-span-2">
             <h1 className="font-winter text-6 w-full text-4xl lg:mt-4">
-              Lomba Infografis
+              Lomba Poster Infografis
             </h1>
             <div className="w-full mt-5 flex flex-col gap-3">
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
-                <p className="text-sm">16 Desember 2024 - 25 Januari 2025</p>
+                <p className="text-sm">23 Desember 2024 - 8 Januari 2025</p>
               </div>
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
@@ -53,6 +53,7 @@ const karyatulisilmiah = () => {
                     href="https://wa.me/6285706127776"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="underline"
                   >
                     CP: +62 857-0612-7776 (Echa)
                   </a>
@@ -175,7 +176,7 @@ const karyatulisilmiah = () => {
                         )
                       }
                     >
-                      Surat Pernyataan Orisinalitas
+                      Pernyataan Orisinalitas
                     </button>{" "}
                   </div>
                 </li>
@@ -193,7 +194,7 @@ const karyatulisilmiah = () => {
               </li>
               <li className="text-wrap">
                 Berkas sebagaimana dimaksud dalam poin 1 dikirimkan melalui
-                formulir pendaftaran yang dapat dilakukan melalui website Aircon
+                formulir pendaftaran yang dapat dilakukan melalui Website Aircon
                 2.0
               </li>
               <li className="text-wrap">
@@ -202,8 +203,8 @@ const karyatulisilmiah = () => {
                 dan tangkapan layar sudah mengirim Google form kepada CP:
                 085706127776 (ECHA) maksimal H+1 setelah melakukan pendaftaran
                 dengan format “Konfirmasi Pendaftaran_Nama Lengkap Peserta_Asal
-                Instansi” paling lambat pada tanggal 30 Desember 2024 untuk
-                gelombang I dan 1 Januari 2025 untuk gelombang II pukul 23.59
+                Instansi” paling lambat pada tanggal 4 Januari 2025 untuk
+                gelombang I dan 18 Januari 2025 untuk gelombang II pukul 23.59
                 WIB. Contoh: Konfirmasi Pendaftaran_Nama Lengkap_Asal Sekolah
               </li>
               <li>
@@ -228,9 +229,7 @@ const karyatulisilmiah = () => {
         </div>
         {/* Ketentuan Pendaftaran Tahap Lanjut (Full Paper) */}
         <div className="w-full flex flex-col mt-5 gap-1">
-          <h1 className="text-2xl font-winter uppercase">
-            Ketentuan Infografis:
-          </h1>
+          <h1 className="text-2xl font-winter uppercase">Ketentuan Poster:</h1>
           <div className="flex flex-col w-full gap-1">
             <ol className="list-decimal pl-5 flex flex-col gap-1">
               <li className="text-wrap">
@@ -304,8 +303,8 @@ const karyatulisilmiah = () => {
                 className="list-disc pl-4"
                 style={{ listStyleType: "lower-alpha" }}
               >
-                <li>Gelombang I: 16 - 30 Desember 2024</li>
-                <li>Gelombang II: 31 Desember - 6 Januari 2025</li>
+                <li>Gelombang I: 23 Desember 2024 - 4 Januari 2025</li>
+                <li>Gelombang II: 5 - 18 Januari 2025</li>
               </ol>
               <li>
                 Pengisian formulir melalui Website Airlangga Convention 2.0
@@ -336,7 +335,7 @@ const karyatulisilmiah = () => {
                 Konfirmasi Pendaftaran_Nama Lengkap_Asal Sekolah
               </li>
               <li>
-                Karya diserahkan paling lambat 12 Januari 2025 pukul 23.59 WIB
+                Karya diserahkan paling lambat 25 Januari 2025 pukul 23.59 WIB
               </li>
             </ol>
           </div>
@@ -347,7 +346,7 @@ const karyatulisilmiah = () => {
         <div className="w-1/3 py-[0.05rem] bg-black lg:w-full"></div>
         <a
           href="https://drive.google.com/drive/folders/1NqIQwkzro_ga1eRvAiQqKyVlCbKIsZn9?usp=drive_link"
-          className="w-1/3 text-sm font-bold"
+          className="w-1/3 text-sm font-bold underline animate-pulse"
         >
           Click to Download Full Guide Book
         </a>
@@ -385,4 +384,4 @@ const karyatulisilmiah = () => {
   );
 };
 
-export default karyatulisilmiah;
+export default infografis;
