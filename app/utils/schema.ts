@@ -46,3 +46,12 @@ export const documentSchema10 = z
   .refine((file) => file.size < 10 * 1024 * 1024, {
     message: "Ukuran dokumen harus kurang dari 10MB",
   });
+
+export const buktiSchema = z
+  .instanceof(File)
+  .refine((file) => /^image\/(jpeg|png|gif)$/.test(file.type), {
+    message: "Dokumen invalid",
+  })
+  .refine((file) => file.size < 5 * 1024 * 1024, {
+    message: "Ukuran dokumen harus kurang dari 5MB",
+  });

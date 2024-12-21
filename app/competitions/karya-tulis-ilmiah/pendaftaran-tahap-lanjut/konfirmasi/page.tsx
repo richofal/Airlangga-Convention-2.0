@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import BackButton from "@/app/components/BackButton";
 import { KTILanjut } from "@prisma/client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { documentSchema5 } from "@/app/utils/schema";
+import { buktiSchema } from "@/app/utils/schema";
 
 interface Files {
   name: string;
@@ -31,7 +31,9 @@ const ConfirmationPage = () => {
       });
   }, [data]);
 
-  const onSubmit = () => {
+  const onSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
     const formData = new FormData();
 
     if (!data) return;
@@ -44,7 +46,7 @@ const ConfirmationPage = () => {
     }
 
     files?.forEach((file) => {
-      const validate = documentSchema5.safeParse(file.file);
+      const validate = buktiSchema.safeParse(file.file);
       if (validate.success) {
         formData.append(file.name, file.file);
       } else {

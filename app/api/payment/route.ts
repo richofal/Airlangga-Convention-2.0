@@ -17,7 +17,14 @@ export async function POST(req: NextRequest) {
     await bukti_pembayaran.arrayBuffer()
   );
 
-  const uploadDir = join(process.cwd(), "public", "uploads", lomba, nama);
+  const uploadDir = join(
+    process.cwd(),
+    "public",
+    "uploads",
+    lomba,
+    "bukti_pembayaran",
+    nama
+  );
 
   try {
     await stat(uploadDir);

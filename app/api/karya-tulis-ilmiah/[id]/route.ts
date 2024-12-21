@@ -5,10 +5,11 @@ const prisma = new PrismaClient();
 
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { id: string } }
+  props: { params: Promise<{ id: string }> }
 ) {
+  const params = await props.params;
   try {
-    const tickets = await prisma.kTIAwal.findFirst({
+    const tickets = await prisma.kTILanjut.findFirst({
       where: {
         id: params.id,
       },
