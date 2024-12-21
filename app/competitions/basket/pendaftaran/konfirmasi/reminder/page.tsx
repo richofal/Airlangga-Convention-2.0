@@ -13,12 +13,11 @@ const ConfirmationPage = () => {
           </h1>
           <div className="flex flex-col gap-3 mt-3">
             {" "}
-            <p className="text-sm lg:text-2xl">
+            <p className="text-md lg:text-2xl">
               Thank you sudah daftar yaaa...
             </p>
-            <p className="text-sm lg:text-2xl">
+            <p className="text-md lg:text-2xl">
               Selanjutnya bisa langsung <b>konfirmasi pembayaran</b> ke{" "}
-              <br className="lg:hidden" />
               <a
                 href="https://wa.me/6287818043080"
                 target="_blank"

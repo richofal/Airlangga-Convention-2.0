@@ -67,8 +67,11 @@ const AboutUs = () => {
               />
             </div>
             <div className="mt-5 flex flex-col justify-center gap-5 w-1/2">
+              <p className="text-8xl mt-3 lg:text-start font-winter">
+                About Us
+              </p>
               <p className="text-xl font-medium lg:text-2xl">
-                Hello Conners!! Kalian pasti bertanya-tanya apa sih AIRCON itu
+                Hello Conners! Kalian pasti bertanya-tanya apa sih AIRCON itu
                 (Airlangga Convention)?
               </p>
               <p className="text-xl font-medium lg:text-2xl">

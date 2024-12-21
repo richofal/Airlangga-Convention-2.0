@@ -20,14 +20,14 @@ const karyatulisilmiah = () => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-10 lg:mt-3">
           <div className="flex flex-col justify-between items-start text-start gap-1 bg-[#1F519A] p-6 px-8 text-white rounded-xl relative overflow-clip w-full h-full mt-8 lg:col-span-1">
             <div className="p-3 rounded-full bg-[#D9D9D9]">
-              <GameController size={35} className="text-black" />
+              <GameController size={35} className="text-black animate-pulse" />
             </div>
             <Image
               src="/ML.svg"
               width={200}
               height={200}
               alt="ML"
-              className="absolute bottom-32 left-52 lg:left-80"
+              className="absolute bottom-32 left-52 lg:left-80 animate-bounce"
             ></Image>
             <h1 className="font-winter mt-5 text-2xl w-3/4 text-wrap lg:mt-1">
               Mobile Legends
@@ -53,6 +53,7 @@ const karyatulisilmiah = () => {
                     href="https://wa.me/6287855601664"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="underline"
                   >
                     CP: +62 878-5560-1664 (Fandi)
                   </a>
@@ -274,7 +275,7 @@ const karyatulisilmiah = () => {
         <div className="w-1/3 py-[0.05rem] bg-black lg:w-full"></div>
         <a
           href="https://drive.google.com/drive/folders/1NvbVhu5a2-MtYutROCxHTkXxi9fb2TD6?usp=drive_link"
-          className="w-1/3 text-sm font-bold"
+          className="w-1/3 text-sm font-bold underline animate-pulse"
         >
           Click to Download Full Guide Book
         </a>
