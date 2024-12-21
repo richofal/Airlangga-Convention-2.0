@@ -2,7 +2,13 @@
 import React, { Suspense, useEffect, useState } from "react";
 import BackButton from "@/app/components/BackButton";
 import { KTILanjut } from "@prisma/client";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { documentSchema5 } from "@/app/utils/schema";
+
+interface Files {
+  name: string;
+  file: File;
+}
 
 const ConfirmationPage = () => {
   const searchParams = useSearchParams();
@@ -10,6 +16,10 @@ const ConfirmationPage = () => {
   const [data, setData] = useState<KTILanjut>();
   const [isLoading, setIsLoading] = useState(true);
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [files, setFiles] = useState<Files[]>([]);
+  const [fileValid, setFileValid] = useState(true);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (!id) return;
@@ -21,12 +31,54 @@ const ConfirmationPage = () => {
       });
   }, [data]);
 
+  const onSubmit = () => {
+    const formData = new FormData();
+
+    if (!data) return;
+
+    formData.append("nama", data.nama_tim);
+    formData.append("lomba", "karya-tulis-ilmiah");
+
+    for (const key in data) {
+      formData.append(key, data[key as keyof typeof data] as string);
+    }
+
+    files?.forEach((file) => {
+      const validate = documentSchema5.safeParse(file.file);
+      if (validate.success) {
+        formData.append(file.name, file.file);
+      } else {
+        setFileValid(false);
+        alert("Salah satu file tidak valid atau melebihi batas ukuran");
+      }
+    });
+    if (fileValid) {
+      fetch("/api/payment", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          router.push(
+            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi/reminder`
+          );
+        })
+        .catch((error) => {
+          console.error("Error Upload:", error);
+        });
+    }
+  };
+
   return (
     <div className="mx-8 mt-5 lg:mx-28">
       <BackButton></BackButton>
       <div className="flex flex-col lg:flex-row lg:gap-10">
         <div className="w-full lg:w-1/2">
-          <form action="" className="mt-5 w-full flex flex-col gap-6">
+          <form
+            action="post"
+            className="mt-5 w-full flex flex-col gap-6"
+            onSubmit={onSubmit}
+          >
             <h1 className="text-2xl font-bold lg:text-4xl">
               Konfirmasi Pembayaran
             </h1>
@@ -86,20 +138,26 @@ const ConfirmationPage = () => {
             </div>
             <div className="w-full flex flex-col items-start lg:text-xl">
               <div className="flex flex-col w-full gap-1">
-                <label htmlFor="ktpFile">
+                <label htmlFor="bukti_pembayaran">
                   Bukti Pembayaran* <br /> Note: Format PDF/gambar (size limit 5
                   MB)
                 </label>
                 <input
+                  id="bukti_pembayaran"
                   type="file"
-                  name="ktpFile"
+                  name="bukti_pembayaran"
                   className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white"
-                  accept=".pdf,image/*"
+                  accept="image/*"
+                  required
                   onChange={(e) => {
                     const file = e.target.files?.[0];
-                    if (file && file.size > 5 * 1024 * 1024) {
-                      alert("File size exceeds 5 MB");
-                      e.target.value = "";
+                    if (file) {
+                      setFiles([
+                        {
+                          name: "bukti_pembayaran",
+                          file: file,
+                        },
+                      ]);
                     }
                   }}
                 />
@@ -123,15 +181,7 @@ const ConfirmationPage = () => {
             </div>
             <button
               className="bg-black text-white px-5 py-2 rounded-lg flex flex-row justify-center items-center mt-0 w-1/4"
-              onClick={(e) => {
-                e.preventDefault();
-                try {
-                  window.location.href =
-                    "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi/reminder";
-                } catch (error) {
-                  console.error("Navigation error:", error);
-                }
-              }}
+              type="submit"
             >
               DAFTAR
             </button>
