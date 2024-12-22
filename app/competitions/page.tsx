@@ -27,9 +27,10 @@ const Competition = () => {
       title: "Try Out & Tour",
       price: (
         <>
-          Rp70.000,00 /orang (Gelombang 1) <br />
+          Coming Soon
+          {/* Rp70.000,00 /orang (Gelombang 1) <br />
           Rp85.000,00 /orang (Gelombang 2) <br />
-          Rp100.000,00 /orang (Gelombang 3)
+          Rp100.000,00 /orang (Gelombang 3) */}
         </>
       ),
       imageSrc: "/Tryout.svg",
@@ -47,7 +48,7 @@ const Competition = () => {
       title: "Business Plan",
       price: (
         <>
-          Rp50.000,00 /tim (Early Bid) <br />
+          Rp50.000,00 /tim (Early Bird) <br />
           Rp60.000,00 /tim (Batch 1) <br />
           Rp75.000,00 /tim (Batch 2)
         </>

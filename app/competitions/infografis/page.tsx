@@ -112,7 +112,7 @@ const infografis = () => {
             >
               <li className="text-wrap">
                 Peserta merupakan siswa/i SMA atau SMK sederajat dari kelas X,
-                XI, dan XII se-Jawa Timur, yang masih <b>AKTIF</b> dengan
+                XI, dan XII se-Indonesia, yang masih <b>AKTIF</b> dengan
                 dibuktikan dengan <i>scan</i> Kartu Pelajar atau Surat
                 Keterangan Pelajar dari Kepala Sekolah yang bersangkutan
               </li>
@@ -198,14 +198,19 @@ const infografis = () => {
                 2.0
               </li>
               <li className="text-wrap">
-                Setelah mengirim berkas pendaftaran dan melakukan pembayaran,
-                peserta wajib melakukan konfirmasi dan mengirim bukti transfer
-                dan tangkapan layar sudah mengirim Google form kepada CP:
-                085706127776 (ECHA) maksimal H+1 setelah melakukan pendaftaran
-                dengan format “Konfirmasi Pendaftaran_Nama Lengkap Peserta_Asal
-                Instansi” paling lambat pada tanggal 4 Januari 2025 untuk
-                gelombang I dan 18 Januari 2025 untuk gelombang II pukul 23.59
-                WIB. Contoh: Konfirmasi Pendaftaran_Nama Lengkap_Asal Sekolah
+                <ul className="list-none">
+                  <li>
+                    Setelah mengirim berkas pendaftaran dan melakukan
+                    pembayaran, peserta wajib melakukan konfirmasi dan mengirim
+                    bukti transfer dan tangkapan layar sudah mengirim Google
+                    form kepada CP: 085706127776 (ECHA) maksimal H+1 setelah
+                    melakukan pendaftaran <br />- Dengan format “Konfirmasi
+                    Pendaftaran_Nama Lengkap Peserta_Asal Sekolah” <br />-
+                    Contoh: Konfirmasi Pendaftaran_Nama Lengkap Peserta_Asal
+                    Sekolah <br />- Paling lambat jam 23.59 sesuai dengan
+                    ketentuan timeline yang tertera
+                  </li>
+                </ul>
               </li>
               <li>
                 Biaya yang telah dibayarkan tidak dapat dikembalikan dengan
