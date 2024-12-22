@@ -84,7 +84,7 @@ const KaryaTulisIlmiahPage = () => {
             </button>{" "}
             <br />
             <button
-              className="px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
+              className="hidden px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
               onClick={() =>
                 router.push(
                   "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut"
