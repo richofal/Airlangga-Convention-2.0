@@ -165,6 +165,22 @@ const CompetitionPage = () => {
                       />
                     </div>
                   </div>
+                  <div className="flex flex-col w-full gap-1">
+                    <label htmlFor="ktpFile">MoU*</label>
+                    <input
+                      type="file"
+                      name="ktpFile"
+                      className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white"
+                      accept=".pdf,image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file && file.size > 5 * 1024 * 1024) {
+                          alert("File size exceeds 5 MB");
+                          e.target.value = "";
+                        }
+                      }}
+                    />
+                  </div>
                 </>
               ) : null}
               {step === 1 ? <></> : null}

@@ -52,12 +52,21 @@ const karyatulisilmiah = () => {
                 <PhoneCall size={28} />
                 <p className="text-sm">
                   <a
-                    href="https://wa.me/6282298239601"
+                    href="https://wa.me/6285748800919"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline"
                   >
-                    CP: +62 822-9823-9601 (Dame)
+                    CP: +62 857-4880-0919 (Nayla)
+                  </a>
+                  {""} <br /> {""}
+                  <a
+                    href="https://wa.me/6283862350699"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    CP: +62 838-6235-0699 (Tasya)
                   </a>
                 </p>
               </div>
@@ -101,8 +110,8 @@ const karyatulisilmiah = () => {
                 Rp400.000,-
               </li>
               <li className="text-wrap">
-                Pendaftaran dilakukan pada tanggal 15 Desember 2023 - 10 Januari
-                2024 dengan menyertakan syarat-syarat sebagai berikut dikirim
+                Pendaftaran dilakukan pada tanggal 23 Desember 2024 - 19 Januari
+                2025 dengan menyertakan syarat-syarat sebagai berikut dikirim
                 melalui google form:
                 <ul
                   className="list-alpha pl-5"
@@ -126,7 +135,7 @@ const karyatulisilmiah = () => {
                     className="px-4 py-1 border border-black bg-white rounded-md m-2"
                     onClick={() =>
                       window.open(
-                        "https://bit.ly/SuratPernyataanLombaBasketAIRCON",
+                        "https://docs.google.com/document/d/1-7old6mLxIeizdZBVgwoB4p1N5HLWNKRRs-oa1cRmCw/edit?usp=sharing",
                         "_blank"
                       )
                     }
@@ -141,8 +150,8 @@ const karyatulisilmiah = () => {
                     bagi seluruh pemain
                   </li>
                   <li>
-                    Menyertakan foto terbaru berwarna 3:4 sebanyak 3 lembar bagi
-                    seluruh pemain dan Official
+                    Menyertakan foto terbaru berwarna background merah 3:4
+                    sebanyak 3 lembar bagi seluruh pemain dan Official
                   </li>
                 </ul>
               </li>
@@ -216,7 +225,7 @@ const karyatulisilmiah = () => {
               <ol>
                 <li>
                   Untuk menghadiri Technical Meeting yang diadakan pada tanggal
-                  13 Januari 2025 di GKB Kampus C Universitas Airlangga. Jika
+                  31 Januari 2025 di GKB Kampus C Universitas Airlangga. Jika
                   tidak adanya perwakilan dari setiap tim, maka tim yang
                   bersangkutan dianggap menyetujui dan harus melaksanakan semua
                   keputusan dan kesepakatan yang dihasilkan pada saat Technical
@@ -226,6 +235,23 @@ const karyatulisilmiah = () => {
               <li>
                 Ketika sudah melakukan pendaftaran, tidak ada refund
                 (pengembalian uang)
+              </li>
+              <li className="text-wrap">
+                Supporter basket wajib memenuhi Regulasi Supporter Airlangga
+                Convention 2.0:
+                <ul className="list-none">
+                  <button
+                    className="px-4 py-1 border border-black bg-white rounded-md m-2"
+                    onClick={() =>
+                      window.open(
+                        "https://docs.google.com/document/d/1t3yNT0m_o-egJz2SP8__YXQxcrj2lguhozSwYaaoIRg/edit?usp=sharing",
+                        "_blank"
+                      )
+                    }
+                  >
+                    Regulasi Supporter
+                  </button>{" "}
+                </ul>
               </li>
             </ol>
           </div>

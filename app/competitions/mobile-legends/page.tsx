@@ -27,7 +27,7 @@ const karyatulisilmiah = () => {
               width={200}
               height={200}
               alt="ML"
-              className="absolute bottom-32 left-52 lg:left-80 animate-bounce"
+              className="absolute bottom-32 left-52 lg:left-80 lg:bottom-20 animate-bounce"
             ></Image>
             <h1 className="font-winter mt-5 text-2xl w-3/4 text-wrap lg:mt-1">
               Mobile Legends
@@ -42,20 +42,20 @@ const karyatulisilmiah = () => {
               Lomba Mobile Legends
             </h1>
             <div className="w-full mt-5 flex flex-col gap-3">
-              <div className="w-full flex flex-row justify-start items-center gap-2">
+              {/* <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
                 <p className="text-sm">25 Desember 2024 - 25 Januari 2025</p>
-              </div>
+              </div> */}
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
                 <p className="text-sm">
                   <a
-                    href="https://wa.me/6287855601664"
+                    href="https://wa.me/6285141168633"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline"
                   >
-                    CP: +62 878-5560-1664 (Fandi)
+                    CP: +62 851-4116-8633 (Daniel)
                   </a>
                 </p>
               </div>
@@ -71,10 +71,37 @@ const karyatulisilmiah = () => {
             </button>{" "}
           </div>
         </div>
-        {/* Persayaratan Umum Peserta */}
+        {/* Waktu dan Tempat Perlombaan */}
         <div className="w-full flex flex-col mt-5 gap-1 lg:mt-10">
           <h1 className="text-2xl font-winter uppercase">
-            Persayaratan Umum Peserta:
+            Waktu dan Tempat Perlombaan:
+          </h1>
+          <div className="flex flex-col w-full gap-1">
+            <ol
+              className="list-decimal pl-5 flex flex-col gap-1"
+              style={{ listStyleType: "lower-alpha" }}
+            >
+              <li className="text-wrap">
+                Technical Meeting: Dilaksanakan secara online pada Sabtu, 8
+                Februari 2025
+              </li>
+              <li className="text-wrap">
+                Lomba Onsite:
+                <ol
+                  className="list-decimal pl-5"
+                  style={{ listStyleType: "lower-roman" }}
+                >
+                  <li>Babak Penyisihan: Sabtu, 15 Februari 2025</li>
+                  <li>Babak Semifinal dan Final: Minggu, 16 Februari 2025</li>
+                </ol>
+              </li>
+            </ol>
+          </div>
+        </div>
+        {/* Persayaratan Umum Peserta */}
+        <div className="w-full flex flex-col mt-5 gap-1">
+          <h1 className="text-2xl font-winter uppercase">
+            Persyaratan Umum Peserta:
           </h1>
           <div className="flex flex-col w-full gap-1">
             <ol
@@ -82,27 +109,29 @@ const karyatulisilmiah = () => {
               // style={{ listStyleType: "lower-alpha" }}
             >
               <li className="text-wrap">
-                Peserta merupakan siswa SMA/SMK aktif yang dibuktikan dengan
-                kartu pelajar saat melakukan registrasi
+                Peserta merupakan siswa SMA/SMK aktif, dibuktikan dengan kartu
+                pelajar yang wajib ditunjukkan saat registrasi
               </li>
               <li className="text-wrap">
-                Peserta yang tidak terdaftar pada registrasi, tidak boleh ikut
-                serta
+                Peserta yang tidak terdaftar pada registrasi tidak diperbolehkan
+                ikut serta dalam turnamen
               </li>
               <li className="text-wrap">
-                Dilarang menggunakan nama tim dan nickname yang mengandung SARA
+                Nama tim dan nickname tidak boleh mengandung unsur SARA,
+                provokasi, atau hal yang melanggar norma
               </li>
               <li className="text-wrap">
-                Dilarang menggunakan alat bantu apapun (cheat, bug, gamepad,
-                sarung jari, bedak, dan sejenisnya)
+                Peserta dilarang menggunakan alat bantu yang dapat memengaruhi
+                keseimbangan pertandingan, seperti drone view atau alat ilegal
+                lainnya
               </li>
               <li className="text-wrap">
                 Setiap tim maksimal 6 peserta (5 pemain inti dan 1 pemain
                 cadangan)
               </li>
               <li className="text-wrap">
-                1 peserta hanya boleh mendaftarkan diri dengan 1 akun atau
-                nickname dan hanya boleh bergabung dalam 1 tim
+                Seorang peserta hanya boleh terdaftar pada 1 akun/nickname dan 1
+                tim
               </li>
               <li className="text-wrap">
                 Keputusan panitia bersifat mutlak dan tidak dapat diganggu gugat
@@ -119,39 +148,33 @@ const karyatulisilmiah = () => {
               // style={{ listStyleType: "lower-alpha" }}
             >
               <li className="text-wrap">
-                Perwakilan dari tim dapat melakukan pendaftaran dan pembayaran
-                pada saat registrasi
+                Perwakilan tim melakukan pendaftaran dan pembayaran pada saat
+                registrasi
               </li>
               <li>
-                Perwakilan tim mengisi formulir pendaftaran pada link
-                pendaftaran secara lengkap dan benar
+                Formulir pendaftaran diisi melalui link pendaftaran dengan
+                lengkap dan benar
               </li>
               <li>
-                Nama peserta 1 merupakan ketua tim yang akan dimasukkan ke grup
-                peserta oleh panitia
+                Nama Peserta 1 (ketua tim) akan dimasukkan ke grup peserta oleh
+                panitia untuk menerima informasi terkait lomba/turnamen
               </li>
               <li>
-                Segala informasi terkait lomba / turnamen akan disampaikan
-                kepada perwakilan tim melalui grup peserta
+                Username/nickname akun yang didaftarkan tidak boleh diubah
+                setelah registrasi selesai
               </li>
               <li>
-                Username/nickname akun yang telah didaftarkan tidak boleh diubah
-              </li>
-              <li>
-                Pada saat permainan berlangsung, username yang digunakan harus
-                sesuai dengan yang didaftarkan
-              </li>
-              <li>
-                Username yang tidak sesuai dengan yang didaftarkan, akan di
-                diskualifikasi
+                Pada saat pertandingan, username yang digunakan harus sesuai
+                dengan yang terdaftar. Username yang tidak sesuai akan
+                menyebabkan diskualifikasi tim
               </li>
             </ol>
           </div>
         </div>
-        {/* SISTEM PERTANDINGAN (ONLINE) */}
+        {/* Sistem Pertandingan (Full Online) */}
         <div className="w-full flex flex-col mt-5 gap-1">
           <h1 className="text-2xl font-winter uppercase">
-            SISTEM PERTANDINGAN (ONLINE):
+            Sistem Pertandingan (Full Online):
           </h1>
           <div className="flex flex-col w-full gap-1">
             <ol
@@ -159,67 +182,95 @@ const karyatulisilmiah = () => {
               // style={{ listStyleType: "lower-alpha" }}
             >
               <li className="text-wrap">
-                Babak penyisihan 64 tim akan dilakukan secara online
+                Babak Penyisihan hingga Final:
+                <ul className="list-disc pl-5">
+                  <li>
+                    Semua pertandingan, mulai dari babak penyisihan hingga
+                    final, akan dilaksanakan secara offline
+                  </li>
+                  <li>
+                    Babak Penyisihan akan dilaksanakan pada Hari 1, sementara 4
+                    Besar hingga Final akan dilaksanakan pada Hari 2
+                  </li>
+                  <li>
+                    Jadwal pertandingan akan diinformasikan lebih lanjut melalui
+                    perwakilan tim oleh panitia.Sistem pertandingan menggunakan
+                    mode custom room
+                  </li>
+                </ul>
               </li>
               <li className="text-wrap">
-                Jadwal pertandingan akan diinfokan lebih lanjut melalui grup
-                peserta (WhatsApp)
+                Kehadiran Peserta:
+                <ul className="list-disc pl-5">
+                  <li>
+                    Seluruh tim wajib hadir secara onsite sesuai dengan jadwal
+                    yang telah ditentukan
+                  </li>
+                  <li>Batas keterlambatan adalah 15 menit</li>
+                  <li>
+                    Tim yang terlambat hadir hingga waktu yang ditentukan akan
+                    didiskualifikasi
+                  </li>
+                  <li>
+                    Tim yang anggotanya tidak lengkap hingga waktu pertandingan
+                    dimulai tetap harus bermain dengan anggota yang tersedia
+                    (seadanya) tanpa ada penundaan jadwal
+                  </li>
+                </ul>
               </li>
               <li>
-                Peserta wajib mengunggah tangkapan layar lobby ke grup
-                masing-masing
+                Sistem Pertandingan:
+                <ul className="list-disc pl-5">
+                  <li>
+                    Pertandingan akan menggunakan mode custom room, dengan room
+                    dibuat oleh panitia
+                  </li>
+                  <li>
+                    Arahan akan diberikan oleh panitia sebelum pertandingan
+                    dimulai
+                  </li>
+                  <li>
+                    Sistem pertandingan:
+                    <ul className="list-none">
+                      <li>
+                        - BO1 (Best of 1): Untuk semua pertandingan di babak
+                        penyisihan
+                      </li>
+                      <li>
+                        - BO3 (Best of 3): Untuk pertandingan di 4 Besar dan
+                        Semifinal
+                      </li>
+                      <li>- BO5 (Best of 5): Untuk pertandingan Final</li>
+                    </ul>
+                  </li>
+                </ul>
               </li>
               <li>
-                After match, peserta wajib mengunggah tangkapan layar hasil
-                tanding ke grup masing-masing maksimal 10 menit setelah
-                pertandingan berakhir
+                Tangkapan Layar dan Laporan Hasil Pertandingan:
+                <ul className="list-disc pl-5">
+                  <li>
+                    Setelah pertandingan selesai, panitia akan mendokumentasikan
+                    hasil pertandingan secara langsung
+                  </li>
+                  <li>
+                    Tim peserta tidak perlu mengunggah tangkapan layar ke grup
+                    karena seluruh pengawasan dilakukan onsite oleh panitia
+                  </li>
+                </ul>
               </li>
               <li>
-                Batas keterlambatan 15 menit. Bagi tim yang terlambat join atau
-                anggotanya tidak lengkap akan di diskualifikasi
-              </li>
-              <li>Sistem yang digunakan adalah sistem gugur</li>
-              <li>Sistem pertandingan menggunakan mode custom room</li>
-              <li>
-                Tiap tim membuat custom room sendiri dan langsung memulai
-                pertandingan apabila sudah diberikan arahan oleh panitia
-              </li>
-              <li>
-                Sistem pertandingan yang digunakan adalah BO (best of) untuk
-                babak penyisihan
-              </li>
-            </ol>
-          </div>
-        </div>
-        <div className="w-full flex flex-col mt-5 gap-1">
-          <h1 className="text-2xl font-winter uppercase">
-            SISTEM PERTANDINGAN (ONSITE):
-          </h1>
-          <div className="flex flex-col w-full gap-1">
-            <ol
-              className="list-decimal pl-5 flex flex-col gap-1"
-              // style={{ listStyleType: "lower-alpha" }}
-            >
-              <li className="text-wrap">
-                Tim yang termasuk dalam penyisihan semifinal sampai final harus
-                hadir secara onsite
-              </li>
-              <li className="text-wrap">
-                Jadwal pertandingan akan diinfokan lebih lanjut melalui
-                perwakilan tim
-              </li>
-              <li>Peserta harus hadir sesuai jadwal</li>
-              <li>
-                Batas keterlambatan 15 menit. Bagi tim yang terlambat atau
-                anggotanya tidak lengkap akan di diskualifikasi
-              </li>
-              <li>
-                Sistem pertandingan menggunakan mode custom room. Room akan
-                dibuat oleh panitia
-              </li>
-              <li>
-                Sistem pertandingan yang digunakan adalah BO (best of) untuk
-                babak penyisihan
+                Ketentuan Lain:
+                <ul className="list-disc pl-5">
+                  <li>
+                    Tim wajib mematuhi semua arahan panitia selama pertandingan
+                    berlangsung
+                  </li>
+                  <li>
+                    Segala bentuk pelanggaran seperti keterlambatan atau
+                    ketidakhadiran tim tanpa alasan yang jelas akan dikenakan
+                    sanksi sesuai aturan yang berlaku
+                  </li>
+                </ul>
               </li>
             </ol>
           </div>
@@ -229,43 +280,70 @@ const karyatulisilmiah = () => {
             PERLENGKAPAN DAN PERATURAN PERTANDINGAN:
           </h1>
           <div className="flex flex-col w-full gap-1">
-            <ol
-              className="list-decimal pl-5 flex flex-col gap-1"
-              // style={{ listStyleType: "lower-alpha" }}
-            >
+            <ol className="list-decimal pl-5 flex flex-col gap-1">
               <li className="text-wrap">
-                Pemain diwajibkan memakai pakaian yang berlengan dan celana
-                panjang, serta bersepatu
+                Perlengkapan:
+                <ul
+                  className="list-none pl-5"
+                  style={{ listStyleType: "lower-alpha" }}
+                >
+                  <li>
+                    Pemain wajib memakai pakaian yang berlengan, celana panjang,
+                    dan bersepatu selama pertandingan berlangsung
+                  </li>
+                  <li>
+                    Tim diwajibkan membawa headset dan charger masing-masing
+                  </li>
+                  <li>
+                    Tim dianjurkan membawa kabel ekstensi (kabel olor) untuk
+                    kebutuhan daya
+                  </li>
+                </ul>
               </li>
               <li className="text-wrap">
-                Setiap tim diwajibkan membawa headset serta charger sendiri
+                Peraturan:
+                <ul
+                  className="list-none pl-5"
+                  style={{ listStyleType: "lower-alpha" }}
+                >
+                  <li>
+                    Seluruh pertandingan hanya menggunakan perangkat HP
+                    (smartphone). Penggunaan iPad atau tablet tidak
+                    diperbolehkan
+                  </li>
+                  <li>
+                    Cheat dan hack dalam bentuk apa pun tidak diperkenankan
+                  </li>
+                  <li>
+                    Seluruh masalah terkait device pribadi menjadi tanggung
+                    jawab masing-masing peserta, bukan panitia
+                  </li>
+                  <li>
+                    Dilarang melakukan chat all selama pertandingan berlangsung
+                  </li>
+                  <li>Recall/taunting diperbolehkan</li>
+                  <li>
+                    Diperbolehkan berkomunikasi melalui discord, komunikasi
+                    langsung, atau in-game chat team
+                  </li>
+                  <li>
+                    Dilarang membuat keributan atau melakukan tindakan kekerasan
+                    terhadap lawan maupun panitia
+                  </li>
+                  <li>
+                    Dilarang berbicara toxic atau menggunakan perkataan yang
+                    mengandung SARA
+                  </li>
+                  <li>
+                    Jika terdapat kecurangan, peserta wajib melaporkannya kepada
+                    panitia dengan menyertakan bukti kecurangan (screenshot)
+                  </li>
+                  <li>
+                    Setiap tim diberikan kuota pause maksimal 3 kali per
+                    pertandingan
+                  </li>
+                </ul>
               </li>
-              <li>Setiap tim dianjurkan untuk membawa kabel olor sendiril</li>
-              <li>
-                Pada saat lomba babak penyisihan, semifinal dan final, peserta
-                hanya boleh menggunakan HP. Tidak diperbolehkan menggunakan ipad
-                ataupun tablet
-              </li>
-              <li>Segala bentuk cheat dan hack tidak diperkenankan</li>
-              <li>
-                Lag, gangguan sinyal atau masalah baterai maupun gadget, serta
-                seluruh bentuk error yang terjadi merupakan tanggung jawab
-                masing-masing tim
-              </li>
-              <li>Dilarang untuk chat all, hanya boleh emote</li>
-              <li>Diperbolehkan recall/taunting</li>
-              <li>
-                Diperbolehkan menggunakan discord, komunikasi langsung dan
-                komunikasi in game
-              </li>
-              <li>Dilarang membuat keributan</li>
-              <li>Dilarang menggunakan kekerasan</li>
-              <li>Dilarang berbicara toxic maupun yang mengandung SARA</li>
-              <li>
-                Jika ada terdapat kecurangan dapat di screenshot dan dilaporkan
-                pada panitia
-              </li>
-              <li>Apapun yang terjadi, tidak boleh melakukan pause</li>
             </ol>
           </div>
         </div>
