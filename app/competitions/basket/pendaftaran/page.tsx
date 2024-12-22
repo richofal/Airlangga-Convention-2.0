@@ -1,33 +1,77 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
+import { documentSchema5, basketSchema } from "@/app/utils/schema";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createId } from "@paralleldrive/cuid2";
+
+interface Files {
+  name: string;
+  file: File;
+}
 
 const CompetitionPage = () => {
   const [step, setStep] = useState(0);
+  const [files, setFiles] = useState<Files[] | null>(null);
+  const [jumlahPemain, setJumlahPemain] = useState<number>(7);
+
   const router = useRouter();
-  const [jumlahPemain, setJumlahPemain] = useState(7);
 
-  const nextStep = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<z.infer<typeof basketSchema>>({
+    resolver: zodResolver(basketSchema),
+  });
+
+  const onSubmit = (data: z.infer<typeof basketSchema>) => {
+    const formData = new FormData();
+    const id = createId();
+    formData.append("id", id);
+
+    for (const key in data) {
+      formData.append(key, data[key as keyof typeof data] as string);
+    }
+
+    let isFileValid = true;
+
+    files?.forEach((file) => {
+      formData.append(file.name, file.file);
+    });
+
+    if (!isFileValid) return; // Exit early if any file is invalid
+
+    fetch("/api/basket", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        router.push(`/competitions/basket/pendaftaran/konfirmasi?id=${id}`);
+        reset();
+      })
+      .catch((error) => {
+        console.error("Error Upload:", error);
+      });
+  };
+
+  const nextStep = () => {
     if (step < 1) {
-      setStep((step) => step + 1);
-    } else if (step === 1) {
-      router.push("/competitions/basket/pendaftaran/konfirmasi");
+      setStep(step + 1);
     }
   };
 
-  const prevStep = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const prevStep = () => {
     if (step > 0) {
-      setStep((step) => step - 1);
+      setStep(step - 1);
     }
   };
-
-  useEffect(() => {
-    console.log(step);
-  }, [step]);
 
   return (
     <div className="mx-10 mt-5 lg:mx-28">
@@ -50,71 +94,111 @@ const CompetitionPage = () => {
             </div>
           ) : null}
           <div className="mt-5 w-full">
-            <form action="" className="flex flex-col gap-8">
+            <form
+              action="post"
+              className="flex flex-col gap-8"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               {step === 0 ? (
                 <>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-1/2 gap-1">
-                      <label htmlFor="namaTim">Nama Tim*</label>
+                      <label htmlFor="nama_tim">Nama Tim*</label>
                       <input
+                        id="nama_tim"
                         type="text"
-                        name="namaTim"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("nama_tim")}
+                        required
                       />
+                      {errors.nama_tim && (
+                        <span className="text-red-500">
+                          {errors.nama_tim.message}
+                        </span>
+                      )}
                     </div>
                     <div className="flex flex-col w-1/2 gap-1">
-                      <label htmlFor="asalSekolah">Asal Sekolah*</label>
+                      <label htmlFor="asal_sekolah">Asal Sekolah*</label>
                       <input
+                        id="asal_sekolah"
                         type="text"
-                        name="asalSekolah"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("asal_sekolah")}
+                        required
                       />
+                      {errors.asal_sekolah && (
+                        <span className="text-red-500">
+                          {errors.asal_sekolah.message}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-1/2 gap-1">
-                      <label htmlFor="nomorTelepon">
+                      <label htmlFor="nomor_telepon">
                         Nomor Telepon Perwakilan*
                       </label>
                       <input
+                        id="nomor_telepon"
                         type="text"
-                        name="nomorTelepon"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("nomor_telepon")}
+                        required
                       />
+                      {errors.nomor_telepon && (
+                        <span className="text-red-500">
+                          {errors.nomor_telepon.message}
+                        </span>
+                      )}
                     </div>
                     <div className="flex flex-col w-1/2 gap-1">
                       <label htmlFor="email">Email Perwakilan*</label>
                       <input
-                        type="text"
-                        name="email"
+                        id="email"
+                        type="email"
                         className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("email")}
+                        required
                       />
+                      {errors.email && (
+                        <span className="text-red-500">
+                          {errors.email.message}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="anggota1">Nama Lengkap Perwakilan*</label>
+                      <label htmlFor="nama_perwakilan">
+                        Nama Lengkap Perwakilan*
+                      </label>
                       <input
+                        id="nama_perwakilan"
                         type="text"
-                        name="anggota1"
-                        className="px-2 py-1 border border-black rounded-lg w-[98%]"
+                        className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2"
+                        {...register("nama_perwakilan")}
+                        required
                       />
+                      {errors.nama_perwakilan && (
+                        <span className="text-red-500">
+                          {errors.nama_perwakilan.message}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="jumlahPemain">Jumlah Pemain*</label>
+                      <label htmlFor="jumlah_pemain">Jumlah Pemain*</label>
                       <select
-                        name="jumlahPemain"
+                        id="jumlah_pemain"
                         className="px-2 py-1 border border-black rounded-lg w-[98%]"
-                        value={jumlahPemain || ""}
-                        onChange={(e) =>
-                          setJumlahPemain(Number(e.target.value))
-                        }
+                        value={jumlahPemain}
+                        {...register("jumlah_pemain", { valueAsNumber: true })}
+                        onChange={(e) => {
+                          setJumlahPemain(Number(e.target.value));
+                          console.log(jumlahPemain);
+                        }}
                       >
-                        <option value="" disabled>
-                          -
-                        </option>
                         {[7, 8, 9, 10, 11, 12].map((num) => (
                           <option key={num} value={num}>
                             {num}
@@ -123,111 +207,130 @@ const CompetitionPage = () => {
                       </select>
                     </div>
                   </div>
-                  {jumlahPemain > 0 &&
-                    [...Array(jumlahPemain)].map((_, index) => (
-                      <div
-                        key={index}
-                        className="w-full flex flex-row justify-between gap-2"
-                      >
-                        <div className="flex flex-col w-1/2 gap-1">
-                          <label htmlFor={`namaPemain${index + 1}`}>
-                            Nama Lengkap Pemain {index + 1}*
-                          </label>
-                          <input
-                            type="text"
-                            name={`namaPemain${index + 1}`}
-                            className="px-2 py-1 border border-black rounded-lg w-[98%]"
-                          />
-                        </div>
-                        <div className="flex flex-col w-1/2 gap-1">
-                          <label htmlFor={`nomorPunggung${index + 1}`}>
-                            Nomor Punggung Pemain {index + 1}*
-                          </label>
-                          <input
-                            type="text"
-                            name={`nomorPunggung${index + 1}`}
-                            className="px-2 py-1 border border-black rounded-lg w-[98%]"
-                          />
-                        </div>
+                  {[...Array(jumlahPemain)].map((_, index) => (
+                    <div
+                      key={index}
+                      className="w-full flex flex-row justify-between gap-2"
+                    >
+                      <div className="flex flex-col w-1/2 gap-1">
+                        <label htmlFor={`nama_pemain_${index}`}>
+                          Nama Lengkap Pemain {index + 1}*
+                        </label>
+                        <input
+                          id={`nama_pemain_${index}`}
+                          type="text"
+                          className="px-2 py-1 border border-black rounded-lg w-[98%]"
+                          {...register(`nama_pemain.${index}` as const)}
+                          required
+                        />
+                        {errors.nama_pemain?.[index] && (
+                          <span className="text-red-500">
+                            {errors.nama_pemain[index]?.message}
+                          </span>
+                        )}
                       </div>
-                    ))}
-                  <div className="w-full flex flex-row justify-between gap-2">
-                    <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="ktpFile">
-                        Scan KTP/Kartu Pelajar (PDF/gambar)* <br /> Note:
-                        Jadikan satu file
-                      </label>
-                      <input
-                        type="file"
-                        name="ktpFile"
-                        className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white"
-                        accept=".pdf"
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file && file.size > 5 * 1024 * 1024) {
-                            alert("File size exceeds 5 MB");
-                            e.target.value = "";
-                          }
-                        }}
-                      />
+                      <div className="flex flex-col w-1/2 gap-1">
+                        <label htmlFor={`nomor_punggung_${index}`}>
+                          Nomor Punggung Pemain {index + 1}*
+                        </label>
+                        <input
+                          id={`nomor_punggung_${index}`}
+                          type="text"
+                          className="px-2 py-1 border border-black rounded-lg w-[98%]"
+                          {...register(`nomor_punggung.${index}` as const)}
+                          required
+                        />
+                        {errors.nomor_punggung?.[index] && (
+                          <span className="text-red-500">
+                            {errors.nomor_punggung[index]?.message}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </>
-              ) : null}
-              {step === 1 ? (
-                <>
+                  ))}
                   <h1 className="font-winter text-2xl -mb-7 mt-2">
                     Data Official
                   </h1>
                   <p>(Tidak terdaftar sebagai pemain)</p>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="namaCoach">Nama Lengkap Coach*</label>
+                      <label htmlFor="nama_coach">Nama Lengkap Coach*</label>
                       <input
+                        id="nama_coach"
                         type="text"
-                        name="namaCoach"
                         className="px-2 py-1 border border-black rounded-lg w-[98%]"
+                        {...register("nama_coach")}
+                        required
                       />
+                      {errors.nama_coach && (
+                        <span className="text-red-500">
+                          {errors.nama_coach.message}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="namaManager">Nama Lengkap Manager*</label>
+                      <label htmlFor="nama_manager">
+                        Nama Lengkap Manager*
+                      </label>
                       <input
+                        id="nama_manager"
                         type="text"
-                        name="namaManager"
                         className="px-2 py-1 border border-black rounded-lg w-[98%]"
+                        {...register("nama_manager")}
+                        required
                       />
+                      {errors.nama_manager && (
+                        <span className="text-red-500">
+                          {errors.nama_manager.message}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="namaOfficial">
+                      <label htmlFor="nama_official">
                         Nama Lengkap Official*
                       </label>
                       <input
+                        id="nama_official"
                         type="text"
-                        name="namaOfficial"
                         className="px-2 py-1 border border-black rounded-lg w-[98%]"
+                        {...register("nama_official")}
+                        required
                       />
+                      {errors.nama_official && (
+                        <span className="text-red-500">
+                          {errors.nama_official.message}
+                        </span>
+                      )}
                     </div>
                   </div>
+                </>
+              ) : null}
+              {step === 1 ? (
+                <>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="ktpFile">
-                        Kartu Identitas Tiap Official <br />
-                        (KTP/Kartu Pelajar)* <br /> Note: Jadikan dalam 1 file
+                      <label htmlFor="kartu_pelajar">
+                        Scan KTP/Kartu Pelajar Tiap Pemain (PDF/gambar)* <br />{" "}
+                        Note: Jadikan satu file
                       </label>
                       <input
+                        id="kartu_pelajar"
                         type="file"
-                        name="ktpFile"
-                        className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white"
+                        className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        name="kartu_pelajar"
+                        required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
-                          if (file && file.size > 10 * 1024 * 1024) {
-                            alert("File size exceeds 10 MB");
-                            e.target.value = "";
+                          if (file) {
+                            setFiles((prev) => [
+                              ...(prev || []),
+                              { name: "kartu_pelajar", file },
+                            ]);
                           }
                         }}
                       />
@@ -235,19 +338,48 @@ const CompetitionPage = () => {
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="posterFile">
+                      <label htmlFor="kartu_official">
+                        Kartu Identitas Tiap Official <br />
+                        (KTP/Kartu Pelajar)* <br /> Note: Jadikan dalam 1 file
+                      </label>
+                      <input
+                        id="kartu_official"
+                        type="file"
+                        className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
+                        accept=".pdf"
+                        name="kartu_official"
+                        required
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            setFiles((prev) => [
+                              ...(prev || []),
+                              { name: "kartu_official", file },
+                            ]);
+                          }
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between gap-2">
+                    <div className="flex flex-col w-full gap-1">
+                      <label htmlFor="bukti_poster">
                         Screenshot Share Poster Aircon*
                       </label>
                       <input
+                        id="bukti_poster"
                         type="file"
-                        name="posterFile"
-                        className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white"
+                        className="px-4 py-8 border border-black rounded-lg w-[98%] bg-white lg:w-[99%]"
                         accept=".pdf"
+                        name="bukti_poster"
+                        required
                         onChange={(e) => {
                           const file = e.target.files?.[0];
-                          if (file && file.size > 10 * 1024 * 1024) {
-                            alert("File size exceeds 10 MB");
-                            e.target.value = "";
+                          if (file) {
+                            setFiles((prev) => [
+                              ...(prev || []),
+                              { name: "bukti_poster", file },
+                            ]);
                           }
                         }}
                       />
@@ -255,19 +387,8 @@ const CompetitionPage = () => {
                   </div>
                 </>
               ) : null}
-              <div className="w-full mt-5 flex flex-row justify-start">
-                {step < 1 ? (
-                  <button
-                    className="bg-black text-white px-8 py-2 rounded-lg flex flex-row justify-center items-center"
-                    onClick={nextStep}
-                  >
-                    Next
-                  </button>
-                ) : null}
-              </div>
-              {step === 1 ? <></> : null}
               <div className="w-full mt-2 flex flex-row justify-between">
-                {step > 0 ? (
+                {step > 0 && (
                   <button
                     className="bg-black text-white px-8 py-2 rounded-lg flex flex-row justify-center items-center"
                     onClick={prevStep}
@@ -275,8 +396,16 @@ const CompetitionPage = () => {
                   >
                     Prev
                   </button>
-                ) : null}
+                )}
                 {step === 1 ? (
+                  <button
+                    className="bg-black text-white px-8 py-2 rounded-lg flex flex-row justify-center items-center"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                ) : null}
+                {step === 0 && (
                   <button
                     className="bg-black text-white px-8 py-2 rounded-lg flex flex-row justify-center items-center"
                     onClick={nextStep}
@@ -284,7 +413,7 @@ const CompetitionPage = () => {
                   >
                     Next
                   </button>
-                ) : null}
+                )}
               </div>
             </form>
           </div>{" "}

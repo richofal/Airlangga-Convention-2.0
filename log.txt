@@ -1,0 +1,19 @@
+
+id, "kha8c19xil260avjzibu2ivn"
+nama_tim, "Hebat"
+asal_sekolah, "SMAN 5 Medan"
+email, "aliahmadfahrezy@proton.me"
+nomor_telepon, "08996130051"
+nama_perwakilan, "Hebat"
+jumlah_pemain, "7"
+nama_pemain, "A,A,A,A,A,A,A"
+nomor_punggung, "9,9,9,9,9,9,9"
+nama_coach, "A"
+nama_manager, "A"
+nama_official, "A"
+kartu_pelajar, {}
+kartu_official, {}
+bukti_poster, {}
+Essay draft_LITS5_Ali Ahmad Fahrezy_187221042.pdf
+application/pdf
+158598

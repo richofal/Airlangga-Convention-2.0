@@ -114,17 +114,18 @@ model BPFinal {
 }
 
 model Basket {
-  id             String   @id @default(cuid())
-  nama_tim       String
-  asal_sekolah   String
-  nomor_telepon  String
-  email          String
-  jumlah_anggota Int
-  nama_pemain    String[]
-  nomor_punggung String[]
-  nama_coach     String
-  nama_manager   String
-  nama_official  String
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id              String   @id @default(cuid())
+  nama_tim        String
+  asal_sekolah    String
+  nomor_telepon   String
+  email           String
+  nama_perwakilan String
+  jumlah_anggota  Int
+  nama_pemain     String[]
+  nomor_punggung  String[]
+  nama_coach      String
+  nama_manager    String
+  nama_official   String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }

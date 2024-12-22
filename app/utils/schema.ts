@@ -59,6 +59,20 @@ export const bPPreliminarySchema = z.object({
   subtema: z.string().min(1, "Subtema harus diisi"),
 });
 
+export const basketSchema = z.object({
+  nama_tim: z.string().min(1, "Nama Tim harus diisi"),
+  asal_sekolah: z.string().min(1, "Asal sekolah harus diisi"),
+  email: z.string().email("Email tidak valid"),
+  nomor_telepon: z.string().min(1, "Nomor telepon harus diisi"),
+  nama_perwakilan: z.string().min(1, "Nama ketua harus diisi"),
+  jumlah_pemain: z.number().min(1, "Jumlah pemain harus diisi"),
+  nama_pemain: z.array(z.string().min(1, "Nama pemain harus diisi")),
+  nomor_punggung: z.array(z.string().min(1, "Nomor punggung harus diisi")),
+  nama_coach: z.string().min(1, "Nama coach harus diisi"),
+  nama_manager: z.string().min(1, "Nama manager harus diisi"),
+  nama_official: z.string().min(1, "Nama official harus diisi"),
+});
+
 export const documentSchema5 = z
   .instanceof(File)
   .refine((file) => file.type == "application/pdf", {
