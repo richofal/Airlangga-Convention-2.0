@@ -2,11 +2,8 @@
 
 import Image from "next/image";
 import ReadMoreButton from "./components/ReadMoreButton";
-import { useRouter } from "next/navigation";
 
 const Home = () => {
-  const router = useRouter();
-
   const desc = {
     aboutUs: {
       title: "About Us",

@@ -100,13 +100,13 @@ const businessplan = () => {
           <div className="w-full lg:w-1/2">
             <h1 className="font-winter text-2xl uppercase">Tema</h1>
             <p>
-              “
+              “{/* */}
               <i>
                 Innovative Business Solutions for ESG Excellence: Empowering
                 Sustainability and Impact to Support Indonesia's Golden Vision
                 2045
               </i>
-              ”
+              {/* */}”
             </p>
           </div>
           {/* Sub Tema */}
@@ -412,7 +412,7 @@ const businessplan = () => {
                       </li>
                       <li>
                         Sistematika penulisan proposal secara rinci dapat
-                        dilihat pada
+                        dilihat pada{/* */}
                         <b> Lampiran 2</b>
                       </li>
                     </ol>
@@ -462,6 +462,7 @@ const businessplan = () => {
                   <li>
                     Pada tahap ini peserta diminta untuk mengumpulkan{" "}
                     <i>pitch deck </i>
+                    {/* */}
                     dalam bentuk <i>power point</i>
                   </li>
                   <li>

@@ -8,7 +8,7 @@ export default function Cards({
   color = "#0A3981", // Default color
   titleColor = "#FFFFF",
   bodyColor = "#FFFFF",
-}: {
+}: Readonly<{
   title: string;
   description: string;
   image?: string;
@@ -16,7 +16,7 @@ export default function Cards({
   color?: string; // Optional color parameter
   titleColor?: string;
   bodyColor?: string;
-}) {
+}>) {
   return (
     <div
       className="px-4 sm:px-6 lg:px-8 rounded-3xl py-5 shadow-lg"

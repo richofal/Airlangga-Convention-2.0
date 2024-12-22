@@ -3,11 +3,8 @@
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
 import Image from "next/image";
-import {
-  Newspaper,
-  CalendarDots,
-  PhoneCall,
-} from "@phosphor-icons/react/dist/ssr";
+import { CalendarDots, PhoneCall } from "@phosphor-icons/react/dist/ssr";
+import { Newspaper } from "@phosphor-icons/react";
 
 const infografis = () => {
   const router = useRouter();

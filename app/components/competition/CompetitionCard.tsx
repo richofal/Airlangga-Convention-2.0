@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { BookOpenText } from "@phosphor-icons/react/dist/ssr";
-import { Newspaper } from "@phosphor-icons/react/dist/ssr";
-import { GameController } from "@phosphor-icons/react/dist/ssr";
-import { FileText } from "@phosphor-icons/react/dist/ssr";
-import { Basketball } from "@phosphor-icons/react/dist/ssr";
+import {
+  BookOpenText,
+  Newspaper,
+  GameController,
+  FileText,
+  Basketball,
+} from "@phosphor-icons/react/dist/ssr";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -20,7 +22,7 @@ const CompetitionCard = ({
   price: React.ReactNode;
   imageSrc: string;
   bgColor?: string;
-  route: String;
+  route: string;
 }) => {
   const router = useRouter();
   const [hovered, setHovered] = useState(false);

@@ -186,6 +186,7 @@ const KaryaTulisIlmiahPage = () => {
                 <li>
                   Surat Pernyataan Pendaftaran yang dapat diakses melalui{" "}
                   <i>link </i>
+                  {/* */}
                   berikut:
                 </li>
               </ul>
