@@ -1,11 +1,7 @@
 "use client";
 
 import BackButton from "@/app/components/BackButton";
-import {
-  documentSchema10,
-  documentSchema5,
-  infografisSchema,
-} from "@/app/utils/schema";
+import { documentSchema5, infografisSchema } from "@/app/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
 import { useRouter } from "next/navigation";
@@ -20,7 +16,6 @@ interface Files {
 
 const CompetitionPage = () => {
   const [files, setFiles] = useState<Files[] | null>(null);
-  const [fileValid, setFileValid] = useState(true);
 
   const router = useRouter();
 
@@ -42,42 +37,34 @@ const CompetitionPage = () => {
       formData.append(key, data[key as keyof typeof data]);
     }
 
+    let isFileValid = true;
+
     files?.forEach((file) => {
-      if (file.name == "file_infografis") {
-        const validate = documentSchema10.safeParse(file.file);
-        if (validate.success) {
-          formData.append(file.name, file.file);
-        } else {
-          setFileValid(false);
-          alert("Salah satu file tidak valid atau melebihi batas ukuran");
-        }
+      let validate;
+      validate = documentSchema5.safeParse(file.file);
+
+      if (validate.success) {
+        formData.append(file.name, file.file);
       } else {
-        const validate = documentSchema5.safeParse(file.file);
-        if (validate.success) {
-          formData.append(file.name, file.file);
-        } else {
-          setFileValid(false);
-          alert("Salah satu file tidak valid atau melebihi batas ukuran");
-        }
+        isFileValid = false;
+        alert("Salah satu file tidak valid atau melebihi batas ukuran");
       }
     });
 
-    if (fileValid) {
-      fetch("/api/infografis", {
-        method: "POST",
-        body: formData,
+    if (!isFileValid) return;
+
+    fetch("/api/infografis", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        router.push(`/competitions/infografis/pendaftaran/konfirmasi?id=${id}`);
+        reset();
       })
-        .then((res) => res.json())
-        .then((data) => {
-          router.push(
-            `/competitions/infografis/pendaftaran/konfirmasi?id=${id}`
-          );
-          reset();
-        })
-        .catch((error) => {
-          console.error("Error Upload:", error);
-        });
-    }
+      .catch((error) => {
+        console.error("Error Upload:", error);
+      });
   };
 
   return (

@@ -50,8 +50,8 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await writeFile(`${uploadDir}/kartu_pelajar.pdf`, kartu_pelajar_buffer);
-    await writeFile(`${uploadDir}/abstrak_paper.pdf`, abstrak_paper_buffer);
+    await writeFile(`${uploadDir}/${kartu_pelajar.name}`, kartu_pelajar_buffer);
+    await writeFile(`${uploadDir}/${abstrak_paper.name}`, abstrak_paper_buffer);
 
     // Save to database
     const result = await prisma.kTIAwal.create({

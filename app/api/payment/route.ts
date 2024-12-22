@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await writeFile(
-      `${uploadDir}/bukti_pembayaran.jpg`,
+      `${uploadDir}/${bukti_pembayaran.name}`,
       bukti_pembayaran_buffer
     );
 

@@ -12,23 +12,24 @@ export async function POST(req: NextRequest) {
   const id = formData.get("id") as string;
   const nama_tim = formData.get("nama_tim") as string;
   const asal_sekolah = formData.get("asal_sekolah") as string;
-  const nomor_telepon = formData.get("nomor_telepon") as string;
   const email = formData.get("email") as string;
   const nama_anggota_1 = formData.get("nama_anggota_1") as string;
-  const nama_anggota_2 = (formData.get("nama_anggota_2") as string) ?? null;
+  const nomor_telepon_1 = formData.get("nomor_telepon_1") as string;
+  const nama_anggota_2 = formData.get("nama_anggota_2") as string;
+  const nomor_telepon_2 = formData.get("nomor_telepon_2") as string;
   const nama_anggota_3 = (formData.get("nama_anggota_3") as string) ?? null;
-  const judul = formData.get("judul") as string;
+  const nomor_telepon_3 = (formData.get("nomor_telepon_3") as string) ?? null;
   const subtema = formData.get("subtema") as string;
   const kartu_pelajar = formData.get("kartu_pelajar") as File;
-  const full_paper = formData.get("full_paper") as File;
-  const surat_pernyataan = formData.get("surat_pernyataan") as File;
+  const bukti_follow = formData.get("bukti_follow") as File;
+  const bukti_poster = formData.get("bukti_poster") as File;
+  const bmc = formData.get("bmc") as File;
   const surat_orisinalitas = formData.get("surat_orisinalitas") as File;
 
   const kartu_pelajar_buffer = Buffer.from(await kartu_pelajar.arrayBuffer());
-  const full_paper_buffer = Buffer.from(await full_paper.arrayBuffer());
-  const surat_pernyataan_buffer = Buffer.from(
-    await surat_pernyataan.arrayBuffer()
-  );
+  const bukti_follow_buffer = Buffer.from(await bukti_follow.arrayBuffer());
+  const bukti_poster_buffer = Buffer.from(await bukti_poster.arrayBuffer());
+  const bmc_buffer = Buffer.from(await bmc.arrayBuffer());
   const surat_orisinalitas_buffer = Buffer.from(
     await surat_orisinalitas.arrayBuffer()
   );
@@ -37,8 +38,8 @@ export async function POST(req: NextRequest) {
     process.cwd(),
     "public",
     "uploads",
-    "karya-tulis-ilmiah",
-    "lanjut",
+    "business-plan",
+    "preliminary",
     nama_tim
   );
 
@@ -62,28 +63,27 @@ export async function POST(req: NextRequest) {
 
   try {
     await writeFile(`${uploadDir}/${kartu_pelajar.name}`, kartu_pelajar_buffer);
-    await writeFile(`${uploadDir}/${full_paper.name}`, full_paper_buffer);
-    await writeFile(
-      `${uploadDir}/${surat_pernyataan.name}`,
-      surat_pernyataan_buffer
-    );
+    await writeFile(`${uploadDir}/${bukti_follow.name}`, bukti_follow_buffer);
+    await writeFile(`${uploadDir}/${bukti_poster.name}`, bukti_poster_buffer);
+    await writeFile(`${uploadDir}/${bmc.name}`, bmc_buffer);
     await writeFile(
       `${uploadDir}/${surat_orisinalitas.name}`,
       surat_orisinalitas_buffer
     );
 
     // Save to database
-    const result = await prisma.kTILanjut.create({
+    const result = await prisma.bPPreliminary.create({
       data: {
         id,
         nama_tim,
         asal_sekolah,
-        nomor_telepon,
         email,
         nama_anggota_1,
+        nomor_telepon_1,
         nama_anggota_2,
+        nomor_telepon_2,
         nama_anggota_3,
-        judul,
+        nomor_telepon_3,
         subtema,
       },
     });

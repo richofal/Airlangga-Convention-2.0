@@ -20,7 +20,6 @@ interface Files {
 const CompetitionPage = () => {
   const [step, setStep] = useState(0);
   const [files, setFiles] = useState<Files[] | null>(null);
-  const [fileValid, setFileValid] = useState(true);
 
   const router = useRouter();
 
@@ -42,42 +41,40 @@ const CompetitionPage = () => {
       formData.append(key, data[key as keyof typeof data] as string);
     }
 
+    let isFileValid = true;
+
     files?.forEach((file) => {
-      if (file.name == "full_paper") {
-        const validate = documentSchema10.safeParse(file.file);
-        if (validate.success) {
-          formData.append(file.name, file.file);
-        } else {
-          setFileValid(false);
-          alert("Salah satu file tidak valid atau melebihi batas ukuran");
-        }
+      let validate;
+      if (file.name === "full_paper") {
+        validate = documentSchema10.safeParse(file.file);
       } else {
-        const validate = documentSchema5.safeParse(file.file);
-        if (validate.success) {
-          formData.append(file.name, file.file);
-        } else {
-          setFileValid(false);
-          alert("Salah satu file tidak valid atau melebihi batas ukuran");
-        }
+        validate = documentSchema5.safeParse(file.file);
+      }
+
+      if (validate.success) {
+        formData.append(file.name, file.file);
+      } else {
+        isFileValid = false;
+        alert("Salah satu file tidak valid atau melebihi batas ukuran");
       }
     });
 
-    if (fileValid) {
-      fetch("/api/karya-tulis-ilmiah/lanjut", {
-        method: "POST",
-        body: formData,
+    if (!isFileValid) return; // Exit early if any file is invalid
+
+    fetch("/api/karya-tulis-ilmiah/lanjut", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        router.push(
+          `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi?id=${id}`
+        );
+        reset();
       })
-        .then((res) => res.json())
-        .then((data) => {
-          router.push(
-            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi?id=${id}`
-          );
-          reset();
-        })
-        .catch((error) => {
-          console.error("Error Upload:", error);
-        });
-    }
+      .catch((error) => {
+        console.error("Error Upload:", error);
+      });
   };
 
   const nextStep = () => {

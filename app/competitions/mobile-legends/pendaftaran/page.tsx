@@ -16,7 +16,6 @@ interface Files {
 
 const CompetitionPage = () => {
   const [files, setFiles] = useState<Files[] | null>(null);
-  const [fileValid, setFileValid] = useState(true);
 
   const router = useRouter();
 
@@ -38,32 +37,36 @@ const CompetitionPage = () => {
       formData.append(key, data[key as keyof typeof data]);
     }
 
+    let isFileValid = true;
+
     files?.forEach((file) => {
-      const validate = documentSchema5.safeParse(file.file);
+      let validate;
+      validate = documentSchema5.safeParse(file.file);
+
       if (validate.success) {
         formData.append(file.name, file.file);
       } else {
-        setFileValid(false);
+        isFileValid = false;
         alert("Salah satu file tidak valid atau melebihi batas ukuran");
       }
     });
 
-    if (fileValid) {
-      fetch("/api/ml", {
-        method: "POST",
-        body: formData,
+    if (!isFileValid) return;
+
+    fetch("/api/ml", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        router.push(
+          `/competitions/mobile-legends/pendaftaran/konfirmasi?id=${id}`
+        );
+        reset();
       })
-        .then((res) => res.json())
-        .then((data) => {
-          router.push(
-            `/competitions/mobile-legends/pendaftaran/konfirmasi?id=${id}`
-          );
-          reset();
-        })
-        .catch((error) => {
-          console.error("Error Upload:", error);
-        });
-    }
+      .catch((error) => {
+        console.error("Error Upload:", error);
+      });
   };
 
   return (

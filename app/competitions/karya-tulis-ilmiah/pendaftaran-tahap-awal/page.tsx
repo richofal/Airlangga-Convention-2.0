@@ -15,7 +15,6 @@ interface Files {
 
 const CompetitionPage = () => {
   const [files, setFiles] = React.useState<Files[]>([]);
-  const [fileValid, setFileValid] = React.useState(true);
 
   const {
     register,
@@ -34,32 +33,36 @@ const CompetitionPage = () => {
       formData.append(key, data[key as keyof typeof data] as string);
     }
 
+    let isFileValid = true;
+
     files?.forEach((file) => {
-      const validate = documentSchema5.safeParse(file.file);
+      let validate;
+      validate = documentSchema5.safeParse(file.file);
+
       if (validate.success) {
         formData.append(file.name, file.file);
       } else {
-        setFileValid(false);
+        isFileValid = false;
         alert("Salah satu file tidak valid atau melebihi batas ukuran");
       }
     });
 
-    if (fileValid) {
-      fetch("/api/karya-tulis-ilmiah/awal", {
-        method: "POST",
-        body: formData,
+    if (!isFileValid) return; // Exit early if any file is invalid
+
+    fetch("/api/karya-tulis-ilmiah/awal", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        reset();
+        router.push(
+          "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"
+        );
       })
-        .then((res) => res.json())
-        .then((data) => {
-          reset();
-          router.push(
-            "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"
-          );
-        })
-        .catch((error) => {
-          console.error("Error Upload:", error);
-        });
-    }
+      .catch((error) => {
+        console.error("Error Upload:", error);
+      });
   };
 
   return (

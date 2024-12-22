@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await writeFile(`${uploadDir}/kartu_pelajar.pdf`, kartu_pelajar_buffer);
+    await writeFile(`${uploadDir}/${kartu_pelajar.name}`, kartu_pelajar_buffer);
 
     // Save to database
     const result = await prisma.mL.create({

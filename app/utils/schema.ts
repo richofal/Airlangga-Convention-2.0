@@ -46,6 +46,19 @@ export const mlSchema = z.object({
   nickname_5: z.string().min(1, "Nickname anggota 5 harus diisi"),
 });
 
+export const bPPreliminarySchema = z.object({
+  nama_tim: z.string().min(1, "Nama Tim harus diisi"),
+  asal_sekolah: z.string().min(1, "Asal sekolah harus diisi"),
+  email: z.string().email("Email tidak valid"),
+  nama_anggota_1: z.string().min(1, "Nama ketua harus diisi"),
+  nomor_telepon_1: z.string().min(1, "Nomor telepon ketua harus diisi"),
+  nama_anggota_2: z.string().min(1, "Nama anggota 2 harus diisi"),
+  nomor_telepon_2: z.string().min(1, "Nomor telepon anggota 2 harus diisi"),
+  nama_anggota_3: z.string().optional(),
+  nomor_telepon_3: z.string().optional(),
+  subtema: z.string().min(1, "Subtema harus diisi"),
+});
+
 export const documentSchema5 = z
   .instanceof(File)
   .refine((file) => file.type == "application/pdf", {

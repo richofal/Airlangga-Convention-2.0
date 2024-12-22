@@ -50,8 +50,11 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await writeFile(`${uploadDir}/kartu_pelajar.pdf`, kartu_pelajar_buffer);
-    await writeFile(`${uploadDir}/file_infografis.pdf`, file_infografis_buffer);
+    await writeFile(`${uploadDir}/${kartu_pelajar.name}`, kartu_pelajar_buffer);
+    await writeFile(
+      `${uploadDir}/${file_infografis.name}`,
+      file_infografis_buffer
+    );
 
     // Save to database
     const result = await prisma.infografis.create({
