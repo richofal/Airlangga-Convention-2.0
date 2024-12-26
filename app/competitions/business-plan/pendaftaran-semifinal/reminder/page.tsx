@@ -11,8 +11,8 @@ const ConfirmationPage = () => {
         </h1>
         <div className="flex flex-col gap-3 mt-3">
           {" "}
-          <p className="text-sm lg:text-2xl">Thank you sudah daftar yaaa...</p>
-          <p className="text-sm lg:text-2xl">
+          <p className="text-md lg:text-2xl">Thank you sudah daftar yaaa...</p>
+          <p className="text-md lg:text-2xl">
             Selanjutnya bisa langsung <b>konfirmasi pengumpulan proposal</b> ke{" "}
             {""}
             <a
@@ -23,7 +23,7 @@ const ConfirmationPage = () => {
             >
               0821-3333-5529 (Salman)
             </a>
-            {""} atau <br className="lg:hidden" />
+            {""} atau {""}
             <a
               href="https://wa.me/6282234923689"
               target="_blank"
@@ -33,7 +33,7 @@ const ConfirmationPage = () => {
               0822-3492-3689 (Marsha)
             </a>
           </p>
-          <p className="text-sm lg:text-2xl">
+          <p className="text-md lg:text-2xl">
             Dengan format “Nama Tim_Proposal Bisnis_Subtema_Judul Bisnis_Nama
             Ketua”
           </p>

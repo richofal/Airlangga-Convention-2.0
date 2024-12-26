@@ -315,7 +315,7 @@ const CompetitionPage = () => {
                       <label htmlFor="kartu_pelajar">
                         Scan Kartu Pelajar/Surat Keterangan Pelajar Aktif dari
                         Sekolah (PDF/gambar)* <br /> Note: Jadikan satu file
-                        (size limit 5 MB)
+                        (size limit 10 MB)
                       </label>
                       <input
                         id="kartu_pelajar"
@@ -386,7 +386,10 @@ const CompetitionPage = () => {
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="bmc">Business Model Canvas (BMC)*</label>
+                      <label htmlFor="bmc">
+                        Business Model Canvas (BMC) <br className="lg:hidden" />{" "}
+                        (Format PDF, size limit 10 MB)*
+                      </label>
                       <input
                         id="bmc"
                         type="file"
@@ -410,7 +413,7 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="surat_orisinalitas">
                         Surat Pernyataan Orisinalitas* <br /> Note: Format PDF
-                        (size limit 5 MB)
+                        (size limit 10 MB)
                       </label>
                       <input
                         id="surat_orisinalitas"

@@ -143,7 +143,7 @@ const CompetitionPage = () => {
                 </div>
                 <div className="flex flex-col w-1/2 gap-1">
                   <label htmlFor="email">
-                    <br />
+                    <br className="lg:hidden" />
                     Email Kapten*
                   </label>
                   <input
@@ -352,7 +352,7 @@ const CompetitionPage = () => {
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="kartu_pelajar">
                     Scan KTP/Kartu Pelajar (PDF/gambar)* <br /> Note: Jadikan
-                    satu file (size limit 5 MB)
+                    satu file (size limit 10 MB)
                   </label>
                   <input
                     id="kartu_pelajar"

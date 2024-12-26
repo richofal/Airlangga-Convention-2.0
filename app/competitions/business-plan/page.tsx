@@ -35,9 +35,9 @@ const businessplan = () => {
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
               <p>
-                Rp50.000,00 /tim (Early Bird) <br />
-                Rp60.000,00 /tim (Batch 1) <br />
-                Rp75.000,00 /tim (Batch 2)
+                Rp50.000,- /tim (Early Bird) <br />
+                Rp60.000,- /tim (Batch 1) <br />
+                Rp75.000,- /tim (Batch 2)
               </p>
             </div>
           </div>

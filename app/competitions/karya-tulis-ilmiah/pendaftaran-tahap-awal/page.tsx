@@ -211,7 +211,7 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="kartu_pelajar">
-                    Scan KTP/ Kartu Pelajar*
+                    Scan KTP/ Kartu Pelajar (Format pdf, Size limit 10 MB)*
                   </label>
                   <input
                     id="kartu_pelajar"
@@ -235,7 +235,7 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="abstrak_paper">
-                    File Abstrak (Format pdf, Size limit 5 MB)*
+                    File Abstrak (Format pdf, Size limit 10 MB)*
                   </label>
                   <input
                     id="abstrak_paper"

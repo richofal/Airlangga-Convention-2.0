@@ -17,7 +17,6 @@ const ConfirmationPage = () => {
             </p>
             <p className="text-md lg:text-2xl">
               Selanjutnya bisa langsung <b>konfirmasi pendaftaran</b> ke{" "}
-              <br className="lg:hidden" />
               <a
                 href="https://wa.me/6285706127776"
                 target="_blank"
@@ -32,7 +31,7 @@ const ConfirmationPage = () => {
               Sekolah”
             </p>
             <p className="text-md lg:text-2xl">
-              Dan <b>konfirmasi pembayaran</b> ke <br className="lg:hidden" />
+              Dan <b>konfirmasi pembayaran</b> ke{" "}
               <a
                 href="https://wa.me/6281996716532"
                 target="_blank"
