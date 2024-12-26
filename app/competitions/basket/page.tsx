@@ -35,7 +35,7 @@ const karyatulisilmiah = () => {
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
               <p>
-                Rp450.000,00 /tim (Putra) <br /> Rp400.000,00 /tim (Putri)
+                Rp450.000,- /tim (Putra) <br /> Rp400.000,- /tim (Putri)
               </p>
             </div>
           </div>

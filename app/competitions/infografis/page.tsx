@@ -32,7 +32,7 @@ const infografis = () => {
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
               <p>
-                Rp40.000,00 /orang (Gelombang 1) <br /> Rp50.000,00 /orang
+                Rp40.000,- /orang (Gelombang 1) <br /> Rp50.000,- /orang
                 (Gelombang 2)
               </p>
             </div>

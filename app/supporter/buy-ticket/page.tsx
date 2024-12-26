@@ -165,7 +165,7 @@ const CompetitionPage = () => {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-col w-full gap-1">
+                  {/* <div className="flex flex-col w-full gap-1">
                     <label htmlFor="ktpFile">MoU*</label>
                     <input
                       type="file"
@@ -180,7 +180,7 @@ const CompetitionPage = () => {
                         }
                       }}
                     />
-                  </div>
+                  </div> */}
                 </>
               ) : null}
               {step === 1 ? <></> : null}

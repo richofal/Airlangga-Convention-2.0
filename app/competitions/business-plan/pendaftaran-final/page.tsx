@@ -146,7 +146,10 @@ const CompetitionPage = () => {
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="ktpFile">File Pitch Deck/PPT*</label>
+                      <label htmlFor="ktpFile">
+                        File Pitch Deck/PPT <br className="lg:hidden" />
+                        (Format PPT, size limit 20 MB)*
+                      </label>
                       <input
                         type="file"
                         name="ktpFile"

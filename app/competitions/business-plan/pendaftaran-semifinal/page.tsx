@@ -146,7 +146,9 @@ const CompetitionPage = () => {
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="ktpFile">File Proposal*</label>
+                      <label htmlFor="ktpFile">
+                        File Proposal (Format PDF, size limit 10 MB)*
+                      </label>
                       <input
                         type="file"
                         name="ktpFile"
@@ -185,7 +187,7 @@ const CompetitionPage = () => {
                     }}
                     type="button"
                   >
-                    Next
+                    Submit
                   </button>
                 ) : null}
                 {step == 0 ? (

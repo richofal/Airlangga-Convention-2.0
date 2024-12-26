@@ -318,7 +318,7 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="kartu_pelajar">
                         Scan KTP/Kartu Pelajar Tiap Pemain (PDF/gambar)* <br />{" "}
-                        Note: Jadikan satu file
+                        Note: Jadikan satu file (size limit 10 MB)
                       </label>
                       <input
                         id="kartu_pelajar"
@@ -343,7 +343,9 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="kartu_official">
                         Kartu Identitas Tiap Official <br />
-                        (KTP/Kartu Pelajar)* <br /> Note: Jadikan dalam 1 file
+                        (KTP/Kartu Pelajar)* <br className="lg:hidden" /> Note:
+                        Jadikan dalam 1 file <br className="lg:hidden" />{" "}
+                        (Format PDF, size limit 10 MB)
                       </label>
                       <input
                         id="kartu_official"
@@ -367,7 +369,9 @@ const CompetitionPage = () => {
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="bukti_poster">
-                        Surat Rekomendasi dari Sekolah*
+                        Surat Rekomendasi dari Sekolah{" "}
+                        <br className="lg:hidden" /> (Format PDF, size limit 10
+                        MB)*
                       </label>
                       <input
                         id="bukti_poster"
