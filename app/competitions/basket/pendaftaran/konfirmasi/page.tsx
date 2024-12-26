@@ -111,14 +111,14 @@ const ConfirmationPage = () => {
                   Rp450.000,00 /tim (Putra) <br /> Rp400.000,00 /tim (Putri)
                 </p>
               </div>
-              <div className="flex flex-row start items-center gap-6">
+              {/* <div className="flex flex-row start items-center gap-6">
                 <p className="flex flex-row justify-between items-center w-[38%]">
                   <span>Total</span> <span>:</span>
                 </p>
                 <p>
                   Rp450.000,00 /tim (Putra) <br /> Rp400.000,00 /tim (Putri)
                 </p>
-              </div>
+              </div> */}
               <div className="w-full flex flex-col gap-1">
                 <label htmlFor="paymentMethod">Metode Pembayaran*</label>
                 <select

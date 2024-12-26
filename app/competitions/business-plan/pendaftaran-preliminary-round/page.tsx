@@ -313,8 +313,9 @@ const CompetitionPage = () => {
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="kartu_pelajar">
-                        Scan KTP/Kartu Pelajar (PDF/gambar)* <br /> Note:
-                        Jadikan satu file (size limit 5 MB)
+                        Scan Kartu Pelajar/Surat Keterangan Pelajar Aktif dari
+                        Sekolah (PDF/gambar)* <br /> Note: Jadikan satu file
+                        (size limit 5 MB)
                       </label>
                       <input
                         id="kartu_pelajar"

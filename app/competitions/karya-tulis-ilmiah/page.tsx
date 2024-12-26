@@ -55,18 +55,18 @@ const KaryaTulisIlmiahPage = () => {
             <div className="w-full mt-5 flex flex-col gap-3">
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
-                <p className="text-sm">23 Desember 2024 - 30 Januari 2025</p>
+                <p className="text-sm">23 Desember 2024 - 11 Januari 2025</p>
               </div>
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
                 <p className="text-sm">
                   <a
-                    href="https://wa.me/6281996716532"
+                    href="https://wa.me/6281394358165"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline"
                   >
-                    CP: +62 819-9671-6532 (Fajri)
+                    CP: +62 813-9435-8165 (Fajri)
                   </a>
                 </p>
               </div>
@@ -220,7 +220,7 @@ const KaryaTulisIlmiahPage = () => {
                 konfirmasi kepada CP : 081394358165 (Fajri) maksimal H+1 setelah
                 melakukan pendaftaran dengan format “Konfirmasi Pendaftaran_Nama
                 Sekolah_Nama Tim (Tokoh Pahlawan)_Nama Ketua Tim” paling lambat
-                pada tanggal 3 Januari 2025 pukul 21:00 WIB. Contoh: Konfirmasi
+                pada tanggal 11 Januari 2025 pukul 21:00 WIB. Contoh: Konfirmasi
                 Pendaftaran_Soemitro Djojohadikoesoemo_SMA Trimurti_Amira
                 Dinniah
               </li>
@@ -287,7 +287,7 @@ const KaryaTulisIlmiahPage = () => {
                   Rp125.000,- untuk Gelombang 1 <br /> (16 - 23 Januari 2025)
                 </li>
                 <li>
-                  Rp150.000,- untuk Gelombang 2 <br /> (23 - 30 Januari 2025)
+                  Rp150.000,- untuk Gelombang 2 <br /> (24 - 30 Januari 2025)
                 </li>
                 <li>
                   Untuk mengikuti tahap berikutnya. Biaya dapat dikirim melalui:

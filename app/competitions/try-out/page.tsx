@@ -82,20 +82,23 @@ const tryout = () => {
             <p>
               Yuk, siapkan dirimu untuk pengalaman seru dan penuh manfaat di
               {/* */}
-              <b> Tryout & Campus Tour 2024</b>. Ini kesempatan emas buat kamu
+              <b> Tryout & Campus Tour 2025</b>. Ini kesempatan emas buat kamu
               yang ingin mengasah kemampuan akademik sekaligus menjelajahi
               suasana kampus impian!
             </p>
             <p>📑 Gelombang Pendaftaran:</p>
             <ol className="list-disc pl-5 flex flex-col gap-1">
               <li className="text-wrap">
-                Gelombang I: Rp70.000,- (23 Desember 2024 - 8 Januari 2025)
+                Gelombang I: Coming Soon
+                {/* Gelombang I: Rp70.000,- (23 Desember 2024 - 8 Januari 2025) */}
               </li>
               <li className="text-wrap">
-                Gelombang II: Rp85.000,- (9 Januari 2025 - 24 Januari 2025)
+                Gelombang II: Coming Soon
+                {/* Gelombang II: Rp85.000,- (9 Januari 2025 - 24 Januari 2025) */}
               </li>
               <li className="text-wrap">
-                Gelombang III: Rp100.000,- (25 Januari 2025 - 8 Februari 2025)
+                Gelombang III: Coming Soon
+                {/* Gelombang III: Rp100.000,- (25 Januari 2025 - 8 Februari 2025) */}
               </li>
             </ol>
             <p>📅 Tanggal Pelaksanaan: Sabtu, 15 Februari 2025</p>

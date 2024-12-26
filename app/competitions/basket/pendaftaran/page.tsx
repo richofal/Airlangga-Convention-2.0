@@ -152,7 +152,10 @@ const CompetitionPage = () => {
                       )}
                     </div>
                     <div className="flex flex-col w-1/2 gap-1">
-                      <label htmlFor="email">Email Perwakilan*</label>
+                      <label htmlFor="email">
+                        <br className="lg:hidden" />
+                        Email Perwakilan*
+                      </label>
                       <input
                         id="email"
                         type="email"
@@ -364,7 +367,7 @@ const CompetitionPage = () => {
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="bukti_poster">
-                        Screenshot Share Poster Aircon*
+                        Surat Rekomendasi dari Sekolah*
                       </label>
                       <input
                         id="bukti_poster"

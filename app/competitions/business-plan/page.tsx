@@ -35,7 +35,7 @@ const businessplan = () => {
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
               <p>
-                Rp50.000,00 /tim (Early Bid) <br />
+                Rp50.000,00 /tim (Early Bird) <br />
                 Rp60.000,00 /tim (Batch 1) <br />
                 Rp75.000,00 /tim (Batch 2)
               </p>
@@ -48,18 +48,27 @@ const businessplan = () => {
             <div className="w-full mt-5 flex flex-col gap-3">
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
-                <p className="text-sm">16 Desember 2024 - 22 Januari 2025</p>
+                <p className="text-sm">23 Desember 2024 - 22 Februari 2025</p>
               </div>
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
                 <p className="text-sm">
                   <a
-                    href="https://wa.me/6281996716532"
+                    href="https://wa.me/6282133335529"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline"
                   >
-                    CP: +62 819-9671-6532 (Salman)
+                    CP: +62 821-3333-5529 (Salman)
+                  </a>
+                  {""} <br /> {""}
+                  <a
+                    href="https://wa.me/6282234923689"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    CP: +62 822-3492-3689 (Marsha)
                   </a>
                 </p>
               </div>
@@ -126,7 +135,7 @@ const businessplan = () => {
           </div>
         </div>
         {/* Ketentuan Peserta */}
-        <div className="w-full flex flex-col mt-5 gap-1 lg:mt-10">
+        <div className="w-full flex flex-col mt-5 gap-1">
           <h1 className="text-2xl font-winter uppercase">Ketentuan Peserta:</h1>
           <div className="flex flex-col w-full gap-1">
             <ol className="list-decimal pl-5 flex flex-col gap-1">
@@ -206,7 +215,7 @@ const businessplan = () => {
                     Pada tahap ini peserta diminta untuk mengirimkan Business
                     Model Canvas (BMC) dari ide yang dilombakan. BMC yang
                     diajukan oleh peserta dikumpulkan dalam bentuk softcopy
-                    (PDF) dengan batas pengumpulan <b>11 Januari 2025</b>
+                    (PDF) dengan batas pengumpulan <b>15 Januari 2025</b>
                   </li>
                   <li>
                     Pada tahap ini, akan dipilih BMC terbaik dengan jumlah yang
@@ -253,7 +262,7 @@ const businessplan = () => {
                           href="https://bit.ly/LembarOrsinalitasBusinessPlanAIRCON"
                           className="underline"
                         >
-                          Klik Di SIni
+                          Klik Di Sini
                         </a>
                       </li>
                       <li>
@@ -262,16 +271,16 @@ const businessplan = () => {
                         pengumpulan BMC beserta biayanya:
                         <ol className="list-disc pl-4 text-wrap break-words">
                           <li>
-                            Early Bird <b>(Tanggal 16 - 22 Desember 2024)</b> :
+                            Early Bird <b>(Tanggal 23 - 27 Desember 2024)</b> :
                             Rp 50.000,- (per tim)
                           </li>
                           <li>
                             BATCH 1{" "}
-                            <b>(Tanggal 23 Desember 2024 - 1 Januari 2025)</b>:
+                            <b>(Tanggal 28 Desember 2024 - 3 Januari 2025)</b>:
                             Rp 60.000,- (per tim)
                           </li>
                           <li>
-                            BATCH 2 <b>(Tanggal 3 - 11 Januari 2025)</b> : Rp
+                            BATCH 2 <b>(Tanggal 4 - 15 Januari 2025)</b> : Rp
                             75.000,- (per tim)
                           </li>
                         </ol>
