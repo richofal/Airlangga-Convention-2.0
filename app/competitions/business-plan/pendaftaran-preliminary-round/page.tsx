@@ -295,8 +295,7 @@ const CompetitionPage = () => {
                       <option value="Lingkungan">Lingkungan</option>
                       <option value="Kesehatan">Kesehatan</option>
                       <option value="Teknologi">Teknologi</option>
-                      <option value="Ekonomi">Ekonomi</option>
-                      <option value="Sosial Budaya">Sosial Budaya</option>
+                      <option value="fnb">Food and Beverage (FnB)</option>
                       <option value="Pendidikan">Pendidikan</option>
                     </select>
                     {errors.subtema && (
