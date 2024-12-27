@@ -15,12 +15,12 @@ const ConfirmationPage = () => {
           <p className="text-md lg:text-2xl">
             Selanjutnya bisa langsung <b>konfirmasi pendaftaran</b> ke{" "}
             <a
-              href="https://wa.me/6281996716532"
+              href="https://wa.me/6281394358165"
               target="_blank"
               rel="noopener noreferrer"
               className="underline"
             >
-              0819-9671-6532 (Fajri)
+              0813-9435-8165 (Fajri)
             </a>
           </p>
           <p className="text-md lg:text-2xl">
