@@ -1,7 +1,7 @@
 "use client";
 
 import BackButton from "@/app/components/BackButton";
-import { documentSchema5, infografisSchema } from "@/app/utils/schema";
+import { documentSchema, infografisSchema } from "@/app/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
 import { useRouter } from "next/navigation";
@@ -40,10 +40,7 @@ const CompetitionPage = () => {
     let isFileValid = true;
 
     files?.forEach((file) => {
-      let validate;
-      validate = documentSchema5.safeParse(file.file);
-
-      if (validate.success) {
+      if (documentSchema.safeParse(file.file).success) {
         formData.append(file.name, file.file);
       } else {
         isFileValid = false;

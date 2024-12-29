@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
-import { documentSchema5, basketSchema } from "@/app/utils/schema";
+import { basketSchema, documentSchema } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,9 +42,13 @@ const CompetitionPage = () => {
     let isFileValid = true;
 
     files?.forEach((file) => {
-      formData.append(file.name, file.file);
+      if (documentSchema.safeParse(file.file).success) {
+        formData.append(file.name, file.file);
+      } else {
+        isFileValid = false;
+        alert("Salah satu file tidak valid atau melebihi batas ukuran");
+      }
     });
-
     if (!isFileValid) return; // Exit early if any file is invalid
 
     fetch("/api/basket", {

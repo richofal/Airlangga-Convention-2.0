@@ -3,7 +3,7 @@
 import React from "react";
 import BackButton from "@/app/components/BackButton";
 import { useRouter } from "next/navigation";
-import { documentSchema5, ktiSchemaAwal } from "@/app/utils/schema";
+import { documentSchema, ktiSchemaAwal } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -36,10 +36,7 @@ const CompetitionPage = () => {
     let isFileValid = true;
 
     files?.forEach((file) => {
-      let validate;
-      validate = documentSchema5.safeParse(file.file);
-
-      if (validate.success) {
+      if (documentSchema.safeParse(file.file).success) {
         formData.append(file.name, file.file);
       } else {
         isFileValid = false;
