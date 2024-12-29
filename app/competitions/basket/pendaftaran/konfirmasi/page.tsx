@@ -145,8 +145,8 @@ const ConfirmationPage = () => {
             <div className="w-full flex flex-col items-start lg:text-xl">
               <div className="flex flex-col w-full gap-1">
                 <label htmlFor="bukti_pembayaran">
-                  Bukti Pembayaran* <br /> Note: Format PDF/gambar (size limit
-                  10 MB)
+                  Bukti Pembayaran* <br /> Note: File PDF/gambar (size limit 10
+                  MB) <br /> Format: Basket_Asal Sekolah_Putra/Putri
                 </label>
                 <input
                   id="bukti_pembayaran"
