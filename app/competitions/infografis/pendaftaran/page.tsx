@@ -176,7 +176,7 @@ const CompetitionPage = () => {
                   />
                 </div>
               </div>
-              {/* <div className="flex flex-col w-full gap-1">
+              <div className="flex flex-col w-full gap-1">
                 <label htmlFor="file_infografis">
                   File Infografis <br className="lg:hidden" />
                   (Format PDF, Size limit 10 MB)*
@@ -197,7 +197,7 @@ const CompetitionPage = () => {
                     }
                   }}
                 />
-              </div> */}
+              </div>
               <button
                 className="bg-black text-white px-8 py-3 rounded-lg flex flex-row justify-center items-center w-1/4"
                 type="submit"

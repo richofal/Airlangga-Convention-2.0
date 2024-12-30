@@ -21,6 +21,15 @@ const ConfirmationPage = () => {
               className="underline"
             >
               0821-3333-5529 (Salman)
+            </a>{" "}
+            atau{" "}
+            <a
+              href="https://wa.me/6282133335529"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              0822-3492-3689 (Marsha)
             </a>
           </p>
           <p className="text-md lg:text-2xl">
