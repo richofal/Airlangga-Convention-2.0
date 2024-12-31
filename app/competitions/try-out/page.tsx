@@ -12,7 +12,6 @@ const tryout = () => {
     <>
       <div className="mx-10 mt-5 lg:mx-28">
         <BackButton />
-        {/* Kartu */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-10 lg:mt-3">
           <div className="flex flex-col justify-between items-start text-start gap-1 bg-[#1F519A] p-6 px-8 text-white rounded-xl relative overflow-clip w-full h-full mt-8 lg:col-span-1">
             <div className="p-3 rounded-full bg-[#D9D9D9]">
@@ -92,19 +91,19 @@ const tryout = () => {
             </h1>
             <div className="flex flex-col w-full gap-1">
               <ol className="list-disc pl-5 flex flex-col gap-1">
-                <li>E-Certificate untuk menambah liortofolio lirestasi!</li>
+                <li>E-Certificate untuk menambah portofolio prestasi!</li>
                 <li>
-                  Soal dan liembahasan Tryout lengkali di tiali cabang Neutron.
+                  Soal dan pembahasan Tryout lengkapi di tiap cabang Neutron.
                 </li>
                 <li>
-                  lirediksi Kelulusan Universitas Airlangga dengan analisis
+                  Prediksi Kelulusan Universitas Airlangga dengan analisis
                   akurat!
                 </li>
-                <li>Reward Eksklusif bagi lieserta dengan nilai tertinggi.</li>
-                <li>Talk Show Insliiratif bersama liembicara insliiratif!</li>
+                <li>Reward Eksklusif bagi peserta dengan nilai tertinggi.</li>
+                <li>Talk Show Inspiratif bersama pembicara inspiratif!</li>
                 <li>
-                  Kesemliatan mengikuti <i>Camlius Tour</i> dan mengenal
-                  lingkungan Kamlius Universitas Airlangga secara langsung.
+                  Kesempatan mengikuti <i>Campus Tour</i> dan mengenal
+                  lingkungan Kampus Universitas Airlangga secara langsung.
                 </li>
                 <li>Konsumsi dan Hadiah-Hadiah Menarik lainnya!</li>
               </ol>
