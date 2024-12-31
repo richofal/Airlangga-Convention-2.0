@@ -27,10 +27,10 @@ const Competition = () => {
       title: "Try Out & Tour",
       price: (
         <>
-          Coming Soon
-          {/* Rp70.000,00 /orang (Gelombang 1) <br />
-          Rp85.000,00 /orang (Gelombang 2) <br />
-          Rp100.000,00 /orang (Gelombang 3) */}
+          {/* Coming Soon */}
+          Rp60.000/orang (Presale 1) <br />
+          Rp65.000/orang (Presale 2) <br />
+          Rp70.000/orang (Presale 3)
         </>
       ),
       imageSrc: "/Tryout.svg",

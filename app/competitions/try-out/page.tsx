@@ -31,9 +31,9 @@ const tryout = () => {
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
               <p>
-                Rp70.000,00 /orang (Gelombang 1) <br />
-                Rp85.000,00 /orang (Gelombang 2) <br />
-                Rp100.000,00 /orang (Gelombang 3)
+                Rp60.000/orang (Presale 1) <br />
+                Rp65.000/orang (Presale 2) <br />
+                Rp70.000/orang (Presale 3)
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@ const tryout = () => {
             <div className="w-full mt-5 flex flex-col gap-3">
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
-                <p className="text-sm">23 Desember 2024 - 8 Februari 2025</p>
+                <p className="text-sm">30 Desember 2024 - 9 Februari 2025</p>
               </div>
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
@@ -78,66 +78,69 @@ const tryout = () => {
             🎓 T&T (TRYOUT & CAMPUS TOUR) AIRLANGGA CONVENTION 2.0 🎓
           </h1>
           <div className="flex flex-col w-full gap-1">
-            <p>Halo, para pejuang kampus!</p>
+            <p>Halo, Pejuang Kampus Impian! 👋</p>
             <p>
-              Yuk, siapkan dirimu untuk pengalaman seru dan penuh manfaat di
-              {/* */}
-              <b> Tryout & Campus Tour 2025</b>. Ini kesempatan emas buat kamu
-              yang ingin mengasah kemampuan akademik sekaligus menjelajahi
-              suasana kampus impian!
+              Selamat datang di Try Out UTBK & Campus Tour Airlangga Convention
+              2.0! Acara ini dirancang khusus untuk membantu kalian semua dalam
+              mempersiapkan UTBK dengan lebih percaya diri serta memberikan
+              pengalaman seru menjelajahi Kampus Universitas Airlangga.
             </p>
-            <p>📑 Gelombang Pendaftaran:</p>
-            <ol className="list-disc pl-5 flex flex-col gap-1">
+          </div>
+          <div className="w-full flex flex-col mt-5 gap-1">
+            <h1 className="text-2xl font-winter uppercase">
+              ✨ Apa yang akan kamu dapatkan?
+            </h1>
+            <div className="flex flex-col w-full gap-1">
+              <ol className="list-disc pl-5 flex flex-col gap-1">
+                <li>E-Certificate untuk menambah liortofolio lirestasi!</li>
+                <li>
+                  Soal dan liembahasan Tryout lengkali di tiali cabang Neutron.
+                </li>
+                <li>
+                  lirediksi Kelulusan Universitas Airlangga dengan analisis
+                  akurat!
+                </li>
+                <li>Reward Eksklusif bagi lieserta dengan nilai tertinggi.</li>
+                <li>Talk Show Insliiratif bersama liembicara insliiratif!</li>
+                <li>
+                  Kesemliatan mengikuti <i>Camlius Tour</i> dan mengenal
+                  lingkungan Kamlius Universitas Airlangga secara langsung.
+                </li>
+                <li>Konsumsi dan Hadiah-Hadiah Menarik lainnya!</li>
+              </ol>
+            </div>
+          </div>
+          <div className="w-full flex flex-col mt-5 gap-1">
+            <h1 className="text-2xl font-winter uppercase">
+              📅 Timeline Pendaftaran:
+            </h1>
+            <ol className="list-decimal pl-5 flex flex-col gap-1">
               <li className="text-wrap">
-                Gelombang I: Coming Soon
-                {/* Gelombang I: Rp70.000,- (23 Desember 2024 - 8 Januari 2025) */}
+                Presale 1: [30 Des 2024 - 12 Jan 2025] <b>Rp60.000</b>
               </li>
               <li className="text-wrap">
-                Gelombang II: Coming Soon
-                {/* Gelombang II: Rp85.000,- (9 Januari 2025 - 24 Januari 2025) */}
+                Presale 2: [13 Jan - 26 Jan 2025] <b>Rp65.000</b>
               </li>
               <li className="text-wrap">
-                Gelombang III: Coming Soon
-                {/* Gelombang III: Rp100.000,- (25 Januari 2025 - 8 Februari 2025) */}
+                Presale 3: [27 Jan - 9 Feb 2025] <b>Rp70.000</b>
               </li>
             </ol>
-            <p>📅 Tanggal Pelaksanaan: Sabtu, 15 Februari 2025</p>
-            <p>
-              📍 Lokasi: Gedung Kuliah Bersama, Kampus C Universitas Airlangga
-            </p>
-            <p>⏰ Waktu: 07:00 - Selesai</p>
           </div>
-        </div>
-        {/* Apa yang akan kamu dapatkan? */}
-        <div className="w-full flex flex-col mt-5 gap-1">
-          <h1 className="text-2xl font-winter uppercase">
-            Apa yang akan kamu dapatkan?
-          </h1>
-          <div className="flex flex-col w-full gap-1">
-            <p>
-              📘 <b>Tryout Ujian Masuk Perguruan Tinggi</b> – Tes simulasi
-              dengan soal-soal berbobot dan suasana ujian sesungguhnya!
-            </p>
-            <p>
-              🏫 <b>Campus Tour</b> – Eksplorasi kampus, dari ruang kelas hingga
-              fasilitas favorit mahasiswa!
-            </p>
-            <p>
-              🎉 <b>Sesi Sharing & Talkshow</b> – Temui kakak-kakak inspiratif
-              dan dapatkan tips lolos PTN!
-            </p>
-            <p>
-              <b>🧑‍💻Vendor bimbel resmi!</b>
-            </p>
-            <p>
-              Kami sedang berkolaborasi dengan lembaga bimbel terbaik agar kamu
-              bisa mendapatkan soal-soal berkualitas dan pembahasan yang jelas.
-              Stay tuned, ya!
-            </p>
+          <div className="w-full flex flex-col mt-5 gap-1">
+            <h1 className="text-2xl font-winter uppercase">📍 Detail Acara:</h1>
+            <ol className="list-disc pl-5 flex flex-col gap-1">
+              <li className="text-wrap">
+                Hari, Tanggal: Sabtu, 15 Februari 2025
+              </li>
+              <li className="text-wrap">Waktu: 07.00 - Selesai</li>
+              <li className="text-wrap">
+                Lokasi: Gedung Kuliah Bersama (GKB) Kampus C, Universitas
+                Airlangga
+              </li>
+            </ol>
           </div>
         </div>
       </div>
-      {/* Click to Download Full Guide Book */}
       <div className="w-full flex flex-row justify-between items-center text-center mt-8 mb-2">
         <div className="w-1/3 py-[0.05rem] bg-black lg:w-full"></div>
         <a
@@ -152,8 +155,8 @@ const tryout = () => {
         <div className="w-full flex flex-col justify-center items-center gap-5">
           <p className="text-sm text-center">
             <b>
-              Daftarkan dirimu sekarang dan siapkan dirimu menjadi pejuang
-              kampus terbaik!
+              Persiapkan diri kalian untuk meraih skor terbaik dan temukan
+              pengalaman baru yang tak terlupakan bersama kami! 💪✨
             </b>
           </p>
         </div>
