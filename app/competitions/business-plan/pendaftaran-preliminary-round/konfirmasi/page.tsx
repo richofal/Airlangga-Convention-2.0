@@ -62,7 +62,7 @@ const ConfirmationPage = () => {
         .then((res) => res.json())
         .then((data) => {
           router.push(
-            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi/reminder`
+            `/competitions/business-plan/pendaftaran-preliminary-round/konfirmasi/reminder`
           );
         })
         .catch((error) => {
@@ -107,7 +107,7 @@ const ConfirmationPage = () => {
                 <p className="flex flex-row justify-between items-center w-[38%]">
                   <span>Harga</span> <span>:</span>
                 </p>
-                <p>Rp60.000,-</p>
+                <p>Rp75.000,-</p>
               </div>
               {/* <div className="flex flex-row start items-center gap-6">
                 <p className="flex flex-row justify-between items-center w-[38%]">
