@@ -107,7 +107,7 @@ const ConfirmationPage = () => {
                 <p className="flex flex-row justify-between items-center w-[38%]">
                   <span>Harga</span> <span>:</span>
                 </p>
-                <p>Rp40.000,-</p>
+                <p>Rp50.000,-</p>
               </div>
               <div className="w-full flex flex-col gap-1">
                 <label htmlFor="paymentMethod">Metode Pembayaran*</label>
