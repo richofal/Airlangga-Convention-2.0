@@ -61,9 +61,7 @@ const ConfirmationPage = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          router.push(
-            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi/reminder`
-          );
+          router.push(`/competitions/basket/pendaftaran/konfirmasi/reminder`);
         })
         .catch((error) => {
           console.error("Error Upload:", error);

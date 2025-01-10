@@ -62,7 +62,7 @@ const ConfirmationPage = () => {
         .then((res) => res.json())
         .then((data) => {
           router.push(
-            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi/reminder`
+            `/competitions/mobile-legends/pendaftaran/konfirmasi/reminder`
           );
         })
         .catch((error) => {
