@@ -5,7 +5,7 @@ const Competition = () => {
   const competitionData = [
     {
       title: "Karya Tulis Ilmiah",
-      price: "GRATIS (Tahap Awal)",
+      price: "Registrasi Full Paper (Gel 1): Rp125.000,- /Tim",
       imageSrc: "/KTI.svg",
       bgColor: "#1F519A",
       route: "karya-tulis-ilmiah",

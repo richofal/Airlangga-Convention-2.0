@@ -12,14 +12,13 @@ import {
 
 const KaryaTulisIlmiahPage = () => {
   const [hovered, setHovered] = useState(false);
-  const bgColor = "#1F519A"; // Default background color
+  const bgColor = "#1F519A";
   const router = useRouter();
 
   return (
     <>
       <div className="mx-10 mt-5 lg:mx-28">
         <BackButton />
-        {/* Card */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 justify-center items-center gap-10 lg:mt-3">
           <div
             className="flex flex-col justify-between items-start text-start gap-1 bg-[#1F519A] p-6 px-8 text-white rounded-xl relative overflow-clip w-full h-full mt-8 lg:col-span-1"
@@ -45,7 +44,8 @@ const KaryaTulisIlmiahPage = () => {
             </h1>
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
-              <p>GRATIS (Tahap Awal)</p>
+              <p>Registrasi Full Paper (Gel 1)</p>
+              <p>Rp125.000,- /Tim</p>
             </div>
           </div>
           <div className="lg:w-full items-center lg:col-span-2">
@@ -71,16 +71,17 @@ const KaryaTulisIlmiahPage = () => {
                 </p>
               </div>
             </div>
-            {/* Tombol Daftar */}
             <button
               className="px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
               onClick={() =>
                 router.push(
-                  "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal"
+                  "#"
+                  // "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal"
                 )
               }
             >
-              Daftar Tahap Awal
+              Ditutup
+              {/* Daftar Tahap Awal */}
             </button>{" "}
             <br />
             <button
@@ -95,7 +96,6 @@ const KaryaTulisIlmiahPage = () => {
             </button>{" "}
           </div>
         </div>
-        {/* Tema */}
         <div className="flex flex-col lg:flex-row mt-5 gap-5 lg:mt-10">
           <div className="w-full lg:w-1/2">
             <h1 className="font-winter text-2xl uppercase">Tema</h1>
@@ -126,7 +126,6 @@ const KaryaTulisIlmiahPage = () => {
             </div>
           </div>
         </div>
-        {/* Ketentuan Peserta */}
         <div className="w-full flex flex-col mt-5 gap-1 lg:mt-10">
           <h1 className="text-2xl font-winter uppercase">Ketentuan Peserta:</h1>
           <div className="flex flex-col w-full gap-1">
@@ -136,7 +135,7 @@ const KaryaTulisIlmiahPage = () => {
             >
               <li className="text-wrap">
                 Peserta merupakan siswa/i SMA atau SMK sederajat dari kelas X,
-                XI, dan XII se-Jawa Timur, yang masih <b>AKTIF</b> dengan
+                XI, dan XII se-Indonesia, yang masih <b>AKTIF</b> dengan
                 dibuktikan dengan <i>scan</i> Kartu Pelajar atau Surat
                 Keterangan Pelajar dari Kepala Sekolah yang bersangkutan
               </li>
@@ -304,12 +303,14 @@ const KaryaTulisIlmiahPage = () => {
                 </li>
               </ol>
               <li className="text-wrap">
-                Semua berkas sebagaimana dimaksud dalam poin 1 dikirimkan dalam
-                format PDF
+                Semua berkas sebagaimana dimaksud dalam <b>poin a</b> dikirimkan
+                dalam
+                <b> format PDF</b>
               </li>
               <li>
                 Dari tim yang mengirimkan <i>full paper</i>, 10 tim terbaik akan
-                dipilih sebagai finalis
+                dipilih sebagai finalis dan melakukan presentasi karyanya secara
+                offline di Universitas Airlangga
               </li>
               <li>
                 Apabila peserta telah melakukan pembayaran dan pendaftaran ulang
@@ -318,7 +319,7 @@ const KaryaTulisIlmiahPage = () => {
               </li>
               <li>
                 Apabila terdapat tim yang telah melakukan pendaftaran tetapi
-                tidak melakukan konfirmasi pendaftaran, maka dianggap{" "}
+                <b> tidak melakukan konfirmasi</b> pendaftaran, maka dianggap{" "}
                 <b>TIDAK MENDAFTARKAN DIRI</b>
               </li>
             </ol>
