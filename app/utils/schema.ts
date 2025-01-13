@@ -44,6 +44,8 @@ export const mlSchema = z.object({
   nickname_4: z.string().min(1, "Nickname anggota 4 harus diisi"),
   nama_anggota_5: z.string().min(1, "Nama anggota 5 harus diisi"),
   nickname_5: z.string().min(1, "Nickname anggota 5 harus diisi"),
+  nama_anggota_6: z.string().optional(),
+  nickname_6: z.string().optional(),
 });
 
 export const bPPreliminarySchema = z.object({

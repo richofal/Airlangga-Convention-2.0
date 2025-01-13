@@ -34,7 +34,10 @@ const CompetitionPage = () => {
     formData.append("id", id);
 
     for (const key in data) {
-      formData.append(key, data[key as keyof typeof data]);
+      const value = data[key as keyof typeof data];
+      if (value !== undefined) {
+        formData.append(key, value);
+      }
     }
 
     let isFileValid = true;
@@ -355,7 +358,13 @@ const CompetitionPage = () => {
                     id="nama_anggota_6"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                    {...register("nama_anggota_6")}
                   />
+                  {errors.nama_anggota_6 && (
+                    <p className="text-red-500 text-sm">
+                      {errors.nama_anggota_6.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="w-full flex flex-row justify-between gap-2">
@@ -367,7 +376,13 @@ const CompetitionPage = () => {
                     id="nickname_6"
                     type="text"
                     className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                    {...register("nickname_6")}
                   />
+                  {errors.nickname_6 && (
+                    <p className="text-red-500 text-sm">
+                      {errors.nickname_6.message}
+                    </p>
+                  )}
                 </div>
               </div>
               {/*  */}
