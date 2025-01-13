@@ -107,7 +107,7 @@ const CompetitionPage = () => {
                   )}
                 </div>
                 <div className="flex flex-col w-1/2 gap-1">
-                  <label htmlFor="asal_sekolah">Asal Sekolah*</label>
+                  <label htmlFor="asal_sekolah">Asal Sekolah (-)</label>
                   <input
                     id="asal_sekolah"
                     type="text"
@@ -310,7 +310,7 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nama_anggota_5">
-                    Nama Lengkap Anggota 5 (Cadangan)*
+                    Nama Lengkap Anggota 5*
                   </label>
                   <input
                     id="nama_anggota_5"
@@ -329,7 +329,7 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nickname_5">
-                    Nickname in Game Anggota 5 (Cadangan)*
+                    Nickname in Game Anggota 5*
                   </label>
                   <input
                     id="nickname_5"
@@ -345,6 +345,32 @@ const CompetitionPage = () => {
                   )}
                 </div>
               </div>
+              {/*  */}
+              <div className="w-full flex flex-row justify-between gap-2">
+                <div className="flex flex-col w-full gap-1">
+                  <label htmlFor="nama_anggota_6">
+                    Nama Lengkap Anggota 6 (Cadangan)*
+                  </label>
+                  <input
+                    id="nama_anggota_6"
+                    type="text"
+                    className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                  />
+                </div>
+              </div>
+              <div className="w-full flex flex-row justify-between gap-2">
+                <div className="flex flex-col w-full gap-1">
+                  <label htmlFor="nickname_6">
+                    Nickname in Game Anggota 6 (Cadangan)*
+                  </label>
+                  <input
+                    id="nickname_6"
+                    type="text"
+                    className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                  />
+                </div>
+              </div>
+              {/*  */}
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="kartu_pelajar">
