@@ -6,7 +6,7 @@ import Image from "next/image";
 import { CalendarDots, PhoneCall } from "@phosphor-icons/react/dist/ssr";
 import { Newspaper } from "@phosphor-icons/react";
 
-const infografis = () => {
+const Infografis = () => {
   const router = useRouter();
 
   return (
@@ -389,4 +389,4 @@ const infografis = () => {
   );
 };
 
-export default infografis;
+export default Infografis;

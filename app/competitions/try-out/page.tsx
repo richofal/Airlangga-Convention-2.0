@@ -5,7 +5,7 @@ import BackButton from "@/app/components/BackButton";
 import Image from "next/image";
 import { CalendarDots, PhoneCall, Exam } from "@phosphor-icons/react/dist/ssr";
 
-const tryout = () => {
+const Tryout = () => {
   const router = useRouter();
 
   return (
@@ -164,4 +164,4 @@ const tryout = () => {
   );
 };
 
-export default tryout;
+export default Tryout;

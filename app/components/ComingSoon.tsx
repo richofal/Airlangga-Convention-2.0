@@ -19,11 +19,11 @@ const ComingSoon: React.FC = () => {
 const styles = {
   container: {
     display: "flex",
-    flexDirection: "column" as "column",
+    flexDirection: "column" as const,
     justifyContent: "center",
     alignItems: "center",
     minHeight: "auto",
-    textAlign: "center" as "center",
+    textAlign: "center" as const,
     paddingTop: "5rem", // Increased padding from the top
   },
   heading: {

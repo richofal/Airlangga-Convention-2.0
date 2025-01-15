@@ -56,7 +56,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(
           `/competitions/business-plan/pendaftaran-preliminary-round/konfirmasi?id=${id}`
         );

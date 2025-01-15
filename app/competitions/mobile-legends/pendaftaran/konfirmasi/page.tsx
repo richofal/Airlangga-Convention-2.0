@@ -29,7 +29,7 @@ const ConfirmationPage = () => {
         setData(data);
         setIsLoading(false);
       });
-  }, [data]);
+  }, [data, id]);
 
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -60,7 +60,7 @@ const ConfirmationPage = () => {
         body: formData,
       })
         .then((res) => res.json())
-        .then((data) => {
+        .then(() => {
           router.push(
             `/competitions/mobile-legends/pendaftaran/konfirmasi/reminder`
           );

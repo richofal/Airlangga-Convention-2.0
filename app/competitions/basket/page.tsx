@@ -9,7 +9,7 @@ import {
   PhoneCall,
 } from "@phosphor-icons/react/dist/ssr";
 
-const karyatulisilmiah = () => {
+const KaryaTulisIlmiah = () => {
   const router = useRouter();
 
   return (
@@ -272,4 +272,4 @@ const karyatulisilmiah = () => {
   );
 };
 
-export default karyatulisilmiah;
+export default KaryaTulisIlmiah;

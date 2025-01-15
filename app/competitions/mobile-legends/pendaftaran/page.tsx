@@ -58,7 +58,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(
           `/competitions/mobile-legends/pendaftaran/konfirmasi?id=${id}`
         );

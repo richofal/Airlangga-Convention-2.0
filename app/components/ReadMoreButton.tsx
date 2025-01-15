@@ -1,28 +1,28 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import { FaArrowUp } from "react-icons/fa";
 
 interface ReadMoreButtonProps {
-  onClick?: () => void;
+  // onClick?: () => void;
   url: string;
   width: string;
 }
 
 const ReadMoreButton: React.FC<ReadMoreButtonProps> = ({
-  onClick,
+  // onClick,
   url,
   width,
 }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  // const [isClicked, setIsClicked] = useState(false);
   const router = useRouter();
 
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-    if (onClick) {
-      onClick();
-    }
-  };
+  // const handleClick = () => {
+  //   setIsClicked(!isClicked);
+  //   if (onClick) {
+  //     onClick();
+  //   }
+  // };
 
   return (
     <button

@@ -55,7 +55,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(
           `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi?id=${id}`
         );

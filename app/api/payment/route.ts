@@ -1,10 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-
 import { join } from "path";
 import { stat, mkdir, writeFile } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
-
-const prisma = new PrismaClient();
 
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
@@ -28,7 +24,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await stat(uploadDir);
-  } catch (e: any) {
+  } catch (e: NodeJS.ErrnoException) {
     if (e.code === "ENOENT") {
       // This is for checking the directory is exist (ENOENT : Error No Entry)
       await mkdir(uploadDir, { recursive: true });
