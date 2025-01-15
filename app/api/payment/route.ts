@@ -24,8 +24,8 @@ export async function POST(req: NextRequest) {
 
   try {
     await stat(uploadDir);
-  } catch (e: NodeJS.ErrnoException) {
-    if (e.code === "ENOENT") {
+  } catch (e: unknown) {
+    if ((e as NodeJS.ErrnoException).code === "ENOENT") {
       // This is for checking the directory is exist (ENOENT : Error No Entry)
       await mkdir(uploadDir, { recursive: true });
     } else {
