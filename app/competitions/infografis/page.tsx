@@ -6,7 +6,7 @@ import Image from "next/image";
 import { CalendarDots, PhoneCall } from "@phosphor-icons/react/dist/ssr";
 import { Newspaper } from "@phosphor-icons/react";
 
-const infografis = () => {
+const Infografis = () => {
   const router = useRouter();
 
   return (
@@ -32,7 +32,7 @@ const infografis = () => {
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
               <p>
-                Rp40.000,00 /orang (Gelombang 1) <br /> Rp50.000,00 /orang
+                Rp40.000,- /orang (Gelombang 1) <br /> Rp50.000,- /orang
                 (Gelombang 2)
               </p>
             </div>
@@ -44,7 +44,7 @@ const infografis = () => {
             <div className="w-full mt-5 flex flex-col gap-3">
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
-                <p className="text-sm">23 Desember 2024 - 8 Januari 2025</p>
+                <p className="text-sm">23 Desember 2024 - 18 Januari 2025</p>
               </div>
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
@@ -389,4 +389,4 @@ const infografis = () => {
   );
 };
 
-export default infografis;
+export default Infografis;

@@ -3,11 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
-import {
-  documentSchema5,
-  documentSchema10,
-  ktiSchemaAkhir,
-} from "@/app/utils/schema";
+import { documentSchema, ktiSchemaAkhir } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -44,14 +40,7 @@ const CompetitionPage = () => {
     let isFileValid = true;
 
     files?.forEach((file) => {
-      let validate;
-      if (file.name === "full_paper") {
-        validate = documentSchema10.safeParse(file.file);
-      } else {
-        validate = documentSchema5.safeParse(file.file);
-      }
-
-      if (validate.success) {
+      if (documentSchema.safeParse(file.file).success) {
         formData.append(file.name, file.file);
       } else {
         isFileValid = false;
@@ -66,7 +55,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(
           `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi?id=${id}`
         );
@@ -290,7 +279,7 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="kartu_pelajar">
                         Scan KTP/Kartu Pelajar (PDF/gambar)* <br /> Note:
-                        Jadikan satu file (size limit 5 MB)
+                        Jadikan satu file (size limit 10 MB)
                       </label>
                       <input
                         id="kartu_pelajar"
@@ -340,7 +329,7 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="surat_pernyataan">
                         Surat Pernyataan Pendaftaran* <br /> Note: Format PDF,
-                        (size limit 5 MB)
+                        (size limit 10 MB)
                       </label>
                       <input
                         id="surat_pernyataan"
@@ -365,7 +354,7 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="surat_orisinalitas">
                         Surat Pernyataan Orisinalitas* <br /> Note: Format PDF
-                        (size limit 5 MB)
+                        (size limit 10 MB)
                       </label>
                       <input
                         id="surat_orisinalitas"

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
-import { mlSchema, documentSchema5 } from "@/app/utils/schema";
+import { mlSchema, documentSchema } from "@/app/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
 import { useForm } from "react-hook-form";
@@ -34,16 +34,16 @@ const CompetitionPage = () => {
     formData.append("id", id);
 
     for (const key in data) {
-      formData.append(key, data[key as keyof typeof data]);
+      const value = data[key as keyof typeof data];
+      if (value !== undefined) {
+        formData.append(key, value);
+      }
     }
 
     let isFileValid = true;
 
     files?.forEach((file) => {
-      let validate;
-      validate = documentSchema5.safeParse(file.file);
-
-      if (validate.success) {
+      if (documentSchema.safeParse(file.file).success) {
         formData.append(file.name, file.file);
       } else {
         isFileValid = false;
@@ -58,7 +58,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(
           `/competitions/mobile-legends/pendaftaran/konfirmasi?id=${id}`
         );
@@ -110,7 +110,7 @@ const CompetitionPage = () => {
                   )}
                 </div>
                 <div className="flex flex-col w-1/2 gap-1">
-                  <label htmlFor="asal_sekolah">Asal Sekolah*</label>
+                  <label htmlFor="asal_sekolah">Asal Sekolah (-)</label>
                   <input
                     id="asal_sekolah"
                     type="text"
@@ -143,7 +143,7 @@ const CompetitionPage = () => {
                 </div>
                 <div className="flex flex-col w-1/2 gap-1">
                   <label htmlFor="email">
-                    <br />
+                    <br className="lg:hidden" />
                     Email Kapten*
                   </label>
                   <input
@@ -313,7 +313,7 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nama_anggota_5">
-                    Nama Lengkap Anggota 5 (Cadangan)*
+                    Nama Lengkap Anggota 5*
                   </label>
                   <input
                     id="nama_anggota_5"
@@ -332,7 +332,7 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nickname_5">
-                    Nickname in Game Anggota 5 (Cadangan)*
+                    Nickname in Game Anggota 5*
                   </label>
                   <input
                     id="nickname_5"
@@ -348,11 +348,49 @@ const CompetitionPage = () => {
                   )}
                 </div>
               </div>
+              {/*  */}
+              <div className="w-full flex flex-row justify-between gap-2">
+                <div className="flex flex-col w-full gap-1">
+                  <label htmlFor="nama_anggota_6">
+                    Nama Lengkap Anggota 6 (Cadangan)*
+                  </label>
+                  <input
+                    id="nama_anggota_6"
+                    type="text"
+                    className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                    {...register("nama_anggota_6")}
+                  />
+                  {errors.nama_anggota_6 && (
+                    <p className="text-red-500 text-sm">
+                      {errors.nama_anggota_6.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="w-full flex flex-row justify-between gap-2">
+                <div className="flex flex-col w-full gap-1">
+                  <label htmlFor="nickname_6">
+                    Nickname in Game Anggota 6 (Cadangan)*
+                  </label>
+                  <input
+                    id="nickname_6"
+                    type="text"
+                    className="px-2 py-1 border border-black rounded-lg w-[98%] lg:py-2 lg:w-[99%]"
+                    {...register("nickname_6")}
+                  />
+                  {errors.nickname_6 && (
+                    <p className="text-red-500 text-sm">
+                      {errors.nickname_6.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              {/*  */}
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="kartu_pelajar">
                     Scan KTP/Kartu Pelajar (PDF/gambar)* <br /> Note: Jadikan
-                    satu file (size limit 5 MB)
+                    satu file (size limit 10 MB)
                   </label>
                   <input
                     id="kartu_pelajar"

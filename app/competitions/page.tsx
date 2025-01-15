@@ -5,7 +5,7 @@ const Competition = () => {
   const competitionData = [
     {
       title: "Karya Tulis Ilmiah",
-      price: "GRATIS (Tahap Awal)",
+      price: "Registrasi Full Paper (Gel 1): Rp125.000,- /Tim",
       imageSrc: "/KTI.svg",
       bgColor: "#1F519A",
       route: "karya-tulis-ilmiah",
@@ -14,9 +14,9 @@ const Competition = () => {
       title: "Infografis",
       price: (
         <>
-          Rp40.000,00 /orang (Gelombang 1)
+          Rp40.000,- /orang (Gelombang 1)
           <br />
-          Rp50.000,00 /orang (Gelombang 2)
+          Rp50.000,- /orang (Gelombang 2)
         </>
       ),
       imageSrc: "/Infografis.svg",
@@ -27,10 +27,10 @@ const Competition = () => {
       title: "Try Out & Tour",
       price: (
         <>
-          Coming Soon
-          {/* Rp70.000,00 /orang (Gelombang 1) <br />
-          Rp85.000,00 /orang (Gelombang 2) <br />
-          Rp100.000,00 /orang (Gelombang 3) */}
+          {/* Coming Soon */}
+          Rp60.000/orang (Presale 1) <br />
+          Rp65.000/orang (Presale 2) <br />
+          Rp70.000/orang (Presale 3)
         </>
       ),
       imageSrc: "/Tryout.svg",
@@ -39,7 +39,7 @@ const Competition = () => {
     },
     {
       title: "Mobile Legends",
-      price: "Rp85.000,00 /tim",
+      price: "Rp85.000,- /tim",
       imageSrc: "/ML.svg",
       bgColor: "#0A3981",
       route: "mobile-legends",
@@ -48,9 +48,9 @@ const Competition = () => {
       title: "Business Plan",
       price: (
         <>
-          Rp50.000,00 /tim (Early Bird) <br />
-          Rp60.000,00 /tim (Batch 1) <br />
-          Rp75.000,00 /tim (Batch 2)
+          Rp50.000,- /tim (Early Bird) <br />
+          Rp60.000,- /tim (Batch 1) <br />
+          Rp75.000,- /tim (Batch 2)
         </>
       ),
       imageSrc: "/Businessplan.svg",
@@ -61,8 +61,8 @@ const Competition = () => {
       title: "Basket",
       price: (
         <>
-          Rp450.000,00 /tim (Putra) <br />
-          Rp400.000,00 /tim (Putri)
+          Rp450.000,- /tim (Putra) <br />
+          Rp400.000,- /tim (Putri)
         </>
       ),
       imageSrc: "/Basket.svg",

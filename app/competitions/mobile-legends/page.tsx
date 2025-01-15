@@ -5,11 +5,11 @@ import BackButton from "@/app/components/BackButton";
 import Image from "next/image";
 import {
   GameController,
-  CalendarDots,
+  // CalendarDots,
   PhoneCall,
 } from "@phosphor-icons/react/dist/ssr";
 
-const karyatulisilmiah = () => {
+const MobileLegends = () => {
   const router = useRouter();
 
   return (
@@ -34,7 +34,7 @@ const karyatulisilmiah = () => {
             </h1>
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
-              <p>Rp85.000,00 /tim</p>
+              <p>Rp85.000,- /tim</p>
             </div>
           </div>
           <div className="lg:w-full items-center lg:col-span-2">
@@ -174,7 +174,7 @@ const karyatulisilmiah = () => {
         {/* Sistem Pertandingan (Full Online) */}
         <div className="w-full flex flex-col mt-5 gap-1">
           <h1 className="text-2xl font-winter uppercase">
-            Sistem Pertandingan (Full Online):
+            Sistem Pertandingan (Full Offline):
           </h1>
           <div className="flex flex-col w-full gap-1">
             <ol
@@ -363,4 +363,4 @@ const karyatulisilmiah = () => {
   );
 };
 
-export default karyatulisilmiah;
+export default MobileLegends;

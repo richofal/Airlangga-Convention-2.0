@@ -9,7 +9,7 @@ import {
   PhoneCall,
 } from "@phosphor-icons/react/dist/ssr";
 
-const karyatulisilmiah = () => {
+const KaryaTulisIlmiah = () => {
   const router = useRouter();
 
   return (
@@ -35,7 +35,7 @@ const karyatulisilmiah = () => {
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
               <p>
-                Rp450.000,00 /tim (Putra) <br /> Rp400.000,00 /tim (Putri)
+                Rp450.000,- /tim (Putra) <br /> Rp400.000,- /tim (Putri)
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@ const karyatulisilmiah = () => {
             <div className="w-full mt-5 flex flex-col gap-3">
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
-                <p className="text-sm">15 Desember 2024 - 10 Januari 2025</p>
+                <p className="text-sm">2 Januari 2025 - 21 Januari 2025</p>
               </div>
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
@@ -110,7 +110,7 @@ const karyatulisilmiah = () => {
                 Rp400.000,-
               </li>
               <li className="text-wrap">
-                Pendaftaran dilakukan pada tanggal 23 Desember 2024 - 19 Januari
+                Pendaftaran dilakukan pada tanggal 2 Januari 2025 - 21 Januari
                 2025 dengan menyertakan syarat-syarat sebagai berikut dikirim
                 melalui google form:
                 <ul
@@ -272,4 +272,4 @@ const karyatulisilmiah = () => {
   );
 };
 
-export default karyatulisilmiah;
+export default KaryaTulisIlmiah;

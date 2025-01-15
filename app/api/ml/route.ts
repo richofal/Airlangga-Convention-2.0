@@ -24,6 +24,8 @@ export async function POST(req: NextRequest) {
   const nickname_4 = formData.get("nickname_4") as string;
   const nama_anggota_5 = formData.get("nama_anggota_5") as string;
   const nickname_5 = formData.get("nickname_5") as string;
+  const nama_anggota_6 = formData.get("nama_anggota_6") as string;
+  const nickname_6 = formData.get("nickname_6") as string;
   const kartu_pelajar = formData.get("kartu_pelajar") as File;
 
   const kartu_pelajar_buffer = Buffer.from(await kartu_pelajar.arrayBuffer());
@@ -39,7 +41,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await stat(uploadDir);
-  } catch (e: any) {
+  } catch (e: NodeJS.ErrnoException) {
     if (e.code === "ENOENT") {
       // This is for checking the directory is exist (ENOENT : Error No Entry)
       await mkdir(uploadDir, { recursive: true });
@@ -76,6 +78,8 @@ export async function POST(req: NextRequest) {
         nickname_4,
         nama_anggota_5,
         nickname_5,
+        nama_anggota_6,
+        nickname_6,
       },
     });
 

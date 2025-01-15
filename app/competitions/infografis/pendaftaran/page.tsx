@@ -1,7 +1,7 @@
 "use client";
 
 import BackButton from "@/app/components/BackButton";
-import { documentSchema5, infografisSchema } from "@/app/utils/schema";
+import { documentSchema, infografisSchema } from "@/app/utils/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
 import { useRouter } from "next/navigation";
@@ -40,10 +40,7 @@ const CompetitionPage = () => {
     let isFileValid = true;
 
     files?.forEach((file) => {
-      let validate;
-      validate = documentSchema5.safeParse(file.file);
-
-      if (validate.success) {
+      if (documentSchema.safeParse(file.file).success) {
         formData.append(file.name, file.file);
       } else {
         isFileValid = false;
@@ -58,7 +55,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(`/competitions/infografis/pendaftaran/konfirmasi?id=${id}`);
         reset();
       })
@@ -159,7 +156,7 @@ const CompetitionPage = () => {
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="kartu_pelajar">
                     Scan KTP/Kartu Pelajar (PDF/gambar)* <br /> Note: Jadikan
-                    satu file (size limit 5 MB)
+                    satu file (size limit 10 MB)
                   </label>
                   <input
                     id="kartu_pelajar"
@@ -179,9 +176,10 @@ const CompetitionPage = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col w-full gap-1">
+              {/* <div className="flex flex-col w-full gap-1">
                 <label htmlFor="file_infografis">
-                  File Infografis (Format PDF, Size limit 10 MB)*
+                  File Infografis <br className="lg:hidden" />
+                  (Format PDF, Size limit 10 MB)*
                 </label>
                 <input
                   id="file_infografis"
@@ -199,7 +197,7 @@ const CompetitionPage = () => {
                     }
                   }}
                 />
-              </div>
+              </div> */}
               <button
                 className="bg-black text-white px-8 py-3 rounded-lg flex flex-row justify-center items-center w-1/4"
                 type="submit"

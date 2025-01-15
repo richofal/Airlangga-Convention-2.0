@@ -3,11 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
-import {
-  documentSchema5,
-  documentSchema10,
-  bPPreliminarySchema,
-} from "@/app/utils/schema";
+import { documentSchema, bPPreliminarySchema } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -45,14 +41,7 @@ const CompetitionPage = () => {
     let isFileValid = true;
 
     files?.forEach((file) => {
-      let validate;
-      if (file.name === "bmc") {
-        validate = documentSchema10.safeParse(file.file);
-      } else {
-        validate = documentSchema5.safeParse(file.file);
-      }
-
-      if (validate.success) {
+      if (documentSchema.safeParse(file.file).success) {
         formData.append(file.name, file.file);
       } else {
         isFileValid = false;
@@ -67,7 +56,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(
           `/competitions/business-plan/pendaftaran-preliminary-round/konfirmasi?id=${id}`
         );
@@ -295,8 +284,7 @@ const CompetitionPage = () => {
                       <option value="Lingkungan">Lingkungan</option>
                       <option value="Kesehatan">Kesehatan</option>
                       <option value="Teknologi">Teknologi</option>
-                      <option value="Ekonomi">Ekonomi</option>
-                      <option value="Sosial Budaya">Sosial Budaya</option>
+                      <option value="fnb">Food and Beverage (FnB)</option>
                       <option value="Pendidikan">Pendidikan</option>
                     </select>
                     {errors.subtema && (
@@ -315,7 +303,7 @@ const CompetitionPage = () => {
                       <label htmlFor="kartu_pelajar">
                         Scan Kartu Pelajar/Surat Keterangan Pelajar Aktif dari
                         Sekolah (PDF/gambar)* <br /> Note: Jadikan satu file
-                        (size limit 5 MB)
+                        (size limit 10 MB)
                       </label>
                       <input
                         id="kartu_pelajar"
@@ -386,7 +374,10 @@ const CompetitionPage = () => {
                   </div>
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
-                      <label htmlFor="bmc">Business Model Canvas (BMC)*</label>
+                      <label htmlFor="bmc">
+                        Business Model Canvas (BMC) <br className="lg:hidden" />{" "}
+                        (Format PDF, size limit 10 MB)*
+                      </label>
                       <input
                         id="bmc"
                         type="file"
@@ -410,7 +401,7 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="surat_orisinalitas">
                         Surat Pernyataan Orisinalitas* <br /> Note: Format PDF
-                        (size limit 5 MB)
+                        (size limit 10 MB)
                       </label>
                       <input
                         id="surat_orisinalitas"

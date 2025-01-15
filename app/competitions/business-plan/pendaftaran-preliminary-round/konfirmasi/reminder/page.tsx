@@ -11,10 +11,9 @@ const ConfirmationPage = () => {
         </h1>
         <div className="flex flex-col gap-3 mt-3">
           {" "}
-          <p className="text-sm lg:text-2xl">Thank you sudah daftar yaaa...</p>
-          <p className="text-sm lg:text-2xl">
+          <p className="text-md lg:text-2xl">Thank you sudah daftar yaaa...</p>
+          <p className="text-md lg:text-2xl">
             Selanjutnya bisa langsung <b>konfirmasi pendaftaran</b> ke{" "}
-            <br className="lg:hidden" />
             <a
               href="https://wa.me/6282133335529"
               target="_blank"
@@ -22,9 +21,29 @@ const ConfirmationPage = () => {
               className="underline"
             >
               0821-3333-5529 (Salman)
-            </a>
+            </a>{" "}
+            {/* atau{" "}
+            <a
+              href="https://wa.me/6282133335529"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              0822-3492-3689 (Marsha)
+            </a> */}
           </p>
-          <p className="text-sm lg:text-2xl">
+          <p className="text-md lg:text-2xl">
+            Dan konfirmasi <b>pembayaran</b> ke{" "}
+            <a
+              href="https://wa.me/6282141291100"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              0821-4129-1100 (Hanum)
+            </a>{" "}
+          </p>
+          <p className="text-md lg:text-2xl">
             Dengan format “Nama Tim_BMC dan Bukti Pembayaran_Subtema_Judul
             Bisnis_Nama Ketua”
           </p>

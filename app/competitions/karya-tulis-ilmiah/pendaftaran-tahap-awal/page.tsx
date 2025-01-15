@@ -3,7 +3,7 @@
 import React from "react";
 import BackButton from "@/app/components/BackButton";
 import { useRouter } from "next/navigation";
-import { documentSchema5, ktiSchemaAwal } from "@/app/utils/schema";
+import { documentSchema, ktiSchemaAwal } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -36,10 +36,7 @@ const CompetitionPage = () => {
     let isFileValid = true;
 
     files?.forEach((file) => {
-      let validate;
-      validate = documentSchema5.safeParse(file.file);
-
-      if (validate.success) {
+      if (documentSchema.safeParse(file.file).success) {
         formData.append(file.name, file.file);
       } else {
         isFileValid = false;
@@ -54,7 +51,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         reset();
         router.push(
           "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"
@@ -211,7 +208,7 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="kartu_pelajar">
-                    Scan KTP/ Kartu Pelajar*
+                    Scan KTP/ Kartu Pelajar (Format pdf, Size limit 10 MB)*
                   </label>
                   <input
                     id="kartu_pelajar"
@@ -235,7 +232,7 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="abstrak_paper">
-                    File Abstrak (Format pdf, Size limit 5 MB)*
+                    File Abstrak (Format pdf, Size limit 10 MB)*
                   </label>
                   <input
                     id="abstrak_paper"

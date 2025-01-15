@@ -29,7 +29,7 @@ const ConfirmationPage = () => {
         setData(data);
         setIsLoading(false);
       });
-  }, [data]);
+  }, [data, id]);
 
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -60,9 +60,9 @@ const ConfirmationPage = () => {
         body: formData,
       })
         .then((res) => res.json())
-        .then((data) => {
+        .then(() => {
           router.push(
-            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi/reminder`
+            `/competitions/business-plan/pendaftaran-preliminary-round/konfirmasi/reminder`
           );
         })
         .catch((error) => {
@@ -107,14 +107,14 @@ const ConfirmationPage = () => {
                 <p className="flex flex-row justify-between items-center w-[38%]">
                   <span>Harga</span> <span>:</span>
                 </p>
-                <p>Rp50.000,00</p>
+                <p>Rp75.000,-</p>
               </div>
-              <div className="flex flex-row start items-center gap-6">
+              {/* <div className="flex flex-row start items-center gap-6">
                 <p className="flex flex-row justify-between items-center w-[38%]">
                   <span>Total</span> <span>:</span>
                 </p>
                 <p>Rp50.000,00</p>
-              </div>
+              </div> */}
               <div className="w-full flex flex-col gap-1">
                 <label htmlFor="paymentMethod">Metode Pembayaran*</label>
                 <select
@@ -141,8 +141,8 @@ const ConfirmationPage = () => {
             <div className="w-full flex flex-col items-start lg:text-xl">
               <div className="flex flex-col w-full gap-1">
                 <label htmlFor="bukti_pembayaran">
-                  Bukti Pembayaran* <br /> Note: Format PDF/gambar (size limit 5
-                  MB)
+                  Bukti Pembayaran* <br /> Note: Format PDF/gambar (size limit
+                  10 MB)
                 </label>
                 <input
                   id="bukti_pembayaran"
@@ -170,7 +170,7 @@ const ConfirmationPage = () => {
                   name="confirmation"
                   required
                   type="checkbox"
-                  className="p-6"
+                  className="lg:p-6 p-3"
                 />
                 <label
                   htmlFor="confirmation"

@@ -29,7 +29,7 @@ const ConfirmationPage = () => {
         setData(data);
         setIsLoading(false);
       });
-  }, [data]);
+  }, [data, id]);
 
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -60,10 +60,8 @@ const ConfirmationPage = () => {
         body: formData,
       })
         .then((res) => res.json())
-        .then((data) => {
-          router.push(
-            `/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut/konfirmasi/reminder`
-          );
+        .then(() => {
+          router.push(`/competitions/basket/pendaftaran/konfirmasi/reminder`);
         })
         .catch((error) => {
           console.error("Error Upload:", error);
@@ -145,8 +143,8 @@ const ConfirmationPage = () => {
             <div className="w-full flex flex-col items-start lg:text-xl">
               <div className="flex flex-col w-full gap-1">
                 <label htmlFor="bukti_pembayaran">
-                  Bukti Pembayaran* <br /> Note: Format PDF/gambar (size limit 5
-                  MB)
+                  Bukti Pembayaran* <br /> Note: File PDF/gambar (size limit 10
+                  MB) <br /> Format: Basket_Asal Sekolah_Putra/Putri
                 </label>
                 <input
                   id="bukti_pembayaran"
@@ -174,7 +172,7 @@ const ConfirmationPage = () => {
                   name="confirmation"
                   required
                   type="checkbox"
-                  className="p-6"
+                  className="lg:p-6 p-3"
                 />
                 <label
                   htmlFor="confirmation"

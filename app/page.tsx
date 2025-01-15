@@ -12,7 +12,7 @@ const Home = () => {
     },
     sponsor: {
       title: "Become our partner",
-      desc: "Become a sponsor of Airlangga Convention 2023 to enhance your company’s reputation through a positive partnership with Universitas Airlangga.",
+      desc: "Become a sponsor of Airlangga Convention 2.0 to enhance your company’s reputation through a positive partnership with Universitas Airlangga.",
       url: "https://drive.google.com/drive/folders/1Tf2h_VbgtYfKrqnOnBtJuRBYVnphlfzX?usp=drive_link",
     },
     competition: {

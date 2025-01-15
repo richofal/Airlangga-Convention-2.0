@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import BackButton from "@/app/components/BackButton";
-import { documentSchema5, basketSchema } from "@/app/utils/schema";
+import { basketSchema, documentSchema } from "@/app/utils/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,9 +42,13 @@ const CompetitionPage = () => {
     let isFileValid = true;
 
     files?.forEach((file) => {
-      formData.append(file.name, file.file);
+      if (documentSchema.safeParse(file.file).success) {
+        formData.append(file.name, file.file);
+      } else {
+        isFileValid = false;
+        alert("Salah satu file tidak valid atau melebihi batas ukuran");
+      }
     });
-
     if (!isFileValid) return; // Exit early if any file is invalid
 
     fetch("/api/basket", {
@@ -52,7 +56,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(`/competitions/basket/pendaftaran/konfirmasi?id=${id}`);
         reset();
       })
@@ -212,7 +216,7 @@ const CompetitionPage = () => {
                   </div>
                   {[...Array(jumlahPemain)].map((_, index) => (
                     <div
-                      key={index}
+                      key={`player-${index}-${createId()}`}
                       className="w-full flex flex-row justify-between gap-2"
                     >
                       <div className="flex flex-col w-1/2 gap-1">
@@ -318,7 +322,7 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="kartu_pelajar">
                         Scan KTP/Kartu Pelajar Tiap Pemain (PDF/gambar)* <br />{" "}
-                        Note: Jadikan satu file
+                        Note: Jadikan satu file (size limit 10 MB)
                       </label>
                       <input
                         id="kartu_pelajar"
@@ -343,7 +347,9 @@ const CompetitionPage = () => {
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="kartu_official">
                         Kartu Identitas Tiap Official <br />
-                        (KTP/Kartu Pelajar)* <br /> Note: Jadikan dalam 1 file
+                        (KTP/Kartu Pelajar)* <br className="lg:hidden" /> Note:
+                        Jadikan dalam 1 file <br className="lg:hidden" />{" "}
+                        (Format PDF, size limit 10 MB)
                       </label>
                       <input
                         id="kartu_official"
@@ -367,7 +373,9 @@ const CompetitionPage = () => {
                   <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col w-full gap-1">
                       <label htmlFor="bukti_poster">
-                        Surat Rekomendasi dari Sekolah*
+                        Surat Rekomendasi dari Sekolah{" "}
+                        <br className="lg:hidden" /> (Format PDF, size limit 10
+                        MB)*
                       </label>
                       <input
                         id="bukti_poster"
