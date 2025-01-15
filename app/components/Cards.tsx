@@ -1,4 +1,5 @@
 import ReadMoreButton from "./ReadMoreButton";
+import Image from "next/image";
 
 export default function Cards({
   title,
@@ -24,7 +25,7 @@ export default function Cards({
     >
       <div className="flex flex-col items-center">
         {image && (
-          <img
+          <Image
             className="flex flex-col items-center justify-center"
             src={image}
             alt=""

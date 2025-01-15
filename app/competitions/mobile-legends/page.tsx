@@ -5,11 +5,11 @@ import BackButton from "@/app/components/BackButton";
 import Image from "next/image";
 import {
   GameController,
-  CalendarDots,
+  // CalendarDots,
   PhoneCall,
 } from "@phosphor-icons/react/dist/ssr";
 
-const karyatulisilmiah = () => {
+const MobileLegends = () => {
   const router = useRouter();
 
   return (
@@ -363,4 +363,4 @@ const karyatulisilmiah = () => {
   );
 };
 
-export default karyatulisilmiah;
+export default MobileLegends;

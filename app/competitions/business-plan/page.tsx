@@ -9,7 +9,7 @@ import {
   PhoneCall,
 } from "@phosphor-icons/react/dist/ssr";
 
-const businessplan = () => {
+const BusinessPlan = () => {
   const router = useRouter();
 
   return (
@@ -112,8 +112,8 @@ const businessplan = () => {
               “{/* */}
               <i>
                 Innovative Business Solutions for ESG Excellence: Empowering
-                Sustainability and Impact to Support Indonesia's Golden Vision
-                2045
+                Sustainability and Impact to Support Indonesia&apos;s Golden
+                Vision 2045
               </i>
               {/* */}”
             </p>
@@ -509,4 +509,4 @@ const businessplan = () => {
   );
 };
 
-export default businessplan;
+export default BusinessPlan;

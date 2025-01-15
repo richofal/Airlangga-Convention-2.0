@@ -55,7 +55,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(`/competitions/infografis/pendaftaran/konfirmasi?id=${id}`);
         reset();
       })

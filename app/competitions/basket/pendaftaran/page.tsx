@@ -56,7 +56,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         router.push(`/competitions/basket/pendaftaran/konfirmasi?id=${id}`);
         reset();
       })
@@ -216,7 +216,7 @@ const CompetitionPage = () => {
                   </div>
                   {[...Array(jumlahPemain)].map((_, index) => (
                     <div
-                      key={index}
+                      key={`player-${index}-${createId()}`}
                       className="w-full flex flex-row justify-between gap-2"
                     >
                       <div className="flex flex-col w-1/2 gap-1">

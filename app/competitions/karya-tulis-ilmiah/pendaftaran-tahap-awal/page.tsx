@@ -51,7 +51,7 @@ const CompetitionPage = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         reset();
         router.push(
           "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-awal/reminder"

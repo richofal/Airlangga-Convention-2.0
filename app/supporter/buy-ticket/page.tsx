@@ -14,10 +14,6 @@ const CompetitionPage = () => {
   };
 
   useEffect(() => {
-    console.log(step);
-  }, [step]);
-
-  useEffect(() => {
     const form = document.querySelector("form");
     if (form) {
       setIsFormValid(form.checkValidity());
