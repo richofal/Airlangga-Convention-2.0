@@ -72,7 +72,7 @@ const KaryaTulisIlmiahPage = () => {
               </div>
             </div>
             <button
-              className="px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
+              className="hidden px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
               onClick={() =>
                 router.push(
                   "#"
@@ -85,7 +85,7 @@ const KaryaTulisIlmiahPage = () => {
             </button>{" "}
             <br />
             <button
-              className="hidden px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
+              className="px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
               onClick={() =>
                 router.push(
                   "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut"
@@ -360,8 +360,8 @@ const KaryaTulisIlmiahPage = () => {
           </button>
           <p className="text-sm text-center">
             Tetap semangat untuk semua peserta! Bagi yang belum lolos, jangan
-            berkecil hati. Kesempatan lain masih terbuka lebar! Airlangga 2.0
-            #StriveforExcellence
+            berkecil hati. Kesempatan lain masih terbuka lebar! Airlangga
+            Convention 2.0 #StriveforExcellence
           </p>
           <div className="w-screen py-[0.05rem] bg-black"></div>
           <h1 className="font-winter text-xl w-3/4 text-wrap text-center">
@@ -385,8 +385,8 @@ const KaryaTulisIlmiahPage = () => {
           </button>
           <p className="text-sm text-center">
             Tetap semangat untuk semua peserta! Bagi yang belum lolos, jangan
-            berkecil hati. Kesempatan lain masih terbuka lebar! Airlangga 2.0
-            #StriveforExcellence
+            berkecil hati. Kesempatan lain masih terbuka lebar! Airlangga
+            Convention 2.0 #StriveforExcellence
           </p>
         </div>
       </div>
