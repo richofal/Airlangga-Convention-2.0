@@ -19,12 +19,12 @@ const ConfirmationPage = () => {
             <p className="text-md lg:text-2xl">
               Selanjutnya bisa langsung <b>konfirmasi pembayaran</b> ke{" "}
               <a
-                href="https://wa.me/6287818043080"
+                href="https://wa.me/6281234909561"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline"
               >
-                0878-1804-3080 (Delaila)
+                0812-3490-9561 (Shakila Az Zahra)
               </a>
             </p>
           </div>
