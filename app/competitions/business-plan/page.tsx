@@ -78,11 +78,13 @@ const BusinessPlan = () => {
               className="px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
               onClick={() =>
                 router.push(
-                  "/competitions/business-plan/pendaftaran-preliminary-round"
+                  "#"
+                  // "/competitions/business-plan/pendaftaran-preliminary-round"
                 )
               }
             >
-              Daftar Preliminary Round
+              Ditutup
+              {/* Daftar Preliminary Round */}
             </button>{" "}
             <br />
             <button
