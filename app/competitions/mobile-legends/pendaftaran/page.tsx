@@ -181,7 +181,11 @@ const CompetitionPage = () => {
               </div>
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
-                  <label htmlFor="nickname_1">Nickname in Game Kapten*</label>
+                  <label htmlFor="nickname_1">
+                    Nickname in Game Kapten_
+                    <br />
+                    Server ID (12345678) (1234)*
+                  </label>
                   <input
                     id="nickname_1"
                     type="text"
@@ -218,7 +222,9 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nickname_2">
-                    Nickname in Game Anggota 2*
+                    Nickname in Game Anggota 2_
+                    <br />
+                    Server ID (12345678) (1234)*
                   </label>
                   <input
                     id="nickname_2"
@@ -256,7 +262,9 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nickname_3">
-                    Nickname in Game Anggota 3*
+                    Nickname in Game Anggota 3_
+                    <br />
+                    Server ID (12345678) (1234)*
                   </label>
                   <input
                     id="nickname_3"
@@ -294,7 +302,9 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nickname_4">
-                    Nickname in Game Anggota 4*
+                    Nickname in Game Anggota 4_
+                    <br />
+                    Server ID (12345678) (1234)*
                   </label>
                   <input
                     id="nickname_4"
@@ -332,7 +342,9 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nickname_5">
-                    Nickname in Game Anggota 5*
+                    Nickname in Game Anggota 5_
+                    <br />
+                    Server ID (12345678) (1234)*
                   </label>
                   <input
                     id="nickname_5"
@@ -370,7 +382,9 @@ const CompetitionPage = () => {
               <div className="w-full flex flex-row justify-between gap-2">
                 <div className="flex flex-col w-full gap-1">
                   <label htmlFor="nickname_6">
-                    Nickname in Game Anggota 6 (Cadangan)*
+                    Nickname in Game Anggota 6 (Cadangan)_
+                    <br />
+                    Server ID (12345678) (1234)*
                   </label>
                   <input
                     id="nickname_6"
