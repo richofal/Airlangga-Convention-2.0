@@ -44,8 +44,8 @@ const KaryaTulisIlmiahPage = () => {
             </h1>
             <div>
               <p className="lg:mt-1">Biaya Pendaftaran:</p>
-              <p>Registrasi Full Paper (Gel 1)</p>
-              <p>Rp125.000,- /Tim</p>
+              <p>Registrasi Full Paper (Gel 2)</p>
+              <p>Rp150.000,- /Tim</p>
             </div>
           </div>
           <div className="lg:w-full items-center lg:col-span-2">
