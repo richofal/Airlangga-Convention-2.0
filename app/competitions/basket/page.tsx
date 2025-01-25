@@ -46,7 +46,7 @@ const KaryaTulisIlmiah = () => {
             <div className="w-full mt-5 flex flex-col gap-3">
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <CalendarDots size={28} />
-                <p className="text-sm">2 Januari 2025 - 21 Januari 2025</p>
+                <p className="text-sm">2 Januari 2025 - 28 Januari 2025</p>
               </div>
               <div className="w-full flex flex-row justify-start items-center gap-2">
                 <PhoneCall size={28} />
