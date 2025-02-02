@@ -74,9 +74,11 @@ const KaryaTulisIlmiah = () => {
             {/* Tombol Daftar */}
             <button
               className="px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
-              onClick={() => router.push("/competitions/basket/pendaftaran")}
+              onClick={() => router.push("#")}
+              // onClick={() => router.push("/competitions/basket/pendaftaran")}
             >
-              Daftar Sekarang
+              Ditutup
+              {/* Daftar Sekarang */}
             </button>{" "}
           </div>
         </div>
