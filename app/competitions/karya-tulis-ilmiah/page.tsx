@@ -88,11 +88,13 @@ const KaryaTulisIlmiahPage = () => {
               className="px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
               onClick={() =>
                 router.push(
-                  "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut"
+                  "#"
+                  // "/competitions/karya-tulis-ilmiah/pendaftaran-tahap-lanjut"
                 )
               }
             >
-              Daftar Tahap Lanjut
+              Ditutup
+              {/* Daftar Tahap Lanjut */}
             </button>{" "}
           </div>
         </div>
