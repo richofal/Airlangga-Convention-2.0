@@ -90,10 +90,14 @@ const BusinessPlan = () => {
             <button
               className="px-5 py-2 border border-white bg-black rounded-lg shadow-lg text-white mt-5 font-bold"
               onClick={() =>
-                router.push("/competitions/business-plan/pendaftaran-semifinal")
+                router.push(
+                  "#"
+                  // "/competitions/business-plan/pendaftaran-semifinal"
+                )
               }
             >
-              Daftar Semifinal
+              Ditutup
+              {/* Daftar Semifinal */}
             </button>{" "}
             <br />
             <button
